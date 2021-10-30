@@ -26,7 +26,7 @@ const productListeners = [
         product.productContextRequest,
       ]
 
-      product.productContextRequest
+     /*  product.productContextRequest */
     // product.showContext
   },
   {

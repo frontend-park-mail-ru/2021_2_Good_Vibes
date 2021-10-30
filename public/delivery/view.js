@@ -1,17 +1,16 @@
-/* eslint-disable import/extensions */
+/* /* eslint-disable import/extensions */
 import View from '../scripts/view.js';
-import generateContentHTML from '../scripts/loadTemplates.js';
-import orderListeners from './listeners.js';
-import orderEvents from './events.js';
+/* import deliveryListeners from './listeners.js';
+import deliveryEvents from './events.js'; */
 import compiledTemplate from './template.handlebars';
-import eventBus from '../scripts/eventBus.js';
+/* import eventBus from '../scripts/eventBus.js'; */
 
-export default class Order extends View {
+export default class Delivery extends View {
   element;
 
   #context;
 
-  #generateEvents = orderEvents;
+  /* #generateEvents = deliveryEvents; */
 
   constructor(element) {
     super(element);
@@ -25,8 +24,8 @@ export default class Order extends View {
 
   async render() {
     await this.#renderHTML();
-    eventBus.add(orderListeners);
-    this.#generateEvents(this.element);
+   /*  eventBus.add(deliveryListeners);
+    this.#generateEvents(this.element); */
     return this.show();
   }
 

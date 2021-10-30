@@ -1,21 +1,20 @@
 /* eslint-disable import/extensions */
-/* import eventBus from '../scripts/eventBus.js';
+import eventBus from '../scripts/eventBus.js';
 
-const cartEvents = (element) => {
+const cartpageEvents = (element) => {
   const orderBtn = element.getElementsByClassName('primary fw')[0];
 
   orderBtn.addEventListener('click', (event) => {
     event.preventDefault();
     eventBus.emit('order click');
   });
-};
 
-export default cartEvents; */
-
-import eventBus from '../scripts/eventBus.js';
-
-const cartpageEvents = (element) => {
-  eventBus.emit('cart ajax request');
+/*   const cartpageBtn = element.getElementsByClassName('cart-href')[0];
+  
+  cartpageBtn.addEventListener('click', (event) => {
+    event.preventDefault();
+    eventBus.emit('cart ajax request');
+  }); */
 };
 
 export default cartpageEvents;

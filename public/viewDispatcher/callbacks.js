@@ -153,6 +153,12 @@ export const showProduct = (responseText) => {
   });
 };
 
+export const showPayment = () => {
+  eventBus.emit('showView', {
+    name: 'Payment'
+  });
+};
+
 // export const rout = ({ name, context }) => {
 //   // console.log(name, context);
 //   eventBus.emit('rout', name);

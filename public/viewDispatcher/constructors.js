@@ -7,6 +7,8 @@ import Product from '../product/view.js';
 import Profile from '../profile/view.js';
 import Cart from '../cart/view.js';
 import Order from '../order/view.js';
+import Payment from '../payment/view.js';
+import Delivery from '../delivery/view.js';
 
 const constructors = {
   Signin,
@@ -17,6 +19,8 @@ const constructors = {
   Profile,
   Cart,
   Order,
+  Payment,
+  Delivery,
 };
 
 export default constructors;

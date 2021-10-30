@@ -1,8 +1,10 @@
+<div class="checkout-steps">
+   <div class="active">Оформление заказа</div>
+      <div>Оплата</div>
+      <div>Доставка</div>
+</div>
 <div class="form-container">
   <form id="order-form">
-      <div class="steps">
-          steps
-</div>
     <ul class="form-items">
       <li>
         <h1>Оформление заказа</h1>
@@ -16,18 +18,16 @@
         <input type="text" name="city" id="city" value="{{city}}" />
       </li>
       <li>
-        <li>
-          <label for="postalCode">Почтовый индекс</label>
-          <input type="text" name="postalCode" id="postalCode" value="{{postalCode}}" />
-        </li>
-         <li>
-          <label for="country">Страна</label>
-          <input type="text" name="country" id="country" value="{{country}}" />
-        </li>
-        <a href="/update">
-          <button type="submit" class="primary">Продолжить</button>
-        </a>
+        <label for="postalCode">Почтовый индекс</label>
+        <input type="text" name="postalCode" id="postalCode" value="{{postalCode}}"/>
       </li>
+      <li>
+        <label for="country">Страна</label>
+        <input type="text" name="country" id="country" value="{{country}}" />
+      </li>
+      <a href="/update">
+        <button type="submit" class="primary fw">Продолжить</button>
+      </a>
     </ul>
   </form>
 </div>

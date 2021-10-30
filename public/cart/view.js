@@ -1,9 +1,10 @@
 /* eslint-disable import/extensions */
 import View from '../scripts/view.js';
-import cartEvents from './events.js';
+import cartpageEvents from './events.js';
 import eventBus from '../scripts/eventBus.js';
 import cartListeners from './listeners.js';
 import compiledTemplate from './template.handlebars';
+import cart from '../objects/cart.js'
 
 export default class Cart extends View {
   element;
@@ -30,45 +31,9 @@ export default class Cart extends View {
 
     const cartItems = cart.getCartItems();
 
-    cartItems.length === 0
-      ? '<div>Cart is empty. <a href="/#/">Go Shopping</a>'
-      : cartItems
-
     if (cartItems.length === 0) {
       itemElem.innerHTML = '<div>Cart is empty. <a href="/#/">Go Shopping</a>'
-    } else {
-      itemElem.innerHTML = cartItems
-        .map(
-          (item) => `
-            <li>
-              <div class="cart-image">
-                <img src="${item.image}" alt="${item.name}" />
-              </div>
-              <div class="cart-name">
-                <div>
-                  <a href="/#/product/${item.id}">
-                    ${item.name}
-                  </a>
-                </div>
-                <div>
-                  Кол-во:
-                  <select class="qty-select" id="${item.id}">
-                    <option value="1">1</option>
-                  </select>
-                  <button type="button" class="delete-button" id="${item.id}">
-                    Удалить
-                  </button>
-                </div>
-              </div>
-              <div class="cart-price">
-                $${item.price}
-              </div>
-            </li>
-            `
-
-        )
-        .join('\n');
-    }
+    } 
     itemParent.appendChild(itemElem);
   }
 
@@ -94,7 +59,7 @@ export default class Cart extends View {
     await this.#renderHTML();
     eventBus.add(cartListeners);
     this.#generateEvents(this.element);
-    //this.#createItemsHTML();
+    this.#createItemsHTML();
     //this.#createSubtotalHTML();
     //console.log(cartItems);
     return this.show();

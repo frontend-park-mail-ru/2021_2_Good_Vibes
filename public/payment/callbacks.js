@@ -1,7 +1,7 @@
 import eventBus from '../scripts/eventBus.js';
 
-export const showPayment = () => {
+export const showDelivery = () => {
   eventBus.emit('showView', {
-    name: 'Payment'
+    name: 'Delivery'
   });
 };
