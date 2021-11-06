@@ -1,3 +1,5 @@
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
+[context.production]
+
+  # publish = "public/"
+  
+  publish = "public-ts/"

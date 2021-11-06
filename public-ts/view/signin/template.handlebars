@@ -1,0 +1,36 @@
+<div class="form-container">
+  <form id="signin-form">
+    <ul class="form-items">
+      <li>
+        <h1>Вход</h1>
+      </li>
+      <li>
+        <label for="login">Имя пользователя</label>
+        <input type="login" name="login" class="login" />
+      </li>
+      <li>
+        <label for="password">Пароль</label>
+        <input type="password" name="password" class="password" />
+      </li>
+      <li>
+        <label id="alert-label" style="visibility: hidden">error</label>
+      </li>
+      <li>
+        {{!-- <button type="submit" class="primary">Войти</button> --}}
+        {{!-- <button type="submit" class="primary" href="/login">Войти</button> --}}
+        {{!-- <a href="/login" type="submit" class="primary">Войти</a> --}}
+        <a href="/login">
+          <button type="submit" class="primary signin-submit">
+            Войти
+          </button>
+        </a>
+      </li>
+      <li>
+        <div>
+          Новый пользователь?
+          <a href="/signup" id="register-href" class="register-href">Создать аккаунт </a>
+        </div>
+      </li>
+    </ul>
+  </form>
+</div>
