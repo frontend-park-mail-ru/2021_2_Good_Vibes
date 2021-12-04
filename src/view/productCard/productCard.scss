@@ -3,10 +3,13 @@
 .product-card {
   @include set-size(12vw, 18vw);
   @include product-block;
-
-  position: relative;
   margin: 0.5vw;
-  /* border: 2px solid $purpleColor; */
+
+  @media screen and (max-width: $breakTablet) {
+    width: 18vw;
+    height: 25vw;
+    margin: 1vw;
+  }
 
   &-inner {
     @include set-size(100%, 100%);
@@ -14,15 +17,20 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    @media screen and (max-width: $breakTablet) {
+      padding: 0px 24px;
+    }
   }
-
 
   &__img {
-  /*   width: 135px; */
+    /*   width: 135px; */
     object-fit: cover;
     height: 180px;
+    @media screen and (max-width: $breakTablet) {
+      height: 124px;
+      padding: 8px 20px;
+    }
   }
-
 
   &__like {
     width: 1.5vw;
@@ -45,11 +53,10 @@
       }
     }
 
-
     &__price {
       width: 100%;
 
-      font-size: 1.5vw;
+      font-size: 2vw;
       @include overflow-text-width;
     }
 
@@ -58,7 +65,7 @@
       margin-bottom: 0.2vw;
       margin-top: 1vw;
 
-      font-size: 1vw;
+      font-size: 1.6vw;
       @include overflow-text-height(2.4vw);
       overflow: hidden;
       text-overflow: ellipsis;

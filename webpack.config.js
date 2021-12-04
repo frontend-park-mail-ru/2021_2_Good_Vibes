@@ -1,8 +1,11 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
-  entry: './src/main.ts',
+  entry: { 
+    app: './src/main.ts'
+  },
   // entry: './reworking/main.ts',
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.handlebars', '.scss'],
@@ -17,14 +20,41 @@ module.exports = {
         test: /\.s[ac]ss$/i,
         use: ['style-loader', 'css-loader', 'sass-loader'],
       },
+      {
+        test: /\.(html)$/,
+        use: {
+         loader: 'html-loader'
+        }
+       },
     ],
   },
   output: {
     path: path.resolve(__dirname, './dist'),
-    filename: 'main_bundle.js',
-
+    filename: '[name].bundle.[hash].js',
+    publicPath: '/'
     // path: path.resolve(__dirname, './reworking'),
     // filename: 'main_bundle.js',
   },
   mode: 'production',
+  plugins: [
+    new CleanWebpackPlugin(),
+    new HtmlWebpackPlugin({
+     title: 'Caching',
+     template: "./src/index.html"
+    }),
+  ],
+  devServer: {
+    /* contentBase: path.join(__dirname, 'src'),
+    compress: true,
+    port: 9000,
+    host: '0.0.0.0',
+    hot: true,
+    historyApiFallback: true, */
+    static: {
+      directory: path.join(__dirname, 'src'),
+    },
+    compress: true,
+    port: 9000,
+    open: true
+   },
 };

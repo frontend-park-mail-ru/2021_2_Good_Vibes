@@ -72,6 +72,7 @@ export const parseResponse: Callback = (obj: { 'responseText': string }) => {
 };
 
 export const showOrderList: Callback = (obj: Order[]) => {
+  console.log('show orders list', obj);
   const oldTbody = <HTMLTableRowElement>document.getElementsByClassName('table-body')[0];
   if (oldTbody) {
     oldTbody.remove();

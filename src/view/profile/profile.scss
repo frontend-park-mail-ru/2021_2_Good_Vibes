@@ -127,9 +127,14 @@ overflow: hidden;
 .layout-inner {
   margin: 0 10vw;
   margin-top: 10vh;
-  min-height: calc(100vh - 44px);
+  min-height: calc(145vh - 44px);  /* 100 */
   width: 80%;
-  height: 100%;
+  /* height: 100%; */
+  @media screen and (max-width: $breakTablet) {
+    margin: 0 5vw;
+    width: 80%;
+    margin-top: 15vw;
+  }
 }
 
 .g-page-title {
@@ -143,6 +148,10 @@ overflow: hidden;
   padding: 0;
   width: 1200px;
   display: flex;
+  @media screen and (max-width: $breakTablet) {
+    width: 700px;
+    margin: 42px 20px;
+  }
 }
 
 .profile-block {
@@ -153,6 +162,11 @@ overflow: hidden;
   border-radius: 5px;
   padding: 20px;
   box-shadow: 0 15px 25px #333;
+  @media screen and (max-width: $breakTablet) {
+    margin-left: 0px;
+    margin-right: 0px;
+    box-shadow: 0 15px 25px #fff;
+  }
   &-info {
     height: 410px;
     width: 600px;
@@ -164,6 +178,10 @@ overflow: hidden;
       color: #333;
       /* text-align: center; */
       font-size: 3vh;
+    }
+    @media screen and (max-width: $breakTablet) {
+      width: 450px;
+      box-shadow: 0 15px 25px #fff;
     }
   }
 }
@@ -217,12 +235,18 @@ span {
 } */
 
 .update-btn {
-  @include light-button();
+  @include blue-button(25.2vh, 4vh);
+  @media screen and (max-width: $breakTablet) {
+    width: 15vh;
+  }
 }
 
 .logout-btn {
-  @include light-button();
+  @include blue-button(20vh, 4vh);
   margin-top: 40px;
+  @media screen and (max-width: $breakTablet) {
+    width: 15vh;
+  }
 }
 
 .form__uploadFile {

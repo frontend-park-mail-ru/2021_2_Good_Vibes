@@ -16,9 +16,16 @@
   &-inner {
     margin: 0 10vw;
     margin-top: 7vh;
-    min-height: calc(100vh - 44px);
+    min-height: calc(145vh - 44px);
     // height: 34.9vw;
     @include set-size(80%, 100%);
+    @media screen and (max-width: $breakTablet) {
+      margin: 0 5vw;
+      margin-top: 10vh;
+      min-height: calc(100vh - 44px);
+      width: 80%;
+      height: 100%;
+    }
   }
 }
 
@@ -61,6 +68,10 @@
   display: flex;
   /*justify-content: space-between;*/
   align-items: center;
+  @media screen and (max-width: $breakTablet) {
+    padding-left: 10vw;
+    padding-right: 10vw;
+  }
 }
 
 .header__logo {
@@ -313,6 +324,11 @@ ul {
       margin: 1vh 2vh;
 
       font-size: 1.5vh;
+
+      @media screen and (max-width: $breakTablet) {
+        justify-content: flex-start;
+        margin: 1vh 0;
+      }
     }
   }
 }
