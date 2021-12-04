@@ -6,6 +6,8 @@ import connections from './connections';
 import initEvents from './events';
 import './hood.scss';
 
+import SearchInput from './searchInput/view';
+
 export default class Hood extends View implements ViewInterface {
   private async renderHTML() {
     const html = compiledTemplate(this.context);

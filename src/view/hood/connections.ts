@@ -8,7 +8,10 @@ const connections: Connection[] = [
   },
   {
     event: 'profile button click',
-    callback: hood.profileStateRequest,
+    callback: [
+      // hood.saveState,
+      hood.profileStateRequest,
+    ],
   },
   {
     event: 'cart button click',

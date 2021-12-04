@@ -1,6 +1,7 @@
 import bus from '../init/bus';
-import { Product, ViewInterface } from '../types';
+import { Product, ViewInterface, Callback } from '../types';
 import constructor from './constructors';
+import redirect from '../dispatcher/redirect';
 
 type ShowViewSignature = (obj: { 'name': string, 'context': Product }) => void;
 
@@ -10,6 +11,8 @@ const viewMap: {
     'visibility': boolean,
   }
 } = {};
+
+let currentView: string;
 
 const add: (name: string, view: ViewInterface) => void = (name: string, view: ViewInterface) => {
   viewMap[name] = {
@@ -33,9 +36,33 @@ const viewGenerate: (name: string) => void = (name: string) => {
 export const showView: ShowViewSignature = (obj: { 'name': string, 'context': Product }) => {
   const { name, context } = obj;
 
-  Object.keys(viewMap).forEach((key) => {
-    viewMap[key].visibility = false;
-  });
+  const header = <HTMLElement>document.getElementsByClassName('header')[0];
+  const footer = <HTMLElement>document.getElementsByClassName('footer')[0];
+  const viewer = <HTMLElement>document.getElementsByClassName('wiki-viewer')[0];
+
+  header.style.visibility = 'visible';
+  footer.style.visibility = 'visible';
+  viewer.style.visibility = 'visible';
+
+  if (name === 'signin' || name === 'signup') {
+    header.style.visibility = 'hidden';
+    footer.style.visibility = 'hidden';
+    viewer.style.visibility = 'hidden';
+  }
+
+  // Object.keys(viewMap).forEach((key) => {
+  //   viewMap[key].visibility = false;
+  // });
+
+  // if (name === currentView) {
+  //   return;
+  // }
+
+  if (currentView) {
+    Promise.resolve()
+      .then(() => bus.emit(`${currentView} hidden`, undefined))
+      .then(() => { viewMap[currentView].visibility = false; });
+  }
 
   if (!viewMap[name]) {
     viewGenerate(name);
@@ -60,8 +87,14 @@ export const showView: ShowViewSignature = (obj: { 'name': string, 'context': Pr
   }
 
   Promise.resolve()
-    .then(() => document.getElementById('main-container').replaceWith(view.self))
-    .then(() => bus.emit(`${fullName} shown`, undefined));
+    .then(() => {
+      if (currentView !== name) {
+        document.getElementById('layout').replaceWith(view.self);
+      }
+    })
+    .then(() => { currentView = name; })
+    .then(() => { if (fullName !== name) bus.emit(`${name} shown`, context); })
+    .then(() => bus.emit(`${fullName} shown`, context));
 };
 
 export const a = 0;

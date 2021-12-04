@@ -35,6 +35,12 @@ const connections: Connection[] = [
     event: 'signIn ajax denied',
     callback: signIn.handleSignInDenied,
   },
+  {
+    event: 'close button click',
+    // callback: signIn.savedState,
+    callback: signIn.close,
+
+  },
 ];
 
 export default connections;

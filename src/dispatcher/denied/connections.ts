@@ -39,6 +39,10 @@ const connections: Connection[] = [
       denied.confirmation,
     ],
   },
+  {
+    event: 'search state denied',
+    callback: denied.search,
+  },
 ];
 
 export default connections;

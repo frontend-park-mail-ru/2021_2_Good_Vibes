@@ -20,8 +20,8 @@ export default class Profile extends View implements ViewInterface {
 
   constructor(classId: string) {
     super();
-    this.self = <HTMLElement>document.createElement('main');
-    this.self.id = 'main-container';
+    this.self = <HTMLElement>document.createElement('class');
+    this.self.id = 'layout';
     bus.add(connections);
     this.render();
   }

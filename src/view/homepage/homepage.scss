@@ -1,11 +1,21 @@
-@import '../../scss/main.scss';
+@import "../../scss/main.scss";
 
-.product-container {
+.product-table {
+  width: 100%;
+
+  &-inner {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    padding: 2rem 0;
-    width: 90%;
-    margin: 0 auto;
+    flex-direction: column;
   }
+
+  &__title {
+    font-size: 3vh;
+    margin-bottom: 1vh;
+  }
+
+  &-body {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}

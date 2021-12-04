@@ -1,0 +1,19 @@
+/* :root {
+  --blue: #2980b9;
+  --text-color-1: #444;
+  --text-color-2: #666;
+  --bg-color-2: #eee;
+  --box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.1);
+} */
+$twitter-color: #1da1f2;
+$blue-color: #2980b9;
+$text-color-1: #444;
+$bg-color-1: #fff;
+$dirty-gray-color: #808080;
+$light-gray-color: #c0c0c0;
+
+%steps {
+    flex: 1 1;
+    padding-top: 1rem;
+    text-align: center;
+}

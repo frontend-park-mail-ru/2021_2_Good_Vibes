@@ -83,3 +83,9 @@ export const confirmation: Callback = () => {
 export const saveState: Callback = (obj: { 'state': string }) => {
   redirect.saveState(obj);
 };
+
+export const search: Callback = () => {
+  console.error('search state denied');
+
+  bus.emit('homepage state request', undefined);
+};

@@ -1,107 +1,308 @@
-@import '../../scss/main.scss';
+/* @import '../../scss/main.scss';
 
 .form {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  height: 100%;
+
+  &__container-items {
     display: flex;
-    justify-content: center;
-    align-items: flex-start;
+    flex-direction: column;
+    width: 32rem;
+    padding: 2rem;
+    border: 0.1rem $light-gray-color solid;
+    border-radius: 0.5rem;
+    list-style-type: none;
+    column-count: 2;
+  }
+
+  &__container-items li {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+    font-size: 1.5rem;
+  }
+
+  & h1 {
+    font-size: 2.5rem;
+  }
+
+  &__btn-color {
+    background-color: $twitter-color;
+  }
+
+  &__error {
+    display: none;
+  }
+
+
+  &__changePhoto {
+    margin-bottom: 10rem;
+  }
+
+  &__pic {
+    height: 100px;
+    width: 100px;
+    position: absolute;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 1px solid grey;
+    margin: 30px 4px;
+  }
+
+  &__uploadBtn {
+    height: 40px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    background: rgba(0, 0, 0, 0.7);
+    color: $bg-color-1;
+    line-height: 30px;
+    font-size: 10px;
+    cursor: pointer;
+    display: none;
+  }
+
+  &__photo {
     height: 100%;
-    &__container-items {
-        display: flex;
-        flex-direction: column;
-        width: 32rem;
-        padding: 2rem;
-        border: 0.1rem #c0c0c0 solid;
-        border-radius: 0.5rem;
-        list-style-type: none;
-        column-count: 2;
-      }
-      
-      &__container-items li {
-        display: flex;
-        flex-direction: column;
-        margin-bottom: 1rem;
-        margin-top: 1rem;
-        font-size: 1.5rem;
-      }
-      
-      & h1 {
-        font-size: 2.5rem;
-      }
-      
-      &__btn-color {
-        background-color: $twitter-color;
-      }
-      
-      &__error {
-        display: none;
-      }
-      
-      
-      &__changePhoto {
-        margin-bottom: 10rem;
-      }
-      
-      &__pic {
-        height: 100px;
-        width: 100px;
-        position: absolute;
-        border-radius: 50%;
-        overflow: hidden;
-        border: 1px solid grey;
-        margin: 30px 4px;
-      }
-      
-      &__uploadBtn {
-        height: 40px;
-        width: 100%;
-        position: absolute;
-        bottom: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        text-align: center;
-        background: rgba(0, 0, 0, 0.7);
-        color: white;
-        line-height: 30px;
-        font-size: 10px;
-        cursor: pointer;
-        display: none;
-      }
-      
-      &__photo {
-        height: 100%;
-        width: 100%;
-      }
-      
-      &__uploadFile {
-        display: none;
-        margin-top: 115px;
-        margin-bottom: -90px;
-      }
-  }
-
-  .profile__content {
-    display: flex;
-    flex-wrap: wrap;
-    margin-top: 2rem;
-  }
-
-  .profile__info {
-    flex: 1 1 20rem;
-  }
-  .profile__orders {
-    flex: 3 1 60rem;
-    margin-left: 1rem;
-  }
-
-  table {
     width: 100%;
   }
+
+  &__uploadFile {
+    display: none;
+    margin-top: 115px;
+    margin-bottom: -90px;
+  }
+}
+
+.profile__content {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+.profile__info {
+  flex: 1 1 20rem;
+}
+
+.profile__orders {
+  flex: 3 1 60rem;
+  margin-left: 1rem;
+}
+
+table {
+  width: 100%;
+}
+
+th {
+  text-align: left;
+}
+
+tbody>tr:nth-child(odd) {
+  background-color: $bg-color-1;
+}
+
+td {
+  padding: 0.5rem;
+} */
+
+/* @import '../../scss/main.scss'; */
+/* * {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html {
+height: 100%;
+-webkit-overflow-scrolling: touch;
+overflow: hidden;
+} */
+@import "../../scss/main.scss";
+.layout-inner {
+  margin: 0 10vw;
+  margin-top: 10vh;
+  min-height: calc(100vh - 44px);
+  width: 80%;
+  height: 100%;
+}
+
+.g-page-title {
+  /* margin: 90px 0 30px; */
+  font-size: 3vh;
+  margin-bottom: 1vh;
+}
+
+.middle-container {
+  margin: 42px 0px;
+  padding: 0;
+  width: 1200px;
+  display: flex;
+}
+
+.profile-block {
+  height: 410px;
+  margin-right: 180px;
+  margin-left: 20px;
+  background: #fff;
+  border-radius: 5px;
+  padding: 20px;
+  box-shadow: 0 15px 25px #333;
+  &-info {
+    height: 410px;
+    width: 600px;
+    padding: 20px;
+    box-shadow: 0 15px 25px #333;
+    h2 {
+      margin: 0 0 30px;
+      padding: 0;
+      color: #333;
+      /* text-align: center; */
+      font-size: 3vh;
+    }
+  }
+}
+
+/* h1,
+h2,
+p,
+a,
+span {
+  color: #333;
+} */
+
+/* a {
+  text-decoration: none;
+  font-size: 15px;
+} */
+
+.profile-picture {
+  margin: 0 auto;
+  border: 5px solid #50597b;
+  border-radius: 100%;
+  height: 150px;
+  width: 150px;
+  position: sticky;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.form__photo {
+  height: 100%;
+  width: 100%;
+}
+
+.form__photo:hover {
+  cursor: pointer;
+}
+
+.user-name {
+  margin: 50px 0 50px;
+  text-align: center;
+  font-size: 23px;
+}
+.profile-description {
+  width: 210px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* p {
+  font-size: 15px;
+} */
+
+.update-btn {
+  @include light-button();
+}
+
+.logout-btn {
+  @include light-button();
+  margin-top: 40px;
+}
+
+.form__uploadFile {
+  display: none;
+}
+
+.form__uploadBtn {
+  height: 40px;
+  width: 100%;
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  background: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  line-height: 30px;
+  font-size: 10px;
+  cursor: pointer;
+  display: none;
+  pointer-events: none;
+}
+
+.auth-box-form-profile {
+  margin-bottom: 20px;
+  width: 400px;
+}
+.user-box {
+  position: relative;
+  input {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 30px;
+    border: none;
+    border-bottom: 1px solid #333;
+    outline: none;
+    background: transparent;
+  }
+  label {
+    position: absolute;
+    top: -20px;
+    left: 0;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #333;
+    pointer-events: none;
+    transition: 0.5s; /*  */
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+/* .user-box input:focus ~ label {
+  top: -30px;
+  left: 0;
+  color: #1da1f2;
+  font-size: 12px;
+}
+ */
+
+.my_account_orders {
+  font-size: 16px;
+  border-collapse: collapse;
+  border-spacing: 0;
+  max-width: 600px;
+  width: 100%;
+  margin: 42px 20px;
   th {
     text-align: left;
   }
-  tbody > tr:nth-child(odd) {
-    background-color: #f0f0f0;
-  }
-  td {
-    padding: 0.5rem;
-  }
+}
+
+tr {
+  border-bottom: 1px solid #ccc;
+}
+
+th,
+td {
+  padding: 6px;
+}

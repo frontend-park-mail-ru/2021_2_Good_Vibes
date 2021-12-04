@@ -1,44 +1,68 @@
-@import '../../scss/main.scss';
+@import "../../scss/main.scss";
 
-  .product {
-    height: 50rem;
-    width: 30rem;
-    flex: 0 1 42rem;
-    overflow: hidden;
-    position: relative;
-    margin: 2rem 2rem;
-    box-shadow: 0 0 0.3rem rgba(0, 0, 0, 0.5);
-    border-radius: 0.5rem;
-    &__img-wrapper {
-        height: 75%;
-        width: 100%;
-      }
-      
-      &__img {
-        height: 100%;
-        width: 100%;
-        object-fit: cover;
-      }
-      
-      &__content {
-        height: 25%;
-        width: 100%;
-        text-align: center;
-        padding: 1rem;
-      }
-      
-      &__content h3 {
-        font-size: 3rem;
-        color: $twitter-color;
-      }
-      
-      &__price {
-        font-size: 2rem;
-        color: red;
-      }
-      
-      &__rating {
-        color: gold;
-        font-size: 2rem;
-      }
+.product-card {
+  @include set-size(12vw, 18vw);
+  @include product-block;
+
+  position: relative;
+  margin: 0.5vw;
+  /* border: 2px solid $purpleColor; */
+
+  &-inner {
+    @include set-size(100%, 100%);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
+
+
+  &__img {
+  /*   width: 135px; */
+    object-fit: cover;
+    height: 180px;
+  }
+
+
+  &__like {
+    width: 1.5vw;
+    height: 1.5vw;
+    position: absolute;
+    right: 0.5vw;
+  }
+
+  &-info {
+    @include set-size(100%, 40%);
+
+    &-inner {
+      margin: 1vw;
+
+      display: flex;
+      flex-direction: column;
+
+      @media screen and (max-width: $breakMobile) {
+        margin: 2vw;
+      }
+    }
+
+
+    &__price {
+      width: 100%;
+
+      font-size: 1.5vw;
+      @include overflow-text-width;
+    }
+
+    &__name {
+      width: 100%;
+      margin-bottom: 0.2vw;
+      margin-top: 1vw;
+
+      font-size: 1vw;
+      @include overflow-text-height(2.4vw);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  }
+}

@@ -1,39 +1,242 @@
-@import '../../scss/main.scss';
+/* @import '../../scss/style.scss';
 
 .form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+
+  &__container-items {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    &__container-items {
-        display: flex;
-        flex-direction: column;
-        width: 32rem;
-        padding: 2rem;
-        border: 0.1rem #c0c0c0 solid;
-        border-radius: 0.5rem;
-        list-style-type: none;
-        column-count: 2;
-      }
-      
-      &__container-items li {
-        display: flex;
-        flex-direction: column;
-        margin-bottom: 1rem;
-        margin-top: 1rem;
-        font-size: 1.5rem;
-      }
-      
-      & h1 {
-        font-size: 2.5rem;
-      }
-      
-      &__btn-color {
-        background-color: $twitter-color;
-      }
-      
-      &__error {
-        display: none;
-        color: red;
-      }
+    flex-direction: column;
+    width: 32rem;
+    padding: 2rem;
+    border: 0.1rem $light-gray-color solid;
+    border-radius: 0.5rem;
+    list-style-type: none;
+    column-count: 2;
   }
+
+  &__container-items li {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+    font-size: 1.5rem;
+  }
+
+  & h1 {
+    font-size: 2.5rem;
+  }
+
+  &__btn-color {
+    background-color: $twitter-color;
+  }
+
+  &__error {
+    display: none;
+    color: red;
+  }
+} */
+/* 
+@import "../../scss/main.scss";
+
+.auth {
+  @include popup(50vh);
+
+  &-content {
+    &-inner {
+      &__close {
+        width: 2vh;
+        height: 2vh;
+        position: absolute;
+        fill: #787878;
+        top: 1vh;
+        right: 1vh;
+      }
+
+      &__title {
+        margin: 4vh 0 2vh;
+        font-size: 3vh;
+      }
+
+      &__error {
+        height: 2vh;
+        width: 30vh;
+
+        font-size: 1.5vh;
+        text-align: center;
+
+        font-style: italic;
+        color: rgb(170, 0, 0);
+
+        overflow: hidden;
+      }
+    }
+
+    &-form {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+
+      margin-bottom: 2vh;
+
+      &__content {
+        display: flex;
+        flex-direction: column;
+        color: #909090;
+        margin-bottom: 10px;
+        /* margin: 1vh 1vh; 
+        font-size: 14px;
+        font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      }
+
+      &__input {
+        margin: 1vh 0;
+        padding-left: 1vh;
+        @include input;
+      }
+
+      &__login {
+        @include set-size(25.2vh, 4vh);
+
+      }
+
+      &__email {
+        @include set-size(25.2vh, 4vh);
+
+      }
+
+      &__password {
+        @include set-size(25.2vh, 4vh);
+
+      }
+
+      &__confirm-password {
+        @include set-size(25.2vh, 4vh);
+
+      }
+
+
+      &__button {
+        @include blue-button(20vh, 4vh);
+        margin-top: 1.5vh;
+
+      }
+
+      &-signin {
+        font-size: 1.7vh;
+        margin-bottom: 1vh;
+
+        text-align: center;
+
+        &__link {
+          cursor: pointer;
+          text-decoration: underline;
+          color: $purpleColor;
+        }
+      }
+    }
+  }
+} */
+
+
+@import "../../scss/main.scss";
+
+.auth {
+  @include popup(50vh);
+  &-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 400px;
+    padding: 40px;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    box-sizing: border-box;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
+    border-radius: 10px;
+    h2 {
+      margin: 0 0 30px;
+      padding: 0;
+      color: #333;
+      text-align: center;
+      font-size: 3vh;
+    }
+    &-form {
+      margin-bottom: 20px;
+    }
+  }
+  &-btn {
+    @include light-button();
+  }
+  &-content {
+    &-form {
+      &-signin {
+        font-size: 1.7vh;
+        margin-bottom: 1vh;
+
+        text-align: center;
+
+        &__link {
+          cursor: pointer;
+          text-decoration: underline;
+          color: $twitter-color;
+        }
+      }
+    }
+    &-inner {
+      &__error {
+        height: 2vh;
+        width: 30vh;
+        margin: 20px 0px;
+
+        font-size: 1.5vh;
+        text-align: center;
+
+        font-style: italic;
+        color: rgb(170, 0, 0);
+
+        overflow: hidden;
+      }
+      &__close {
+        width: 2vh;
+        height: 2vh;
+        position: absolute;
+        fill: #787878;
+        top: 1vh;
+        right: 1vh;
+      }
+    }
+  }
+}
+.user-box {
+  position: relative;
+  input {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 30px;
+    border: none;
+    border-bottom: 1px solid #333;
+    outline: none;
+    background: transparent;
+  }
+  label {
+    position: absolute;
+    top: -20px;
+    left: 0;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #333;
+    pointer-events: none;
+    transition: 0.5s;
+  }
+  input:focus ~ label {
+    top: -30px;
+    left: 0;
+    color: $twitter-color;
+    font-size: 12px;
+  }
+}

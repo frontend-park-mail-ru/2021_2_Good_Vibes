@@ -20,7 +20,7 @@ class EventBus {
 
   public emit(event: string, data: any) {
     if (!this.listeners[event]) {
-      console.log(`${event} without listeners`);
+      // console.log(`${event} event without listeners`);
       return;
     }
 

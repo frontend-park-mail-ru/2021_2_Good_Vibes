@@ -3,7 +3,7 @@ import { Product } from '../types';
 export default class View {
   public self: HTMLElement;
 
-  protected context: Product;
+  public context: Product;
 
   public isActive(): boolean {
     if (this.self.style.visibility === 'visible') {

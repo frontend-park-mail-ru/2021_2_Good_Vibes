@@ -12,11 +12,10 @@ const connections: Connection[] = [
   },
   {
     event: 'category get confirmed',
-    callback: aside.parse,
-  },
-  {
-    event: 'show subcategory',
-    callback: aside.showSubCategory,
+    callback: [
+      aside.parse,
+      aside.hideHandle,
+    ],
   },
 ];
 

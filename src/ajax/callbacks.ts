@@ -5,13 +5,18 @@ import {
   AjaxResponse,
   Callback,
   CartItem,
+  NewComment,
   OrderRequest,
+  Suggests,
 } from '../types';
+import searchParams from '../object/search/params';
 
-const backendAddress = 'https://ozonback.herokuapp.com';
+// const backendAddress = 'https://ozonback.herokuapp.com';
+// const backendAddress = 'http://37.139.33.76';
+/*const backendAddress = 'https://goodvibesazot.tk/backend/api';*/
+const backendAddress = 'https://goodvibesazot.tk';
 
 export const signin = (data) => {
-  console.log(data);
   ajax.post({
     url: `${backendAddress}/login`,
     body: data,
@@ -21,7 +26,6 @@ export const signin = (data) => {
 };
 
 export const signup = (data) => {
-  console.log(data);
   ajax.post({
     url: `${backendAddress}/signup`,
     body: data,
@@ -144,8 +148,6 @@ export const cartConfirm: Callback = (obj: OrderRequest) => {
 };
 
 export const categoryGet: Callback = () => {
-  console.log('category get');
-
   ajax.get({
     url: `${backendAddress}/category`,
   })
@@ -158,10 +160,18 @@ export const categoryGet: Callback = () => {
 export const categoryRequest: Callback = (obj: { name: string }) => {
   const { name } = obj;
 
-  console.log('categoryRequest', name);
+  const {
+    minPrice,
+    maxPrice,
+    maxRating,
+    minRating,
+    type,
+    orderType,
+  } = searchParams;
 
   ajax.get({
-    url: `${backendAddress}/category/${name}`,
+    // url: `${backendAddress}/category/${name}`,
+    url: `${backendAddress}/category/${name}?price_min=${minPrice}&price_max=${maxPrice}&rating_min=${minRating}&rating_max=${maxRating}&order=${orderType}&order_type=${type}`,
   })
 
     .then((response: AjaxResponse) => bus.emit('category ajax confirmed', response))
@@ -213,7 +223,7 @@ export const avatarUpload: Callback = (file: File) => {
 };
 
 export const orderList: Callback = () => {
-  console.log('orderList ajax request');
+  // console.log('orderList ajax request');
 
   ajax.get({
     url: `${backendAddress}/profile/orders`,
@@ -221,4 +231,92 @@ export const orderList: Callback = () => {
 
     .then((response: AjaxResponse) => bus.emit('orders list confirmed', response))
     .catch((response: AjaxResponse) => bus.emit('orders list denied', response));
+};
+
+// =======================
+export const comments: Callback = (obj: { 'id': number }) => {
+  const { id } = obj;
+
+  // console.log('ajax comments request', id);
+
+  // const fakeAfComments = [
+  //   {
+  //     username: 'user1',
+  //     rating: 4,
+  //     text: 'user1 fakeaf comment text',
+  //   },
+  //   {
+  //     username: 'user2',
+  //     rating: 2,
+  //     text: 'user2 fakeaf comment text',
+  //   },
+  // ];
+
+  ajax.get({
+    url: `${backendAddress}/reviews?product_id=${id}`,
+  })
+
+    // .then((response: AjaxResponse) => console.log('comments request confirmed', response))
+    // .catch((response: AjaxResponse) => console.log('comments request denied', response))
+
+    .then((response: AjaxResponse) => bus.emit('comments request confirmed', response))
+    .catch((response: AjaxResponse) => bus.emit('comments request denied', response))
+
+  // .then(() => bus.emit('comments request confirmed', fakeAfComments));
+};
+
+const fakeafSuggests: Suggests = {
+  products: [
+    {
+      name: 'product 1',
+      id: 863,
+      image: 'empty',
+    },
+    {
+      name: 'product 2',
+      id: 876,
+      image: 'empty',
+    },
+  ],
+  categories: [
+    {
+      name: 'CLOTHES_MEN',
+      description: 'category 1',
+    },
+    {
+      name: 'WATCHES',
+      description: 'category 2',
+    },
+  ],
+};
+
+export const suggests: Callback = (obj: { 'str': string }) => {
+  const { str } = obj;
+  // console.log(str);
+
+  ajax.get({
+    url: `${backendAddress}/search/suggest?str=${str}`,
+  })
+    .then((response: AjaxResponse) => bus.emit('suggest request confirmed', response))
+    .catch((response: AjaxResponse) => bus.emit('suggest request denied', response));
+};
+
+export const search: Callback = (obj: { 'str': string }) => {
+  const { str } = obj;
+  ajax.get({
+    url: `${backendAddress}/search?str=${str}`,
+  })
+    .then((response: AjaxResponse) => bus.emit('search state confirmed', response))
+    .catch((response: AjaxResponse) => bus.emit('search state denied', response));
+};
+
+export const addComment: Callback = (obj: NewComment) => {
+  // console.log('add comment ajax request', obj);
+
+  ajax.post({
+    url: `${backendAddress}/review/add`,
+    body: obj,
+  })
+    .then((response: AjaxResponse) => bus.emit('add comment request confirmed', response))
+    .catch((response: AjaxResponse) => bus.emit('add comment request denied', response));
 };

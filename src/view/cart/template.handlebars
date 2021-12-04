@@ -1,15 +1,418 @@
-<div class="cart">
-  <div class="cart-list">
-    <ul class="cart-list__container">
-      <li>
-        <h3>Выбранные товары</h3>
-        <div>Цена</div>
-      </li>
-      <div class="cart-list__items"></div>
-    </ul>
+{{! <div class="layout-inner">
+  <div class="cart">
+    <div class="cart-list">
+      <ul class="cart-list__container">
+        <li>
+          <h3>Выбранные товары</h3>
+          <div>Количество</div>
+          <div>Цена</div>
+        </li>
+        <div class="cart-list__items"></div>
+      </ul>
+    </div>
+    <div class="cart__action">
+      <div class="cart__subtotal"></div>
+      <button class="btn">Оформить заказ</button>
+    </div>
   </div>
-  <div class="cart__action">
-    <div class="cart__subtotal"></div>
-    <button class="btn">Оформить заказ</button>
+</div> }}
+
+<div class="layout-inner">
+  <div class="cart">
+    <div class="container">
+      <div class="basket-table">
+        <span class="title-page">Корзина</span>
+        <div class="basket__table">
+          <div class="basket__table_header">
+            <div class="basket__table_row">
+              <div class="basket__table_cell basket__table_cell--name">
+                <span class="basket__table_label">Товар</span>
+              </div>
+              <div class="basket__table_cell basket__table_cell--price">
+                <span class="basket__table_label">Цена</span>
+              </div>
+              <div class="basket__table_cell basket__table_cell--count">
+                <span class="basket__table_label">Количество</span>
+              </div>
+              <div class="basket__table_cell basket__table_cell--sum">
+                <span class="basket__table_label">Сумма</span>
+              </div>
+              <div class="basket__table_cell basket__table_cell--remove"></div>
+            </div>
+          </div>
+          <div class="basket__table_body">
+            <div class="basket__table_row table-product-{{id}}">
+              <div class="basket__table_cell basket__table_cell--name">
+                <div class="basket__table_cell-row">
+                  <div class="basket__table_position-img">
+                    <img class="basket__table__img" src="{{image}}" alt="${{name}}" />
+                  </div>
+                  <div class="basket__table_position-body">
+                    <a class="basket__table_position-link" href="/product?id={{id}}" data-pjax="0">{{name}}</a>
+                  </div>
+                </div>
+              </div>
+              <div class="basket__table_cell basket__table_cell--price">
+                <span class="basket__table_text"><span class="item-price-{{id}}">{{price}}</span>
+                  <span class="currency">₽</span></span>
+              </div>
+              <div class="basket__table_cell basket__table_cell--count">
+                <div class="spinner">
+                  <div class="basket-count__minus spinner__action is-disabled">
+                    <svg class="svg-sprite-icon icon-minus spinner__action_icon">
+                      <use xlink:href="#minus"></use>
+                    </svg>
+                  </div>
+                  <input type="number"
+                    class="spinner__count count__current-calc g-input count__current current-count-143696"
+                    name="Good[143696]" value="1" data-id="143696" />
+                  <div class="basket-count__plus spinner__action">
+                    <svg class="svg-sprite-icon icon-plus spinner__action_icon">
+                      <use xlink:href="#plus"></use>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+              <div class="basket__table_cell basket__table_cell--sum">
+                <span class="basket__table_text-bold">
+                  <span class="raw-item-price-{{id}} raw-total-price-calc">{{price}}</span>
+                  <span class="currency">₽</span>
+                </span>
+              </div>
+              <div class="basket__table_cell basket__table_cell--remove">
+                <div class="basket__table_remove">
+                  <a href="/cart/remove/{{id}}" title="Удалить" class="remove-product" data-id="{{id}}">
+                    <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
+                      xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512.001 512.001"
+                      style="enable-background:new 0 0 512.001 512.001;" xml:space="preserve">
+                      <g>
+                        <g>
+                          <path d="M284.286,256.002L506.143,34.144c7.811-7.811,7.811-20.475,0-28.285c-7.811-7.81-20.475-7.811-28.285,0L256,227.717
+			L34.143,5.859c-7.811-7.811-20.475-7.811-28.285,0c-7.81,7.811-7.811,20.475,0,28.285l221.857,221.857L5.858,477.859
+			c-7.811,7.811-7.811,20.475,0,28.285c3.905,3.905,9.024,5.857,14.143,5.857c5.119,0,10.237-1.952,14.143-5.857L256,284.287
+			l221.857,221.857c3.905,3.905,9.024,5.857,14.143,5.857s10.237-1.952,14.143-5.857c7.811-7.811,7.811-20.475,0-28.285
+			L284.286,256.002z"></path>
+                        </g>
+                      </g>
+                      <g>
+                      </g>
+                      <g>
+                      </g>
+                      <g>
+                      </g>
+                      <g>
+                      </g>
+                      <g>
+                      </g>
+                      <g>
+                      </g>
+                      <g>
+                      </g>
+                      <g>
+                      </g>
+                      <g>
+                      </g>
+                      <g>
+                      </g>
+                      <g>
+                      </g>
+                      <g>
+                      </g>
+                      <g>
+                      </g>
+                      <g>
+                      </g>
+                      <g>
+                      </g>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          {{! <div class="basket__table_footer">
+            <div>
+              <div class="cart-description"><span class="exclamation-point">!</span>Точная стоимость доставки
+                рассчитывается менеджером
+              </div>
+              <div class="cart-description"><span class="exclamation-point">!</span>Бесплатная доставка в пределах МКАД
+                при заказе от 7000
+                <span class="currency">₽</span>
+              </div>
+            </div>
+            <div class="cart-table-buttons">
+              <span class="basket__table_total-sum">Сумма:
+                <span class="total-cart-price">585</span>
+                <span class="currency">₽</span>
+              </span>
+              <br /><br />
+              <a class="product-one-click popup-link" href="#one-click-order">Купить в 1 клик</a>
+            </div>
+
+            <div class="cart-table-coupons">
+
+              <form id="cart-coupon-form" class="coupon-cart-form" action="/cart/add-coupon" method="POST">
+                <input type="hidden" name="_csrf"
+                  value="HiBHLgJdjW3VweSs1uMsU2i97hzwSkwEGm9ZLr4RxsJzUQZscC_GBJG0tJqkgXoXWYTcdKF7OEJqPClEz1WwmA==" />
+                <div class="coupon-cart-row">
+                  <div class="coupon-cart-form__fields">
+                    <div class="form-group field-cartcouponform-code required">
+
+                      <input type="text" id="cartcouponform-code" class="coupon-cart-form__field_group"
+                        name="CartCouponForm[code]" placeholder="Введите промокод" aria-required="true" />
+
+                    </div>
+                    <button type="submit" class="btn btn-primary">Применить</button>
+                  </div>
+                </div>
+                <div class="coupon-cart-row">
+                  <div class="error-summary" style="display:none">
+                    <ul></ul>
+                  </div>
+                </div>
+              </form>
+              <form id="cart-giftd-form" class="giftd-cart-form" action="/cart/add-gift" method="POST">
+                <input type="hidden" name="_csrf"
+                  value="HiBHLgJdjW3VweSs1uMsU2i97hzwSkwEGm9ZLr4RxsJzUQZscC_GBJG0tJqkgXoXWYTcdKF7OEJqPClEz1WwmA==" />
+                <div class="giftd-cart-form__row">
+                  <div class="giftd-cart-form__fields">
+                    <div class="form-group field-cartgiftdform-code">
+
+                      <input type="text" id="cartgiftdform-code" class="giftd-cart-form__field_group"
+                        name="CartGiftdForm[code]" placeholder="Номер подарочной карты" />
+
+                    </div>
+                    <button type="submit" class="btn btn-primary">Применить</button>
+                  </div>
+                </div>
+
+                <div class="giftd-cart-form__row">
+                  <div class="error-summary" style="display:none">
+                    <ul></ul>
+                  </div>
+                </div>
+
+                <div class="giftd-cart-form__row">
+                  <div>
+                    <b>Внимание!</b>
+                    Подарочной картой можно воспользоваться 1 раз.
+                  </div>
+                </div>
+
+              </form>
+            </div>
+          </div> }}
+        </div>
+      </div>
+      <form id="w0" class="order-form" action="/shopcart" method="post">
+        <input type="hidden" name="_csrf"
+          value="ZYQ0cEMh8q_eib_--WPFdMpHsYFGslxaSS426Ql-MQ0I9XUyMVO5xpr878iLAZMw-36D6ReDKBw5fUaDeDpHVw==" />
+        <input type="hidden" class="cart-type" name="OrderForm[order_type]" />
+        <div class="basket-fiz-form-tab">
+          <div class="cart-lines">
+            <div class="cart-line-block">
+              <div class="cart-block legal-entity-block">
+                <div class="cart-block-title"><span>Данные компании</span></div>
+                <div class="cart-block-content">
+                  <div class="g-form-block">
+                    <div class="form-group field-orderform-company_name">
+                      <label class="control-label" for="orderform-company_name">Название компании</label>
+                      <input type="text" id="orderform-company_name" class="form-control"
+                        name="OrderForm[company_name]" />
+
+                      <div class="help-block"></div>
+                    </div>
+                  </div>
+                  <div class="g-form-block">
+                    <div class="form-group field-orderform-company_address">
+                      <label class="control-label" for="orderform-company_address">Юридический адрес</label>
+                      <input type="text" id="orderform-company_address" class="form-control"
+                        name="OrderForm[company_address]" />
+
+                      <div class="help-block"></div>
+                    </div>
+                  </div>
+                  <div class="g-form-block">
+                    <div class="form-group field-orderform-company_inn">
+                      <label class="control-label" for="orderform-company_inn">ИНН</label>
+                      <input type="text" id="orderform-company_inn" class="form-control"
+                        name="OrderForm[company_inn]" />
+
+                      <div class="help-block"></div>
+                    </div>
+                  </div>
+                  <div class="g-form-block">
+                    <div class="form-group field-orderform-company_kpp">
+                      <label class="control-label" for="orderform-company_kpp">КПП</label>
+                      <input type="text" id="orderform-company_kpp" class="form-control"
+                        name="OrderForm[company_kpp]" />
+
+                      <div class="help-block"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="cart-block">
+                <div class="form-basket-order-block">
+                  <div class="cart-block-title"><span>Контактные данные</span></div>
+                  <div class="cart-block-content">
+                    <div class="g-form-block">
+                      <div class="form-group field-orderform-name">
+                        <label class="control-label" for="orderform-name">Имя</label>
+                        <input type="text" id="orderform-name" class="form-control" name="OrderForm[name]" value="" />
+
+                        <div class="help-block"></div>
+                      </div>
+                    </div>
+                    <div class="g-form-block">
+                      <div class="form-group field-orderform-phone">
+                        <label class="control-label" for="orderform-phone">Телефон</label>
+                        <input type="text" id="orderform-phone" class="form-control phone" name="OrderForm[phone]"
+                          value="" />
+
+                        <div class="help-block"></div>
+                      </div>
+                    </div>
+                    <div class="g-form-block">
+                      <div class="form-group field-orderform-email">
+                        <label class="control-label" for="orderform-email">Email</label>
+                        <input type="text" id="orderform-email" class="form-control" name="OrderForm[email]" value="" />
+
+                        <div class="help-block"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="cart-block cart-address">
+                <div class="form-basket-order-block">
+                  <div class="cart-block-title"><span>Адрес доставки</span></div>
+                  <div class="cart-block-content">
+                    <div class="g-form-block">
+                      <div class="form-group field-orderform-city">
+                        <label class="control-label" for="orderform-city">Город</label>
+                        <input type="text" id="orderform-city" class="form-control" name="OrderForm[city]" value="" />
+
+                        <div class="help-block"></div>
+                      </div>
+                    </div>
+                    <div class="g-form-block">
+                      <div class="form-group field-orderform-street">
+                        <label class="control-label" for="orderform-street">Улица</label>
+                        <input type="text" id="orderform-street" class="form-control" name="OrderForm[street]"
+                          value="" />
+
+                        <div class="help-block"></div>
+                      </div>
+                    </div>
+                    <div class="g-form-block--3-col">
+                      <div class="g-form-block">
+                        <div class="form-group field-orderform-house">
+                          <label class="control-label" for="orderform-house">Дом</label>
+                          <input type="text" id="orderform-house" class="form-control" name="OrderForm[house]"
+                            value="" />
+
+                          <div class="help-block"></div>
+                        </div>
+                      </div>
+                      <div class="g-form-block">
+                        <div class="form-group field-orderform-housing">
+                          <label class="control-label" for="orderform-housing">Корпус</label>
+                          <input type="text" id="orderform-housing" class="form-control" name="OrderForm[housing]"
+                            value="" />
+
+                          <div class="help-block"></div>
+                        </div>
+                      </div>
+                      <div class="g-form-block">
+                        <div class="form-group field-orderform-building">
+                          <label class="control-label" for="orderform-building">Строение</label>
+                          <input type="text" id="orderform-building" class="form-control" name="OrderForm[building]"
+                            value="" />
+
+                          <div class="help-block"></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="g-form-block--3-col">
+                      <div class="g-form-block">
+                        <div class="form-group field-orderform-entrance">
+                          <label class="control-label" for="orderform-entrance">Подъезд</label>
+                          <input type="text" id="orderform-entrance" class="form-control" name="OrderForm[entrance]"
+                            value="" />
+
+                          <div class="help-block"></div>
+                        </div>
+                      </div>
+                      <div class="g-form-block">
+                        <div class="form-group field-orderform-floor">
+                          <label class="control-label" for="orderform-floor">Этаж</label>
+                          <input type="text" id="orderform-floor" class="form-control" name="OrderForm[floor]"
+                            value="" />
+
+                          <div class="help-block"></div>
+                        </div>
+                      </div>
+                      <div class="g-form-block">
+                        <div class="form-group field-orderform-apartment">
+                          <label class="control-label" for="orderform-apartment">Квартира</label>
+                          <input type="text" id="orderform-apartment" class="form-control" name="OrderForm[apartment]"
+                            value="" />
+
+                          <div class="help-block"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="basket-delivery">
+            <div class="basket-delivery-options">
+              <div class="basket-delivery__type"><span class="basket-delivery__title">Доставка</span>
+                <div class="g-form-block">
+                  <div class="form-group field-orderform-delivery_method">
+                    <label class="g-label g-label--accent" data-link="/cart/update-delivery"
+                      for="orderform-delivery_method">Способ доставки</label>
+                    <select id="orderform-delivery_method" class="g-select" name="OrderForm[delivery_method]">
+                      <option value="0">Самовывоз</option>
+                      <option value="1" selected="">Доставка курьером</option>
+                      <option value="3">Почта россии</option>
+                      <option value="2">Доставка посредством EMS</option>
+                    </select>
+
+                    <div class="help-block"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="basket-delivery__payment"><span class="basket-delivery__title">Оплата</span>
+                <div class="g-form-block">
+                  <div class="form-group field-orderform-payment_type">
+                    <label class="g-label g-label--accent" for="orderform-payment_type">Способ оплаты</label>
+                    <select id="orderform-payment_type" class="g-select" name="OrderForm[payment_type]">
+                      <option value="1" selected="selected" style="display: block;">Наличными при получении</option>
+                      <option value="4" style="display: block;">Оплата онлайн</option>
+                    </select>
+
+                    <div class="help-block"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-basket-order-block">
+              <div class="basket-order-total"><span>Итого к оплате:</span><span class="basket-order-total__number">585
+                  <span class="currency">₽</span></span></div>
+            </div>
+            <div class="basket-order-buttons">
+              <button type="submit" class="g-btn g-btn--black confirm-btn">Оформить заказ</button>
+            </div>
+
+          </div>
+        </div>
+      </form>
+    </div>
   </div>
 </div>

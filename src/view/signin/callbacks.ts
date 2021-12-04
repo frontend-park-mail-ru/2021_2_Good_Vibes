@@ -1,6 +1,8 @@
 import bus from '../../init/bus';
 import { Callback } from '../../types';
 import validate from '../../validator/inputData';
+// import redirect from '../../dispatcher/redirect';
+import state from '../../dispatcher/state';
 
 export const SignUpShow: Callback = () => {
   bus.emit('signUp state request', undefined);
@@ -9,19 +11,19 @@ export const SignUpShow: Callback = () => {
 export const showAlert: Callback = (obj: { 'error': string }) => {
   const { error } = obj;
 
-  const alertLabel = <HTMLLabelElement>document.getElementsByClassName('form__error')[0];
+  const alertLabel = <HTMLLabelElement>document.getElementsByClassName('auth-content-inner__error')[0];
   alertLabel.style.display = 'block';
   alertLabel.textContent = error;
 };
 
 export const hideAlert: Callback = () => {
-  const alertLabel = <HTMLLabelElement>document.getElementsByClassName('form__error')[0];
+  const alertLabel = <HTMLLabelElement>document.getElementsByClassName('auth-content-inner__error')[0];
   alertLabel.style.display = 'none';
 };
 
 export const inputDataValidate: Callback = () => {
-  const usernameInput = <HTMLInputElement>document.getElementsByClassName('form__login')[0];
-  const passwordInput = <HTMLInputElement>document.getElementsByClassName('form__password')[0];
+  const usernameInput = <HTMLInputElement>document.getElementsByClassName('user-box__login')[0];
+  const passwordInput = <HTMLInputElement>document.getElementsByClassName('user-box__password')[0];
 
   const username = usernameInput.value.trim();
   const password = passwordInput.value.trim();
@@ -48,8 +50,8 @@ export const ajaxRequest: Callback = (obj: {
 };
 
 export const cleanInputs: Callback = () => {
-  const usernameInput = <HTMLInputElement>document.getElementsByClassName('form__login')[0];
-  const passwordInput = <HTMLInputElement>document.getElementsByClassName('form__password')[0];
+  const usernameInput = <HTMLInputElement>document.getElementsByClassName('user-box__login')[0];
+  const passwordInput = <HTMLInputElement>document.getElementsByClassName('user-box__password')[0];
 
   usernameInput.value = '';
   passwordInput.value = '';
@@ -61,4 +63,18 @@ export const handleSignInDenied: Callback = (obj: { 'responseText': string }) =>
     .then(() => JSON.parse(responseText))
     .then((value) => bus.emit('show alert', { error: value['error description'] }))
     .catch((error) => console.error('ajax response parse error', error));
+};
+
+export const close: Callback = () => {
+  bus.emit('homepage state request', undefined);
+};
+
+export const savedState: Callback = () => {
+  // const state = redirect.popSavedState();
+
+  // bus.emit(`${state} state request`, undefined);
+
+  // console.log('saved state', state.get());
+  // bus.emit(`${state.get()} state request`, undefined);
+  bus.emit('saved state request', undefined);
 };

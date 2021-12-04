@@ -21,7 +21,8 @@ export default class CartItem extends View implements ViewInterface {
   constructor(context: Product) {
     super();
     this.setContext(context);
-    this.self = <HTMLElement>document.createElement('li');
+    this.self = <HTMLElement>document.createElement('div');
+    this.self.className = `basket__table_row table-product-${context.id}`
     bus.add(connections);
     this.render();
   }

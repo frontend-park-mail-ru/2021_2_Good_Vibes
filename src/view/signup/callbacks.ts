@@ -1,16 +1,17 @@
 import bus from '../../init/bus';
 import { Callback } from '../../types';
 import validate from '../../validator/inputData';
+// import redirect from '../../dispatcher/redirect';
 
 export const SignInShow: Callback = () => {
   bus.emit('signIn state request', undefined);
 };
 
 export const inputDataValidate: Callback = () => {
-  const usernameInput = <HTMLInputElement>document.getElementsByClassName('form__login')[0];
-  const emailInput = <HTMLInputElement>document.getElementsByClassName('form__email')[0];
-  const passwordInput = <HTMLInputElement>document.getElementsByClassName('form__password')[0];
-  const repasswordInput = <HTMLInputElement>document.getElementsByClassName('form__repassword')[0];
+  const usernameInput = <HTMLInputElement>document.getElementsByClassName('user-box__login')[0];
+  const emailInput = <HTMLInputElement>document.getElementsByClassName('user-box__email')[0];
+  const passwordInput = <HTMLInputElement>document.getElementsByClassName('user-box__password')[0];
+  const repasswordInput = <HTMLInputElement>document.getElementsByClassName('user-box__confirm-password')[0];
 
   const username = usernameInput.value.trim();
   const email = emailInput.value.trim();
@@ -39,13 +40,13 @@ export const inputDataValidate: Callback = () => {
 export const showAlert: Callback = (obj: { 'error': string }) => {
   const { error } = obj;
 
-  const alertLabel = <HTMLLabelElement>document.getElementsByClassName('form__error')[0];
+  const alertLabel = <HTMLLabelElement>document.getElementsByClassName('auth-content-inner__error')[0];
   alertLabel.style.display = 'block';
   alertLabel.textContent = error;
 };
 
 export const hideAlert: Callback = () => {
-  const alertLabel = <HTMLLabelElement>document.getElementsByClassName('form__error')[0];
+  const alertLabel = <HTMLLabelElement>document.getElementsByClassName('auth-content-inner__error')[0];
   alertLabel.style.display = 'none';
 };
 
@@ -67,13 +68,24 @@ export const handleSignUpDenied: Callback = (obj: { 'responseText': string }) =>
 };
 
 export const cleanInputs: Callback = () => {
-  const usernameInput = <HTMLInputElement>document.getElementsByClassName('form__login')[0];
-  const emailInput = <HTMLInputElement>document.getElementsByClassName('form__email')[0];
-  const passwordInput = <HTMLInputElement>document.getElementsByClassName('form__password')[0];
-  const repasswordInput = <HTMLInputElement>document.getElementsByClassName('form__repassword')[0];
+  const usernameInput = <HTMLInputElement>document.getElementsByClassName('user-box__login')[0];
+  const emailInput = <HTMLInputElement>document.getElementsByClassName('user-box__email')[0];
+  const passwordInput = <HTMLInputElement>document.getElementsByClassName('user-box__password')[0];
+  const repasswordInput = <HTMLInputElement>document.getElementsByClassName('user-box__confirm-password')[0];
 
   usernameInput.value = '';
   emailInput.value = '';
   passwordInput.value = '';
   repasswordInput.value = '';
+};
+
+export const close: Callback = () => {
+  bus.emit('homepage state request', undefined);
+};
+
+export const savedState: Callback = () => {
+  // const state = redirect.popSavedState();
+
+  // bus.emit(`${state} state request`, undefined);
+  bus.emit('saved state request', undefined);
 };

@@ -1,0 +1,14 @@
+./components/ProductTable/ProductTable.hbs
+./components/ProductTable/ProductCard/ProductCard.js
+./components/ProductTable/ProductCard/ProductCard.hbs
+./components/ProductTable/ProductCard/ProductCard.scss
+./components/ProductTable/EmptyMessage/EmptyMessage.js
+./components/ProductTable/EmptyMessage/EmptyMessage.hbs
+./components/ProductTable/EmptyMessage/EmptyMessage.scss
+./components/ProductTable/ProductTable.scss
+./components/ProductTable/ProductTable.js
+./fileList
+./_redirects
+./sw.js
+./main_bundle.js
+./index.html

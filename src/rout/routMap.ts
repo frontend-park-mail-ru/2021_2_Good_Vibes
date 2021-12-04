@@ -10,6 +10,8 @@ const routMap = {
   '/address': 'address',
   '/payment': 'payment',
   '/confirmation': 'confirmation',
+  '/orders': 'orders',
+  '/search': 'search',
 };
 
 export default routMap;

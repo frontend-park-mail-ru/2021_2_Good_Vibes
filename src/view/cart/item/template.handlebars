@@ -1,33 +1,104 @@
-<div class="cart__image">
+{{!-- <div class="cart__image">
   <img class="cart__image-img" src="{{image}}" alt="${{name}}" />
 </div>
-{{!-- <<<<<<< HEAD <div class="cart-name">
-  <div>
-    <a href="/product?id={{id}}" class="name-href">
-      ======= --}}
-      <div class="cart__name">
-        <div class="cart__link">
-          <a href="/product?id={{id}}" class="link">
-            {{!-- >>>>>>> 0b511cea9ffbd83ba014236bfb32bbf8173798db --}}
-            {{name}}
-          </a>
-        </div>
-        Кол-во:
-        {{!-- <<<<<<< HEAD {{!-- <select class="qty-select" id="{{id}}">
-          </select>
-          <input type="number" class="qty-select number" id="{{id}}" min="0" step="1">
-          <button type="button" class="delete-button" id="{{id}}">
-            ======= --}}
-            {{!-- <select class="cart__qty-select" id="{{id}}">
-            </select> --}}
-            <input type="number" class="cart__qty-select" id="{{id}}" min="0" step="1">
-            <button class="cart__delete" type="button" id="{{id}}">
-              {{!-- >>>>>>> 0b511cea9ffbd83ba014236bfb32bbf8173798db --}}
-              Удалить
-            </button>
-      </div>
+<div class="cart__name">
+  <div class="cart__link">
+    <a href="/product?id={{id}}" class="link">
+      {{name}}
+    </a>
   </div>
+  Кол-во:
+  <input type="number" class="cart__qty-select" id="{{id}}" min="0" step="1">
+  <button class="cart__delete" type="button" id="{{id}}">
+    Удалить
+  </button>
+</div>
+</div>
+</div>
+<div class="cart__price">
+  ${{price}}
+</div> --}}
+
+<div class="basket__table_cell basket__table_cell--name">
+  <div class="basket__table_cell-row">
+    <div class="basket__table_position-img">
+      <img class="basket__table__img" src="{{image}}" alt="${{name}}" />
+    </div>
+    <div class="basket__table_position-body">
+      <a class="basket__table_position-link" href="/product?id={{id}}" data-pjax="0">{{name}}</a>
+    </div>
   </div>
-  <div class="cart__price">
-    ${{price}}
+</div>
+<div class="basket__table_cell basket__table_cell--price">
+  <span class="basket__table_text"><span class="item-price-{{id}}">{{price}}</span>
+    <span class="currency">₽</span></span>
+</div>
+<div class="basket__table_cell basket__table_cell--count">
+  <div class="spinner">
+    {{!-- <div class="basket-count__minus spinner__action is-disabled">
+      <svg class="svg-sprite-icon icon-minus spinner__action_icon">
+        <use xlink:href="#minus"></use>
+      </svg>
+    </div> --}}
+    <input type="number" class="spinner__count count__current-calc g-input count__current current-count-143696"
+      name="Good[143696]" value="1" data-id="143696" />
+    {{!-- <div class="basket-count__plus spinner__action">
+      <svg class="svg-sprite-icon icon-plus spinner__action_icon">
+        <use xlink:href="#plus"></use>
+      </svg>
+    </div> --}}
   </div>
+</div>
+<div class="basket__table_cell basket__table_cell--sum">
+  <span class="basket__table_text-bold">
+    <span class="raw-item-price-{{id}} raw-total-price-calc">{{price}}</span>
+    <span class="currency">₽</span>
+  </span>
+</div>
+<div class="basket__table_cell basket__table_cell--remove">
+  <div class="basket__table_remove">
+    <a href="/cart/remove/{{id}}" title="Удалить" class="remove-product" data-id="{{id}}">
+      <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+        x="0px" y="0px" viewBox="0 0 512.001 512.001" style="enable-background:new 0 0 512.001 512.001;"
+        xml:space="preserve">
+        <g>
+          <g>
+            <path d="M284.286,256.002L506.143,34.144c7.811-7.811,7.811-20.475,0-28.285c-7.811-7.81-20.475-7.811-28.285,0L256,227.717
+              			L34.143,5.859c-7.811-7.811-20.475-7.811-28.285,0c-7.81,7.811-7.811,20.475,0,28.285l221.857,221.857L5.858,477.859
+              			c-7.811,7.811-7.811,20.475,0,28.285c3.905,3.905,9.024,5.857,14.143,5.857c5.119,0,10.237-1.952,14.143-5.857L256,284.287
+              			l221.857,221.857c3.905,3.905,9.024,5.857,14.143,5.857s10.237-1.952,14.143-5.857c7.811-7.811,7.811-20.475,0-28.285
+              			L284.286,256.002z"></path>
+          </g>
+        </g>
+        <g>
+        </g>
+        <g>
+        </g>
+        <g>
+        </g>
+        <g>
+        </g>
+        <g>
+        </g>
+        <g>
+        </g>
+        <g>
+        </g>
+        <g>
+        </g>
+        <g>
+        </g>
+        <g>
+        </g>
+        <g>
+        </g>
+        <g>
+        </g>
+        <g>
+        </g>
+        <g>
+        </g>
+        <g>
+        </g>
+      </svg>
+    </a>

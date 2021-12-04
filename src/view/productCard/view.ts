@@ -22,7 +22,6 @@ export default class ProductCard extends View implements ViewInterface {
     super();
     this.setContext(context);
     this.self = <HTMLElement>document.createElement('div');
-    this.self.className = className;
     bus.add(connections);
     this.render();
   }

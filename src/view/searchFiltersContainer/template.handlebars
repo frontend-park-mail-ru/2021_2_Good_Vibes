@@ -1,0 +1,133 @@
+{{! <br>
+<label class="min-price-label" for="min-price-input">минимальная цена</label>
+<input id="min-price-input" class="min-price-input" type="number">
+
+<br>
+<label class="max-price-label" for="max-price-input">максимальная цена</label>
+<input id="max-price-input" class="max-price-input" type="number">
+
+<br>
+<label for="min-rating-input" class="min-rating-label">минимальный рейтинг</label>
+<input id="min-rating-input" class="min-rating-input" type="number">
+
+<br>
+<label for="max-rating-input" class="max-rating-label">максимальный рейтинг</label>
+<input id="max-rating-input" class="max-rating-input" type="number">
+
+<div>
+  <br>
+  <input type="radio" id="price-order-radio" name="order-type-radio" class="order-type-radio" value="price" checked>
+  <label for="price-order-radio" class="price-order-radio">по цене</label>
+
+  <br>
+  <input type="radio" id="rating-order-radio" name="order-type-radio" class="order-type-radio" value="rating">
+  <label for="rating-order-radio" class="rating-order-radio">по рейтингу</label>
+</div>
+
+<div>
+  <br>
+  <input type="radio" id="ascending-order-radio" name="order-radio" class="order-radio" value="asc" checked>
+  <label for="ascending-order-radio" class="ascending-order-radio">по возрастанию</label>
+
+  <br>
+  <input type="radio" id="descending-order-radio" name="order-radio" class="order-radio" value="desc">
+  <label for="descending-order-radio" class="descending-order-radio">по убыванию</label>
+</div> }}
+
+<h3 class="search-filter__title">Фильтр</h3>
+
+<div class="search-filter-elem">
+  <div class="search-filter-amount" id="amount">
+    <input
+      data-action="priceInput"
+      class="search-filter-amount__from"
+      id="fromAmount"
+      type="text"
+      placeholder="Цена от, ₽"
+    />
+    <input
+      data-action="priceInput"
+      class="search-filter-amount__to"
+      id="toAmount"
+      type="text"
+      placeholder="до"
+    />
+  </div>
+</div>
+<div class="search-filter-elem">
+  <div class="search-filter-amount" id="amount">
+    <input
+      data-action="priceInput"
+      class="search-filter-rating__from"
+      id="fromAmount"
+      type="text"
+      placeholder="Рейтинг от"
+    />
+    <input
+      data-action="priceInput"
+      class="search-filter-rating__to"
+      id="toAmount"
+      type="text"
+      placeholder="до"
+    />
+  </div>
+</div>
+<div class="radio-container">
+  <li>
+    <div>
+      <input
+        type="radio"
+        id="price-order-radio"
+        name="order-type-radio"
+        class="order-type-radio"
+        value="price"
+        checked
+      />
+      <label for="price-order-radio" class="price-order-radio">по цене</label>
+    </div>
+  </li>
+  <li>
+    <div>
+      <input
+        type="radio"
+        id="rating-order-radio"
+        name="order-type-radio"
+        class="order-type-radio"
+        value="rating"
+      />
+      <label for="rating-order-radio" class="rating-order-radio">по рейтингу</label>
+    </div>
+  </li>
+
+  <li>
+    <div>
+      <input
+        type="radio"
+        id="ascending-order-radio"
+        name="order-radio"
+        class="order-radio"
+        value="asc"
+        checked
+      />
+      <label for="ascending-order-radio" class="ascending-order-radio">по
+        возрастанию</label>
+
+    </div>
+  </li>
+
+  <li>
+    <div>
+      <input
+        type="radio"
+        id="descending-order-radio"
+        name="order-radio"
+        class="order-radio"
+        value="desc"
+      />
+      <label for="descending-order-radio" class="descending-order-radio">по
+        убыванию</label>
+    </div>
+  </li>
+</div>
+
+

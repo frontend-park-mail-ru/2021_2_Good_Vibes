@@ -1,3 +1,4 @@
+import searchParams from '../../object/search/params';
 import { Connection } from '../../types';
 import * as request from './callbacks';
 
@@ -28,7 +29,10 @@ const connections: Connection[] = [
   },
   {
     event: 'category state request',
-    callback: request.category,
+    callback: [
+      searchParams.setDefault,
+      request.category,
+    ],
   },
   {
     event: 'address state request',
@@ -42,9 +46,20 @@ const connections: Connection[] = [
     event: 'confirmation state request',
     callback: request.confirmation,
   },
+  // {
+  //   event: 'saved state request',
+  //   callback: request.savedState,
+  // },
   {
-    event: 'saved state request',
-    callback: request.savedState,
+    event: 'orders state request',
+    callback: request.orders,
+  },
+  {
+    event: 'search state request',
+    callback: [
+      searchParams.setDefault,
+      request.search,
+    ],
   },
 ];
 

@@ -10,6 +10,10 @@ const connections: Connection[] = [
     event: 'product name href click',
     callback: item.productStateRequest,
   },
+  // {
+  //   event: 'put product to cart',
+  //   callback: item.calculateSubtotal,
+  // },
 ];
 
 export default connections;

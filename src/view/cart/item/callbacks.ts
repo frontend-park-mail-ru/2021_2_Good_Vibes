@@ -11,3 +11,11 @@ export const deleteCartItem: Callback = (context: Product) => {
 export const productStateRequest: Callback = (obj: { 'id': number }) => {
   bus.emit('product state request', obj);
 };
+
+// export const calculateSubtotal: Callback = (obj: { 'id': number, 'number': number }) => {
+//   console.log(obj);
+
+//   const { id, number } = obj;
+//   if (id !== )
+
+// };

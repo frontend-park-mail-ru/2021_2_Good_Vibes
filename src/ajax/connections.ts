@@ -102,6 +102,22 @@ const ajaxConnections: Connection[] = [
     event: 'orders list request',
     callback: ajax.orderList,
   },
+  {
+    event: 'comments ajax request',
+    callback: ajax.comments,
+  },
+  {
+    event: 'suggests ajax request',
+    callback: ajax.suggests,
+  },
+  {
+    event: 'search ajax request',
+    callback: ajax.search,
+  },
+  {
+    event: 'add comment request',
+    callback: ajax.addComment,
+  },
 ];
 
 export default ajaxConnections;

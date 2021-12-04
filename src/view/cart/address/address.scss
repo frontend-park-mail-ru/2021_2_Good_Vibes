@@ -1,4 +1,4 @@
-@import '../../../scss/main.scss';
+/* @import '../../../scss/style.scss';
 
 .form {
     display: flex;
@@ -11,7 +11,7 @@
         flex-direction: column;
         width: 32rem;
         padding: 2rem;
-        border: 0.1rem #c0c0c0 solid;
+        border: 0.1rem $light-gray-color solid;
         border-radius: 0.5rem;
         list-style-type: none;
         column-count: 2;
@@ -39,7 +39,7 @@
 
 
     &__changePhoto {
-        margin-bottom: 10rem;
+         margin-bottom: 10rem;
     }
 
     &__pic {
@@ -61,8 +61,8 @@
 }
 
 .checkout-steps_none {
-    border-top: 0.3rem #c0c0c0 solid;
-    color: #c0c0c0;
+    border-top: 0.3rem $light-gray-color solid;
+    color: $light-gray-color;
     @extend %steps;
 }
 
@@ -70,4 +70,4 @@
     border-top: 0.3rem $twitter-color solid;
     color: $twitter-color;
     @extend %steps;
-}
+} */

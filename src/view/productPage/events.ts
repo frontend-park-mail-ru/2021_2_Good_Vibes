@@ -3,7 +3,7 @@ import { Product } from '../../types';
 
 const initEvents: (self: HTMLElement, context: Product) => void = (self, context) => {
   // ------------------
-  const backBtn = <HTMLAnchorElement>self.getElementsByClassName('back-to-result')[0];
+  const backBtn = <HTMLAnchorElement>self.getElementsByClassName('back-to-result__link')[0];
   backBtn.addEventListener('click', (event) => {
     event.preventDefault();
 
@@ -11,7 +11,7 @@ const initEvents: (self: HTMLElement, context: Product) => void = (self, context
   });
 
   // ------------------
-  const addBtn = <HTMLButtonElement>self.getElementsByClassName('btn')[0];
+  const addBtn = <HTMLButtonElement>self.getElementsByClassName('info-card-btn__cart')[0];
   addBtn.addEventListener('click', (event) => {
     event.preventDefault();
 

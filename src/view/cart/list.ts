@@ -44,10 +44,12 @@ class ProductCardList {
     this.views = [];
 
     this.addArray(array);
+
+    array.sort((a, b) => a.id - b.id);
+
     array.forEach((productContext) => {
       this.views.push(this.list[productContext.id].view);
     });
-
     return this.views;
   }
 

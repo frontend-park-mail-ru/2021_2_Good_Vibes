@@ -16,6 +16,7 @@ export default class Validate {
       !password || !repassword
       || !username || !email
     ) {
+      console.log('asdf');
       return 'Заполните все поля';
     }
 
@@ -44,6 +45,7 @@ export default class Validate {
     } = obj;
 
     if (!username || !password) {
+      console.log('asdf');
       return 'Заполните все поля';
     }
 

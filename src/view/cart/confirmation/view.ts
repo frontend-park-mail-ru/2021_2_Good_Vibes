@@ -21,8 +21,8 @@ export default class ConfirmationPage extends View implements ViewInterface {
 
   constructor() {
     super();
-    this.self = <HTMLElement>document.createElement('main');
-    this.self.id = 'main-container';
+    this.self = <HTMLElement>document.createElement('class');
+    this.self.id = 'layout';
     bus.add(connections);
     this.render();
   }
