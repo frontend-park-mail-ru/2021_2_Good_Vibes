@@ -90,6 +90,9 @@ export const showEmail: Callback = () => {
 };
 
 export const confirmAjaxRequest: Callback = () => {
+
+  // if ()
+
   const array = cart.get();
 
   if (array.length === 0) {
@@ -101,6 +104,8 @@ export const confirmAjaxRequest: Callback = () => {
   const streetInput = <HTMLInputElement>document.getElementById('orderform-street');
   const houseInput = <HTMLInputElement>document.getElementById('orderform-house');
   const apartmentInput = <HTMLInputElement>document.getElementById('orderform-apartment');
+
+  // console.log('cityInput', cityInput);
 
   // orderData.address.city = cityInput.value.trim();
   // orderData.address.street = streetInput.value.trim();
@@ -116,6 +121,56 @@ export const confirmAjaxRequest: Callback = () => {
     country: 'country',
     index: 'index',
   };
+
+  // console.log("addess", addr);
+
+  orderData.setAddress(addr);
+
+  const payMethodSelect = <HTMLSelectElement>document.getElementById('orderform-payment_type');
+
+  orderData.payMethod = payMethodSelect.options[payMethodSelect.selectedIndex].text;
+
+  // console.log(orderData);
+
+  const obj: OrderRequest = {
+    address: orderData.address,
+    products: array,
+  };
+
+  bus.emit('cart confirm request', obj);
+};
+
+export const confirmMobileAjaxRequest: Callback = () => {
+  const array = cart.get();
+
+  if (array.length === 0) {
+    console.error('cart is empty');
+    return;
+  }
+
+  const cityInput = <HTMLInputElement>document.getElementById('mobile-city');
+  const streetInput = <HTMLInputElement>document.getElementById('mobile-street');
+  const houseInput = <HTMLInputElement>document.getElementById('mobile-house');
+  const apartmentInput = <HTMLInputElement>document.getElementById('mobile-apartment');
+
+  console.log('cityInput', cityInput);
+
+  // orderData.address.city = cityInput.value.trim();
+  // orderData.address.street = streetInput.value.trim();
+  // orderData.address.house = houseInput.value.trim();
+  // orderData.address.flat = apartmentInput.value.trim();
+
+  const addr: Address = {
+    city: cityInput.value.trim(),
+    street: streetInput.value.trim(),
+    house: houseInput.value.trim(),
+    flat: apartmentInput.value.trim(),
+
+    country: 'country',
+    index: 'index',
+  };
+
+  // console.log("addess", addr);
 
   orderData.setAddress(addr);
 

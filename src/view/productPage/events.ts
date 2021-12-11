@@ -19,6 +19,17 @@ const initEvents: (self: HTMLElement, context: Product) => void = (self, context
 
     bus.emit('add product to cart', { id, number: 1 });
   });
+
+  const addBtnMobile = <HTMLButtonElement>self.getElementsByClassName('info-card-mobile-btn__cart')[0];
+  addBtnMobile.addEventListener('click', (event) => {
+    event.preventDefault();
+
+    const { id } = context;
+
+    bus.emit('add product to cart mobile', { id, number: 1 });
+
+    console.warn('asdfad');
+  });
 };
 
 export default initEvents;

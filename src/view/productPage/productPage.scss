@@ -6,6 +6,9 @@
   @include shadow-block(#fff);
   padding: 2vh;
   margin: 1.5vw auto 3vh;
+  @media screen and (max-width: $breakDesktop) {
+    padding: 0 1.5vh;
+  }
 
   &-inner {
     display: flex;
@@ -14,11 +17,25 @@
 
   &-left {
     width: 60%;
+
+    @media screen and (max-width: $breakDesktop) {
+      width: 65%;
+    }
+    @media screen and (max-width: $breakMobile) {
+      width: 100%;
+    }
   }
 
   &-right {
     width: 40%;
-    display: flex;
+    /* display: flex; */
+    @media screen and (max-width: $breakDesktop) {
+      width: 35%;
+    }
+
+    @media screen and (max-width: $breakMobile) {
+      display: none;
+    }
   }
 }
 
@@ -27,13 +44,24 @@
   margin-top: 2vw;
 
   &__picture {
-      margin-top: 0;
+    /* margin-top: 0;
       width: 35vw;
       object-fit: cover;
-      user-select: none;
+      user-select: none; */
+    margin-top: 0;
+    width: 41vw;
+    /* height: 50vh; */
+    object-fit: cover;
+    user-select: none;
+
+    @media screen and (max-width: $breakMobile) {
+      width: 100%;
+    }
+    @media screen and (max-width: $breakDesktop) {
+      width: 100%;
     }
   }
-
+}
 
 .info-card {
   display: block;
@@ -44,6 +72,9 @@
   font-style: normal;
   font-weight: normal;
   padding-left: 1vh;
+  @media screen and (max-width: $breakMobile) {
+    display: none;
+  }
 
   &__name {
     font-size: 2vw;
@@ -55,15 +86,17 @@
     font-size: 2vw;
     margin-top: 2vh;
     margin-bottom: 1vh;
+
+    @media screen and (max-width: $breakDesktop) {
+      font-size: 3vh;
+    }
   }
 
   &__separator {
     display: none;
     @include separator;
-
   }
 
- 
   &-content {
     display: flex;
     align-items: center;
@@ -87,10 +120,23 @@
 
     &__text {
       font-size: 2vh;
+      margin-right: 0.5vh;
+
+      @media screen and (max-width: $breakDesktop) {
+        font-size: 1.5vh;
+      }
     }
 
     &__rate span {
-      margin-right: 0.5vh;
+      /* margin-right: 0.5vh; */
+
+      @media screen and (max-width: $breakDesktop) {
+        font-size: 1.5vh;
+
+        @media screen and (max-width: 1400px) {
+          font-size: 1.7vh;
+        }
+      }
     }
   }
   &-btn {
@@ -98,10 +144,17 @@
       display: flex;
     }
 
-    &__cart, &__add-cart {
+    &__cart,
+    &__add-cart {
       @include blue-button(80%, 4vh);
       margin-top: 2vh;
       background-color: $twitter-color;
+      @media screen and (max-width: $breakDesktop) {
+        font-size: 1.4vh;
+      }
+      @media screen and (max-width: $breakTablet) {
+        font-size: 1.4vh;
+      }
     }
 
     &__like {
@@ -118,8 +171,7 @@
       right: 0.5vw;
       width: 2.9vh;
       height: 3.9vh;
-  }
-  
+    }
   }
 
   &-about {
@@ -139,14 +191,149 @@
   }
 }
 
+.info-card-mobile {
+  display: none;
+  position: sticky;
+  top: 10vh;
+  margin: 2vw 0 0 0.3vw;
+  padding-bottom: 5vw;
+  font-style: normal;
+  font-weight: normal;
+  padding-left: 1vh;
+  @media screen and (max-width: $breakMobile) {
+    display: block;
+  }
+
+  &__name {
+    /* font-size: 2vw;
+    margin-top: 2vh;
+    margin-bottom: 1vh; */
+    display: none;
+    @media screen and (max-width: $breakMobile) {
+      display: inline;
+      font-family: Roboto-Thin, sans-serif;
+      font-size: 4vh;
+      font-weight: 600;
+    }
+  }
+
+  &__price {
+    font-size: 2vw;
+    text-align: center;
+    margin-top: 2vh;
+    margin-bottom: 1vh;
+
+    @media screen and (max-width: $breakMobile) {
+      font-size: 3vh;
+      text-align: left;
+      margin-top: 0.8vh;
+    }
+  }
+
+  &__separator {
+    display: none;
+    @include separator;
+  }
+
+  &-content {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  &-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  &-rating {
+    @include star;
+    width: 15vh;
+
+    margin-top: 1vh;
+
+    display: flex;
+    align-items: center;
+
+    &__text {
+      font-size: 2vh;
+      margin-right: 0.5vh;
+
+      @media screen and (max-width: $breakMobile) {
+        font-size: 2.5vh;
+      }
+    }
+
+    &__rate span {
+
+      @media screen and (max-width: $breakMobile) {
+        font-size: 2.5vh;
+      }
+    }
+  }
+  &-btn {
+    &__wrap {
+      display: flex;
+    }
+
+    &__cart,
+    &__add-cart {
+      @include blue-button(80%, 4vh);
+      margin-top: 2vh;
+      background-color: $twitter-color;
+    }
+
+    &__like {
+      @include white-button(20%, 4vh);
+      margin-top: 2vh;
+      margin-left: 1vw;
+      box-shadow: 0 0 1vh rgba(0, 0, 0, 0.1);
+    }
+  }
+
+  &__like {
+    .product-card__like {
+      position: inherit;
+      right: 0.5vw;
+      width: 2.9vh;
+      height: 3.9vh;
+    }
+  }
+
+  &-about {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    &__span {
+      /* margin-top: 4vw;
+      font-size: 2vw;
+      margin-bottom: 1vh;
+      color: #909090; */
+      @include description-label;
+      font-family: SF Pro Display, sans-serif;
+      margin-top: 1vh;
+      margin-bottom: 1vh;
+    }
+    &__description {
+      /* font-size: 1vw;
+      font-family: Open Sans, sans-serif; */
+      font-family: Open Sans, sans-serif;
+      line-height: 3vh;
+      color: #000000;
+    }
+  }
+}
+
 .navigation {
   font-style: normal;
   font-weight: normal;
   font-size: 2vh;
   height: 3vh;
-  width: 80vw;
+  /* width: 95vw; */
+  width: 30vw;
   display: flex;
-  margin: 2vh auto;
+  margin: 2vh;
 
   &-inner {
     margin: auto 0;

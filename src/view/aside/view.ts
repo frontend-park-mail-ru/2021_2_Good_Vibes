@@ -20,7 +20,7 @@ export default class Aside extends View implements ViewInterface {
 
   constructor() {
     super();
-    this.self = <HTMLElement>document.createElement('aside');
+    this.self = <HTMLElement>document.createElement('div');
     this.self.className = 'aside-container';
     bus.add(connections);
     this.render();

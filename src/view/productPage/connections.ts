@@ -14,6 +14,11 @@ const connections: Connection[] = [
 
   },
   {
+    event: 'add product to cart mobile',
+    callback: productPage.changeBtnMobile,
+
+  },
+  {
     event: 'productPage shown',
     callback: [
       productPage.productCheckInCart,

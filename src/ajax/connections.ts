@@ -51,9 +51,11 @@ const ajaxConnections: Connection[] = [
   },
 
   {
-    event: 'cart confirm request',
+    event: 'cart ajax confirmed',
     callback: ajax.cartConfirm,
   },
+
+
   {
     event: 'product array request',
     callback: ajax.productArrayRequest,

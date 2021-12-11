@@ -38,77 +38,38 @@
 
 <div class="search-filter-elem">
   <div class="search-filter-amount" id="amount">
-    <input
-      data-action="priceInput"
-      class="search-filter-amount__from"
-      id="fromAmount"
-      type="text"
-      placeholder="Цена от, ₽"
-    />
-    <input
-      data-action="priceInput"
-      class="search-filter-amount__to"
-      id="toAmount"
-      type="text"
-      placeholder="до"
-    />
+    <input data-action="priceInput" class="search-filter-amount__from" id="fromAmount" type="text"
+      placeholder="Цена от, ₽" min="0" />
+    <input data-action="priceInput" class="search-filter-amount__to" id="toAmount" type="text" placeholder="до"
+      min="0" />
   </div>
 </div>
 <div class="search-filter-elem">
   <div class="search-filter-amount" id="amount">
-    <input
-      data-action="priceInput"
-      class="search-filter-rating__from"
-      id="fromAmount"
-      type="text"
-      placeholder="Рейтинг от"
-    />
-    <input
-      data-action="priceInput"
-      class="search-filter-rating__to"
-      id="toAmount"
-      type="text"
-      placeholder="до"
-    />
+    <input data-action="priceInput" class="search-filter-rating__from" id="fromAmount" type="text"
+      placeholder="Рейтинг от" min="0" step="0.5" max="5" />
+    <input data-action="priceInput" class="search-filter-rating__to" id="toAmount" type="text" placeholder="до" max="5"
+      min="0" step="0.5" />
   </div>
 </div>
 <div class="radio-container">
   <li>
     <div>
-      <input
-        type="radio"
-        id="price-order-radio"
-        name="order-type-radio"
-        class="order-type-radio"
-        value="price"
-        checked
-      />
+      <input type="radio" id="price-order-radio" name="order-type-radio" class="order-type-radio" value="price"
+        checked />
       <label for="price-order-radio" class="price-order-radio">по цене</label>
     </div>
   </li>
   <li>
     <div>
-      <input
-        type="radio"
-        id="rating-order-radio"
-        name="order-type-radio"
-        class="order-type-radio"
-        value="rating"
-      />
+      <input type="radio" id="rating-order-radio" name="order-type-radio" class="order-type-radio" value="rating" />
       <label for="rating-order-radio" class="rating-order-radio">по рейтингу</label>
     </div>
   </li>
 
   <li>
     <div>
-      <input
-        type="radio"
-        id="ascending-order-radio"
-        name="order-radio"
-        class="order-radio"
-        value="asc"
-        checked
-      />
+      <input type="radio" id="ascending-order-radio" name="order-radio" class="order-radio" value="asc" checked />
       <label for="ascending-order-radio" class="ascending-order-radio">по
         возрастанию</label>
 
@@ -117,17 +78,9 @@
 
   <li>
     <div>
-      <input
-        type="radio"
-        id="descending-order-radio"
-        name="order-radio"
-        class="order-radio"
-        value="desc"
-      />
+      <input type="radio" id="descending-order-radio" name="order-radio" class="order-radio" value="desc" />
       <label for="descending-order-radio" class="descending-order-radio">по
         убыванию</label>
     </div>
   </li>
 </div>
-
-

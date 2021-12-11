@@ -4,9 +4,15 @@ import * as categoryPage from './callbacks';
 
 const connections: Connection[] = [
   {
+    event: 'scroll to bottom',
+    callback: categoryPage.renderArray,
+  },
+
+  {
     event: 'add product array to category page',
     callback: [
-      categoryPage.addProductArray,
+      categoryPage.createChankGenerator,
+      categoryPage.renderArray,
       (array: Product[]): void => { bus.emit('get search filter params', array); },
     ],
   },

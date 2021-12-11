@@ -36,123 +36,233 @@
 @import "../../scss/main";
 
 .search {
-    &-block {
-        display: flex;
-        flex-direction: row;
+  &-block {
+    display: flex;
+    flex-direction: row;
+    @media screen and (max-width: $breakDesktop) {
+      flex-direction: column;
+    }
+    @media screen and (max-width: $breakTablet) {
+      flex-direction: column;
+    }
+    @media screen and (max-width: $breakMobile) {
+      flex-direction: column;
+    }
+  }
+
+  &-left {
+    /* display: flex;
+      flex-direction: column;
+      margin-right: 2vh; */
+    /* height: 900px; */
+    display: flex;
+    flex-direction: column;
+    margin-right: 2vw;
+
+    @media screen and (max-width: $breakDesktop) {
+      flex-direction: column;
     }
 
-    &-left {
-        display: flex;
-        flex-direction: column;
-        margin-right: 2vh;
+    @media screen and (max-width: $breakTablet) {
+      flex-direction: column;
     }
 
-    &-filter {
+    @media screen and (max-width: $breakMobile) {
+      flex-direction: column;
+    }
+  }
 
-        &__title {
-            margin-top: 0;
-            font-size: 2vh;
-        }
+  &-filter {
+    @media screen and (max-width: $breakDesktop) {
+      /* @include shadow-block(#fff); */
 
-        &-elem {
-            margin-bottom: 1vh;
-        }
+      border-radius: 0;
+      padding: 0 2vh 1vh;
+      margin-bottom: 2vh;
+    }
+    @media screen and (max-width: $breakTablet) {
+      /* @include shadow-block(#fff); */
 
-        &-amount {
-            display: flex;
-            width: 100%;
+      border-radius: 0;
+      padding: 0 2vh 1vh;
+      margin-bottom: 2vh;
+    }
+    @media screen and (max-width: $breakMobile) {
+      /* @include shadow-block(#fff); */
 
-            &__from {
-                @include set-size(14vh, 4vh);
-                @include input;
-                font-size: 1.5vh;
-
-                border-radius: 0.5vh 0 0 0.5vh;
-                background-color: whitesmoke;
-
-                @media screen and (max-width: $breakMobile) {
-                    @include set-size(50%, 5vh);
-                }
-            }
-
-            &__to {
-                @include set-size(13vh, 4vh);
-                @include input;
-                font-size: 1.5vh;
-
-                border-radius: 0 0.5vh 0.5vh 0;
-                background-color: whitesmoke;
-            }
-        }
-
-        &-rating {
-            display: flex;
-            width: 100%;
-
-            &__from {
-                @include set-size(14vh, 4vh);
-                @include input;
-                font-size: 1.5vh;
-
-                border-radius: 0.5vh 0 0 0.5vh;
-                background-color: whitesmoke;
-            }
-
-            &__to {
-                @include set-size(13vh, 4vh);
-                @include input;
-                font-size: 1.5vh;
-
-                border-radius: 0 0.5vh 0.5vh 0;
-                background-color: whitesmoke;
-            }
-        }
+      border-radius: 0;
+      padding: 0 2vh 1vh;
+      margin-bottom: 2vh;
     }
 
-    &-items {
+    &__title {
+      margin-top: 0;
+
+      @media screen and (max-width: $breakDesktop) {
+        margin-top: revert;
+      }
+
+      @media screen and (max-width: $breakTablet) {
+        margin-top: revert;
+      }
+
+      @media screen and (max-width: $breakMobile) {
+        margin-top: revert;
+      }
+    }
+
+    &-elem {
+      margin-bottom: 1vh;
+
+      @media screen and (max-width: $breakDesktop) {
         width: 100%;
+        margin-bottom: 1.5vh;
 
-        &-bar {
-            display: flex;
+        display: flex;
+        justify-content: center;
+      }
 
-            &__text-field {
-                @include set-size(90%, 4vh);
-                @include input;
-                margin-right: 1vh;
+      @media screen and (max-width: $breakTablet) {
+        width: 100%;
+        margin-bottom: 1.5vh;
 
-                background-color: whitesmoke;
+        display: flex;
+        justify-content: center;
+      }
 
-            }
+      @media screen and (max-width: $breakMobile) {
+        width: 100%;
+        margin-bottom: 1.5vh;
 
-            &__button {
-                @include blue-button(10vh, 4vh);
-            }
-        }
-
-        &__sort {
-            @include set-size(20vh, 4vh);
-            background: rgba(0, 0, 0, 0.0);
-            border: 0;
-
-            &:focus {
-                outline: none;
-            }
-
-        }
-
-        &__separator {
-            @include separator;
-
-            border-top: 1px solid rgba(0, 0, 0, 0.3);
-        }
-
+        display: flex;
+        justify-content: center;
+      }
     }
+
+    &-amount {
+      display: flex;
+      width: 100%;
+
+      &__from {
+        @include set-size(14vh, 4vh);
+        @include input;
+        font-size: 1.5vh;
+
+        border-radius: 0.5vh 0 0 0.5vh;
+        background-color: whitesmoke;
+        @media screen and (max-width: $breakDesktop) {
+          @include set-size(50%, 5vh);
+        }
+        @media screen and (max-width: $breakTablet) {
+          @include set-size(50%, 5vh);
+        }
+        @media screen and (max-width: $breakMobile) {
+          @include set-size(50%, 5vh);
+        }
+      }
+
+      &__to {
+        @include set-size(13vh, 4vh);
+        @include input;
+        font-size: 1.5vh;
+
+        border-radius: 0 0.5vh 0.5vh 0;
+        background-color: whitesmoke;
+        @media screen and (max-width: $breakDesktop) {
+          @include set-size(50%, 5vh);
+        }
+        @media screen and (max-width: $breakTablet) {
+          @include set-size(50%, 5vh);
+        }
+        @media screen and (max-width: $breakMobile) {
+          @include set-size(50%, 5vh);
+        }
+      }
+    }
+
+    &-rating {
+      display: flex;
+      width: 100%;
+
+      &__from {
+        @include set-size(14vh, 4vh);
+        @include input;
+        font-size: 1.5vh;
+
+        border-radius: 0.5vh 0 0 0.5vh;
+        background-color: whitesmoke;
+        @media screen and (max-width: $breakDesktop) {
+          @include set-size(50%, 5vh);
+        }
+        @media screen and (max-width: $breakTablet) {
+          @include set-size(50%, 5vh);
+        }
+        @media screen and (max-width: $breakMobile) {
+          @include set-size(50%, 5vh);
+        }
+      }
+
+      &__to {
+        @include set-size(13vh, 4vh);
+        @include input;
+        font-size: 1.5vh;
+
+        border-radius: 0 0.5vh 0.5vh 0;
+        background-color: whitesmoke;
+        @media screen and (max-width: $breakDesktop) {
+          @include set-size(50%, 5vh);
+        }
+        @media screen and (max-width: $breakTablet) {
+          @include set-size(50%, 5vh);
+        }
+        @media screen and (max-width: $breakMobile) {
+          @include set-size(50%, 5vh);
+        }
+      }
+    }
+  }
+
+  &-items {
+    width: 100%;
+
+    &-bar {
+      display: flex;
+
+      &__text-field {
+        @include set-size(90%, 4vh);
+        @include input;
+        margin-right: 1vh;
+
+        background-color: whitesmoke;
+      }
+
+      &__button {
+        @include blue-button(10vh, 4vh);
+      }
+    }
+
+    &__sort {
+      @include set-size(20vh, 4vh);
+      background: rgba(0, 0, 0, 0);
+      border: 0;
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+    &__separator {
+      @include separator;
+
+      border-top: 1px solid rgba(0, 0, 0, 0.3);
+    }
+  }
 }
 
 .radio-container {
-    list-style-type: none;
+  list-style-type: none;
 }
 
 label {
-    font-size: 1.5vh;
+  font-size: 1.5vh;
 }

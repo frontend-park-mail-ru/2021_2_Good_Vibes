@@ -11,11 +11,20 @@ const initEvents: (self: HTMLElement) => void = (self) => {
 
   // -----------------
   const checkoutBtn = <HTMLButtonElement>self.getElementsByClassName('confirm-btn')[0];
-  // self.addEventListener('submit', (event) => {
-  checkoutBtn.addEventListener('click', (event) => {
+  self.addEventListener('submit', (event) => {
+    /* checkoutBtn.addEventListener('click', (event) => { */
     event.preventDefault();
 
     bus.emit('checkout button click', undefined);
+  });
+
+  // -----------------
+  const checkoutBtnMobile = <HTMLButtonElement>self.getElementsByClassName('confirm-btn-mobile')[0];
+  checkoutBtnMobile.addEventListener('click', (event) => {
+    /* checkoutBtn.addEventListener('click', (event) => { */
+    event.preventDefault();
+
+    bus.emit('checkout mobile button click', undefined);
   });
 };
 

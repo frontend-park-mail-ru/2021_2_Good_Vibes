@@ -46,10 +46,10 @@ const connections: Connection[] = [
     event: 'confirmation state request',
     callback: request.confirmation,
   },
-  // {
-  //   event: 'saved state request',
-  //   callback: request.savedState,
-  // },
+  {
+    event: 'saved state request',
+    callback: request.savedState,
+  },
   {
     event: 'orders state request',
     callback: request.orders,
@@ -60,6 +60,10 @@ const connections: Connection[] = [
       searchParams.setDefault,
       request.search,
     ],
+  },
+  {
+    event: 'cart confirm request',
+    callback: request.cartConfirm,
   },
 ];
 

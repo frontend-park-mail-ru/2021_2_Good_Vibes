@@ -3,16 +3,19 @@
 .auth {
   @include popup(50vh);
   &-box {
-    position: absolute;
+    position: fixed;
     top: 50%;
     left: 50%;
-    width: 400px;
+    /* width: 400px; */
     padding: 40px;
     transform: translate(-50%, -50%);
     background: #fff;
     box-sizing: border-box;
     box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
     border-radius: 10px;
+    @media screen and (max-width: $breakMobile) {
+      width: 100%;
+    }
     h2 {
       margin: 0 0 30px;
       padding: 0;
@@ -25,7 +28,7 @@
     }
   }
   &-btn {
-    @include light-button();
+    @include blue-button(18vh, 4vh);
   }
   &-content {
     &-form {
@@ -58,10 +61,10 @@
       &__close {
         width: 2vh;
         height: 2vh;
-        position: absolute;
         fill: #787878;
         top: 1vh;
         right: 1vh;
+        position: fixed;
       }
     }
   }

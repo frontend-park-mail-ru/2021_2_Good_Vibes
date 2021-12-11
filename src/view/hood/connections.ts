@@ -21,6 +21,14 @@ const connections: Connection[] = [
     event: 'aside button click',
     callback: hood.showAside,
   },
+  {
+    event: 'aside button click hide',
+    callback: hood.hideAsideByBtn,
+  },
+  {
+    event: 'search button click',
+    callback: hood.showSearch,
+  }
 ];
 
 export default connections;

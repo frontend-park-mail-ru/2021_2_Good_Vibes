@@ -7,7 +7,8 @@
     "build": "webpack --mode=production && npm rum move-files",
     "move-files": "cp src/sw.js dist/ && cp src/fileList dist/ && cp src/_redirects dist/ ",
     "lint": "npx eslint ./src**",
-    "start": "webpack serve"
+    "start": "webpack serve",
+    "netlify": "npm run build && netlify deploy --prod"
   },
   "author": "",
   "license": "ISC",

@@ -5,7 +5,7 @@
   <button type="submit" class="search-btn">поиск</button>
 </form> }}
 
-<form class="search-form">
+{{! <form class="search-form">
   <input
     type="search"
     class="search-input"
@@ -14,12 +14,13 @@
                   Search
                 </button> -->
   <ul class="search-suggests">
-{{!--     <li class="search-suggest">
-      
-    </li> --}}
-    {{!-- 
-    <li class="search-suggest" data-reactid=".0.1.2.$Diana, Princess of Wales">
-      Diana, Princess of Wales
-    </li> --}}
   </ul>
-</form>
+</form> }}
+
+<div class="search-catalog">
+  <form class="search-form">
+    <input type="search" class="search-input" placeholder="Искать товары" />
+    <ul class="search-suggests">
+    </ul>
+  </form>
+</div>

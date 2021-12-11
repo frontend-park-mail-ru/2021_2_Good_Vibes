@@ -1,43 +1,61 @@
 @import "../../scss/main.scss";
 
 .product-card {
-  @include set-size(12vw, 18vw);
+  @include set-size(12vw, 20vw);
   @include product-block;
+
+  position: relative;
   margin: 0.5vw;
 
-  @media screen and (max-width: $breakTablet) {
+  /* @media screen and (max-width: $breakTablet) {
     width: 18vw;
     height: 25vw;
     margin: 1vw;
-  }
+  } */
 
+  @media screen and (max-width: $breakDesktop) {
+    @include set-size(18vw, 29vw);
+    margin: 0.7vw;
+}
+
+@media screen and (max-width: $breakTablet) {
+  @include set-size(24vw, 39vw);
+  margin: 1vw;
+}
+
+  @media screen and (max-width: $breakMobile) {
+      @include set-size(43vw, 60vw);
+      margin: 1.5vw;
+  }
+  
+  
   &-inner {
     @include set-size(100%, 100%);
 
     display: flex;
     flex-direction: column;
-    align-items: center;
-    @media screen and (max-width: $breakTablet) {
+    /*  align-items: center; */
+    /*  @media screen and (max-width: $breakTablet) {
       padding: 0px 24px;
-    }
+    } */
   }
 
   &__img {
     /*   width: 135px; */
     object-fit: cover;
-    height: 180px;
-    @media screen and (max-width: $breakTablet) {
+    height: 60%;
+    /* @media screen and (max-width: $breakTablet) {
       height: 124px;
       padding: 8px 20px;
-    }
+    } */
   }
 
-  &__like {
+  /* &__like {
     width: 1.5vw;
     height: 1.5vw;
     position: absolute;
     right: 0.5vw;
-  }
+  } */
 
   &-info {
     @include set-size(100%, 40%);
@@ -53,23 +71,54 @@
       }
     }
 
-    &__price {
-      width: 100%;
-
-      font-size: 2vw;
-      @include overflow-text-width;
-    }
-
     &__name {
       width: 100%;
       margin-bottom: 0.2vw;
       margin-top: 1vw;
 
-      font-size: 1.6vw;
+      font-size: 1.2vw;
       @include overflow-text-height(2.4vw);
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
+      @media screen and (max-width: $breakDesktop) {
+        margin-bottom: 0.5vw;
+
+        font-size: 1.5vw;
+        @include overflow-text-height(3.5vw);
+      }
+
+      @media screen and (max-width: $breakTablet) {
+        margin-bottom: 1vw;
+
+        font-size: 2vw;
+        @include overflow-text-height(4.5vw);
+      }
+
+      @media screen and (max-width: $breakMobile) {
+        font-size: 4vw;
+        @include overflow-text-height(9.6vw);
+      }
+    }
+
+    &__price {
+      width: 100%;
+      margin-top: auto;
+
+      font-size: 1.2vw;
+      @include overflow-text-width;
+
+      @media screen and (max-width: $breakDesktop) {
+        font-size: 2.3vw;
+      }
+
+      @media screen and (max-width: $breakTablet) {
+        font-size: 3vw;
+      }
+
+      @media screen and (max-width: $breakMobile) {
+        font-size: 4.5vw;
+      }
     }
   }
 }

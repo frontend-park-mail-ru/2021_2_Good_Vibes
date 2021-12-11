@@ -15,6 +15,10 @@ const connections: Connection[] = [
     callback: cart.addProductMiddleware,
   },
   {
+    event: 'add product to cart mobile',
+    callback: cart.addProductMiddleware,
+  },
+  {
     event: 'put product to cart request',
     callback: cart.putProductMiddleware,
   },

@@ -1,8 +1,11 @@
 import { addToHistory } from '../../rout/callbacks';
-import { Connection } from '../../types';
+import { Connection, OrderRequest } from '../../types';
 import * as confirm from './callbacks';
 import * as request from '../request/callbacks';
 import searchParams from '../../object/search/params';
+import bus from '../../init/bus';
+
+
 
 const connections: Connection[] = [
   {
@@ -85,7 +88,7 @@ const connections: Connection[] = [
   {
     event: 'cart state confirmed',
     callback: [
-      // confirm.saveState,
+      confirm.saveState,
       confirm.showCart,
       addToHistory,
     ],
@@ -134,7 +137,7 @@ const connections: Connection[] = [
   },
   {
     event: 'order confirmed',
-    callback: request.orders,
+    callback: request.profile,
   },
   {
     event: 'orders state confirmed',
@@ -148,6 +151,12 @@ const connections: Connection[] = [
     callback: [
       confirm.search,
       // addToHistory,
+    ],
+  },
+  {
+    event: 'cart confirm confirmed',
+    callback: [
+      (obj: OrderRequest): void => { bus.emit('cart ajax confirmed', obj); },
     ],
   },
 ];

@@ -5,6 +5,7 @@ import { addToHistory } from '../../rout/callbacks';
 import {
   AjaxResponse, Callback, Product,
 } from '../../types';
+import redirect from '../redirect';
 // import state from '../state';
 
 export const showSignIn: Callback = () => {
@@ -99,9 +100,16 @@ export const showCategoryPage: Callback = () => {
   bus.emit('show view', { name: 'categoryPage' });
 };
 
-export const categoryAddToHistory: Callback = (obj: { name: string }) => {
+export const categoryAddToHistory: Callback = (obj: { name: string, pathname: string }) => {
+
+  console.log('categoryAddToHistory', obj);
+
   addToHistory({
-    pathname: `/category?name=${obj.name}`,
+    // pathname: `/category?name=${obj.name}`,
+
+    pathname: `/category/${obj.name}`,
+
+    // pathname: `${obj.pathname}`,
   });
 };
 
@@ -132,12 +140,11 @@ export const search: Callback = (response: { 'responseText': string }) => {
     .then(() => JSON.parse(responseText))
     // .then((obj: Product[]) => bus.emit('add product array to category page', obj))
     .then((obj: Product[]) => bus.emit('show search results', obj))
-    .catch((err) => console.error(err))
+    .catch((err) => console.error(err));
 };
 
-// export const saveState: Callback = (obj: { 'state': string }) => {
-//   console.log(obj);
-//   const currentState = obj.state;
+export const saveState: Callback = (obj: { 'state': string }) => {
+  console.log(obj);
 
-//   state.set(currentState);
-// };
+  redirect.saveState(obj);
+};

@@ -1,9 +1,8 @@
 import bus from '../../init/bus';
 import cart from '../../object/cart/cart';
 import user from '../../object/user/user';
-import { Callback } from '../../types';
+import { Callback, OrderRequest } from '../../types';
 import redirect from '../redirect';
-// import state from '../state';
 
 export const signIn: Callback = () => {
   if (user.isAutorize()) {
@@ -11,7 +10,11 @@ export const signIn: Callback = () => {
     return;
   }
 
+  // console.log(window.location.pathname);
+  // const { pathname } = window.location;
+
   bus.emit('signIn state confirmed', { state: 'signin', pathname: '/signin' });
+  // bus.emit('signIn state confirmed', { state: 'signin', pathname });
 };
 
 export const signUp: Callback = () => {
@@ -21,6 +24,9 @@ export const signUp: Callback = () => {
   }
 
   bus.emit('signUp state confirmed', { state: 'signUp', pathname: '/signup' });
+
+  // const { pathname } = window.location;
+  // bus.emit('signUp state confirmed', { state: 'signUp', pathname });
 };
 
 export const profile: Callback = () => {
@@ -30,6 +36,9 @@ export const profile: Callback = () => {
   }
 
   bus.emit('profile state confirmed', { state: 'profile', pathname: '/profile' });
+
+  // const { pathname } = window.location;
+  // bus.emit('profile state confirmed', { state: 'profile', pathname });
 };
 
 export const homepage: Callback = () => {
@@ -58,7 +67,8 @@ export const address: Callback = () => {
   bus.emit('address state confirmed', { state: 'address', pathname: '/address' });
 };
 
-export const category: Callback = (obj: { name: string }) => {
+// export const category: Callback = (obj: { name: string }) => {
+export const category: Callback = (obj: { name: string, pathname: string }) => {
   bus.emit('category ajax request', obj);
 };
 
@@ -106,4 +116,15 @@ export const orders: Callback = () => {
 
 export const search: Callback = (obj: { str: string }) => {
   bus.emit('search ajax request', obj);
+};
+
+export const cartConfirm: Callback = (obj: OrderRequest) => {
+  console.warn('cartConfirm', obj);
+
+  if (!user.isAutorize()) {
+    bus.emit('signIn state request', undefined);
+    return;
+  }
+
+  bus.emit('cart confirm confirmed', obj);
 };

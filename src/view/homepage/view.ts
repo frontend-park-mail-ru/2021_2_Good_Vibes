@@ -26,8 +26,9 @@ export default class Homepage extends View implements ViewInterface {
 
   constructor(classId: string) {
     super();
-    this.self = <HTMLElement>document.createElement('class');
+    this.self = <HTMLElement>document.createElement('div');
     this.self.id = 'layout';
+    this.self.className = 'layout';
     bus.add(connections);
     this.render();
   }

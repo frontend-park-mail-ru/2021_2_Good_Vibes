@@ -9,8 +9,40 @@ let categoryName: string;
 
 const pageYOffset: { [name: string]: number } = {};
 
-export const addProductArray: Callback = (array: Product[]) => {
-  /* const productContainer = document.getElementsByClassName('product-container')[0]; */
+const gen = function* (productArray: Product[]) {
+  const chankLength = 6;
+
+  const a: Product[] = [];
+  let i: number;
+  for (i = 0; i < Math.floor(productArray.length / chankLength); i += 1) {
+    yield productArray.slice(i * chankLength, (i + 1) * chankLength);
+  }
+  yield productArray.slice(i * chankLength, productArray.length);
+
+  return a;
+};
+
+let generator: Generator<Product[], Product[], unknown>;
+
+export const renderArray: Callback = () => {
+  const a = generator.next();
+
+  if (a.done) {
+    return;
+  }
+
+  // console.log(a);
+
+  const productContainer = document.getElementsByClassName('product-table-body')[0];
+
+  const viewArray = ProductCatdList.viewArray(a.value);
+
+  viewArray.forEach((cardView) => {
+    productContainer.appendChild(cardView.self);
+  });
+};
+
+export const createChankGenerator: Callback = (array: Product[]) => {
   const productContainer = document.getElementsByClassName('product-table-body')[0];
 
   productContainer.textContent = '';
@@ -20,17 +52,23 @@ export const addProductArray: Callback = (array: Product[]) => {
     return;
   }
 
-  // array.sort((a, b) => a.id - b.id);
+  generator = gen(array);
 
-  const viewArray = ProductCatdList.viewArray(array);
-  viewArray.forEach((cardView) => {
-    productContainer.appendChild(cardView.self);
-  });
+  // renderArray(undefined);
+  // renderArray();
+  // renderArray();
+  // renderArray();
+  // renderArray();
+  // renderArray();
 };
 
 export const saveCurrentCategoryName: Callback = () => {
   const { search } = window.location;
-  [, categoryName] = search.match(/.*name=(\w+)/u);
+
+  console.log('saveCurrentCategoryName', search, window.location.pathname);
+  // [, categoryName] = search.match(/.*name=(\w+)/u);
+
+  [, categoryName] = window.location.pathname.match(/\/category\/(.+)/u);
 };
 
 export const savePageYOffset: Callback = () => {

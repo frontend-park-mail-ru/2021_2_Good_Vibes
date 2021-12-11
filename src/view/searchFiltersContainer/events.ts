@@ -33,28 +33,31 @@ const initEvents: (self: HTMLElement) => void = (self) => {
     });
   });
 
-  input.minPrice.addEventListener('change', () => {
-    if (input.minPrice.value > input.maxPrice.value) input.minPrice.value = input.maxPrice.value;
-  });
+  // input.minPrice.addEventListener('change', () => {
+  //   if (input.minPrice.value > input.maxPrice.value) input.minPrice.value = input.maxPrice.value;
+  // });
 
-  input.maxPrice.addEventListener('change', () => {
-    if (input.maxPrice.value < input.minPrice.value) input.maxPrice.value = input.minPrice.value;
-  });
+  // input.maxPrice.addEventListener('change', () => {
+  //   if (input.maxPrice.value < input.minPrice.value) input.maxPrice.value = input.minPrice.value;
+  // });
 
-  input.minRating.addEventListener('change', () => {
-    if (input.minRating.value > input.maxRating.value) input.minRating.value = input.maxRating.value;
-  });
+  // input.minRating.addEventListener('change', () => {
+  //   if (input.minRating.value > input.maxRating.value) input.minRating.value = input.maxRating.value;
+  // });
 
-  input.maxRating.addEventListener('change', () => {
-    if (input.maxRating.value < input.minRating.value) input.maxRating.value = input.minRating.value;
-  });
+  // input.maxRating.addEventListener('change', () => {
+  //   if (input.maxRating.value < input.minRating.value) input.maxRating.value = input.minRating.value;
+  // });
 
   Object.entries(input).forEach(([key, inputElement]) => {
     inputElement.addEventListener('change', (event) => {
       event.preventDefault();
       searchParams[key] = +inputElement.value;
 
-      const currentCategory = window.location.search.match(/.*name=(\w+)/u)[1];
+      // const currentCategory = window.location.search.match(/.*name=(\w+)/u)[1];
+
+      const currentCategory = window.location.pathname.match(/\/category\/(.+)/u)[1];
+
       bus.emit('category ajax request', { name: currentCategory });
     });
   });
@@ -70,7 +73,10 @@ const initEvents: (self: HTMLElement) => void = (self) => {
         const type = <'asc' | 'desc'>element.value.toString();
         searchParams.type = type;
 
-        const currentCategory = window.location.search.match(/.*name=(\w+)/u)[1];
+        // const currentCategory = window.location.search.match(/.*name=(\w+)/u)[1];
+
+        const currentCategory = window.location.pathname.match(/\/category\/(.+)/u)[1];
+
         bus.emit('category ajax request', { name: currentCategory });
         return false;
       }
@@ -89,7 +95,10 @@ const initEvents: (self: HTMLElement) => void = (self) => {
         const type = <'price' | 'rating'>element.value.toString();
         searchParams.orderType = type;
 
-        const currentCategory = window.location.search.match(/.*name=(\w+)/u)[1];
+        // const currentCategory = window.location.search.match(/.*name=(\w+)/u)[1];
+
+        const currentCategory = window.location.pathname.match(/\/category\/(.+)/u)[1];
+
         bus.emit('category ajax request', { name: currentCategory });
         return false;
       }

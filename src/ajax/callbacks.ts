@@ -157,8 +157,31 @@ export const categoryGet: Callback = () => {
     .then(() => bus.emit('category get finished', undefined));
 };
 
-export const categoryRequest: Callback = (obj: { name: string }) => {
-  const { name } = obj;
+// export const categoryRequest: Callback = (obj: { name: string }) => {
+//   const { name } = obj;
+
+//   const {
+//     minPrice,
+//     maxPrice,
+//     maxRating,
+//     minRating,
+//     type,
+//     orderType,
+//   } = searchParams;
+
+//   ajax.get({
+//     // url: `${backendAddress}/category/${name}`,
+//     url: `${backendAddress}/category/${name}?price_min=${minPrice}&price_max=${maxPrice}&rating_min=${minRating}&rating_max=${maxRating}&order=${orderType}&order_type=${type}`,
+//   })
+
+//     .then((response: AjaxResponse) => bus.emit('category ajax confirmed', response))
+//     .then(() => bus.emit('category ajax name', obj))
+//     .catch((response: AjaxResponse) => bus.emit('category ajax denied', response));
+// };
+
+export const categoryRequest: Callback = (obj: { name: string, pathname: string }) => {
+  const { name, pathname } = obj;
+  console.log(obj);
 
   const {
     minPrice,
@@ -169,9 +192,14 @@ export const categoryRequest: Callback = (obj: { name: string }) => {
     orderType,
   } = searchParams;
 
+  console.log('pathname', pathname);
+
   ajax.get({
     // url: `${backendAddress}/category/${name}`,
+
     url: `${backendAddress}/category/${name}?price_min=${minPrice}&price_max=${maxPrice}&rating_min=${minRating}&rating_max=${maxRating}&order=${orderType}&order_type=${type}`,
+
+    // url: `${backendAddress}${pathname}?price_min=${minPrice}&price_max=${maxPrice}&rating_min=${minRating}&rating_max=${maxRating}&order=${orderType}&order_type=${type}`,
   })
 
     .then((response: AjaxResponse) => bus.emit('category ajax confirmed', response))

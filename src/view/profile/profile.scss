@@ -125,37 +125,99 @@ overflow: hidden;
 } */
 @import "../../scss/main.scss";
 .layout-inner {
-  margin: 0 10vw;
+  /*margin: 0 10vw;
   margin-top: 10vh;
-  min-height: calc(145vh - 44px);  /* 100 */
+  /* min-height: calc(145vh - 44px);  */ /* 100 
   width: 80%;
-  /* height: 100%; */
   @media screen and (max-width: $breakTablet) {
     margin: 0 5vw;
     width: 80%;
     margin-top: 15vw;
+  }
+
+  margin: 0 15vw;
+    margin-top: 5vh;
+    /* min-height: calc(145vh - 44px); */
+  /* @include set-size(80%, 100%); */
+  /* @media screen and (max-width: $breakTablet) {
+      margin: 0 5vw;
+      margin-top: 10vh;
+      /* min-height: calc(100vh - 44px); 
+      width: 80%;
+    } */
+
+  margin: 0 15vw;
+  margin-top: 5vh;
+  flex: 1 0 auto;
+
+  @media screen and (max-width: 1400px) {
+    margin: 5vw 10vw;
+  }
+
+  @media screen and (max-width: $breakDesktop) {
+    margin: 5vw 10vw;
+  }
+
+  @media screen and (max-width: $breakTablet) {
+    margin: 0 5vw;
+  }
+
+  @media screen and (max-width: $breakMobile) {
+    margin: 5vw 0;
   }
 }
 
 .g-page-title {
   /* margin: 90px 0 30px; */
   font-size: 3vh;
-  margin-bottom: 1vh;
+  @media screen and (max-width: $breakMobile) {
+    margin: 5vw 5vw;
+  }
+  /* margin-bottom: 1vh; */
 }
 
 .middle-container {
-  margin: 42px 0px;
-  padding: 0;
-  width: 1200px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin-top: 3vh;
+  margin-bottom: 4vh;
+  @media screen and (max-width: $breakDesktop) {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
   @media screen and (max-width: $breakTablet) {
-    width: 700px;
-    margin: 42px 20px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+  @media screen and (max-width: $breakMobile) {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    margin: 5vw 5vw;
   }
 }
 
 .profile-block {
-  height: 410px;
+  /* height: 410px;
   margin-right: 180px;
   margin-left: 20px;
   background: #fff;
@@ -166,26 +228,102 @@ overflow: hidden;
     margin-left: 0px;
     margin-right: 0px;
     box-shadow: 0 15px 25px #fff;
+  } */
+  /* width: 100%; */
+  width: 45%;
+  height: 100%;
+  @media screen and (max-width: $breakDesktop) {
+    width: 100%;
+    height: 100%;
+  }
+  @media screen and (max-width: $breakTablet) {
+    width: 100%;
+    height: 100%;
+  }
+  @media screen and (max-width: $breakMobile) {
+    width: 100%;
+    height: 100%;
   }
   &-info {
-    height: 410px;
-    width: 600px;
-    padding: 20px;
-    box-shadow: 0 15px 25px #333;
+    width: 70%;
+    height: 100%;
+    margin-left: 2vw;
     h2 {
       margin: 0 0 30px;
       padding: 0;
       color: #333;
       /* text-align: center; */
       font-size: 3vh;
+      @media screen and (max-width: 1400px) {
+        font-size: 2vh;
+      }
+      @media screen and (max-width: $breakDesktop) {
+        font-size: 2vh;
+      }
+      @media screen and (max-width: $breakTablet) {
+        font-size: 2vh;
+      }
+      @media screen and (max-width: $breakMobile) {
+        font-size: 1vh;
+      }
+    }
+    @media screen and (max-width: $breakDesktop) {
+      width: 100%;
+      height: 100%;
+      margin-top: 2vh;
+      margin-left: 0;
     }
     @media screen and (max-width: $breakTablet) {
-      width: 450px;
-      box-shadow: 0 15px 25px #fff;
+      width: 100%;
+      height: 100%;
+      margin-top: 2vh;
+      margin-left: 0;
     }
+    @media screen and (max-width: $breakMobile) {
+      width: 100%;
+      height: 100%;
+      margin-top: 2vh;
+      margin-left: 0;
+    }
+  }
+
+  &-settings {
+    /* width: 100%; */
+    width: 70%;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
   }
 }
 
+.profile-menu {
+  width: 70%;
+
+  @include shadow-block(#fff);
+
+  display: flex;
+  flex-direction: column;
+
+  @media screen and (max-width: $breakDesktop) {
+    box-shadow: none;
+  }
+  @media screen and (max-width: $breakTablet) {
+    box-shadow: none;
+  }
+  @media screen and (max-width: $breakMobile) {
+    box-shadow: none;
+  }
+
+  &-inner {
+    margin: 2vh;
+  }
+}
 /* h1,
 h2,
 p,
@@ -212,7 +350,8 @@ span {
 
 .form__photo {
   height: 100%;
-  width: 100%;
+  width: auto;
+  margin: 0 auto;
 }
 
 .form__photo:hover {
@@ -225,9 +364,23 @@ span {
   font-size: 23px;
 }
 .profile-description {
-  width: 210px;
+  /* width: 210px;
   margin: 0 auto;
-  text-align: center;
+  text-align: center; */
+  margin-top: 1.5vh;
+  margin-left: 1vh;
+  width: 100%;
+  &-inner {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
 }
 
 /* p {
@@ -235,17 +388,93 @@ span {
 } */
 
 .update-btn {
-  @include blue-button(25.2vh, 4vh);
+  /* @include blue-button(25.2vh, 4vh);
   @media screen and (max-width: $breakTablet) {
     width: 15vh;
+  } */
+  /* @include blue-button(20vw, 4vh); */
+  @include blue-button(80%, 4vh);
+  /* font-size: 0.7vh; */
+  /* margin-top: 40px; */
+  /*  @media screen and (max-width: $breakTablet) {
+    width: 15vh;
+  }  */
+  margin: 1.2vh 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 1.6vh;
+  justify-content: center;
+  @media screen and (max-width: 1920px) {
+    @include blue-button(20vw, 3vh);
+    font-size: 1vh;
+  }
+  @media screen and (max-width: $breakDesktop) {
+    @include blue-button(45vw, 4vh);
+    font-size: 1.4vh;
+  }
+  @media screen and (max-width: $breakTablet) {
+    @include blue-button(45vw, 2vh);
+    font-size: 1.1vh;
+  }
+  @media screen and (max-width: $breakMobile) {
+    @include blue-button(60vw, 3vh);
+    font-size: 1.1vh;
   }
 }
 
 .logout-btn {
-  @include blue-button(20vh, 4vh);
-  margin-top: 40px;
-  @media screen and (max-width: $breakTablet) {
+  @include blue-button(80%, 4vh);
+  /* font-size: 0.7vh; */
+  /* margin-top: 40px; */
+  /*  @media screen and (max-width: $breakTablet) {
     width: 15vh;
+  }  */
+  margin: 1.2vh 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 1.6vh;
+  justify-content: center;
+  @media screen and (max-width: 1920px) {
+    @include blue-button(15vw, 3vh);
+    font-size: 1vh;
+  }
+  @media screen and (max-width: $breakDesktop) {
+    @include blue-button(45vw, 4vh);
+    font-size: 1.4vh;
+  }
+  @media screen and (max-width: $breakTablet) {
+    @include blue-button(45vw, 2vh);
+    font-size: 1.1vh;
+  }
+  @media screen and (max-width: $breakMobile) {
+    @include blue-button(52vw, 4vh);
+    font-size: 1.1vh;
   }
 }
 
@@ -271,8 +500,32 @@ span {
 }
 
 .auth-box-form-profile {
-  margin-bottom: 20px;
-  width: 400px;
+  /* margin-bottom: 20px;
+  width: 400px; */
+  border: 0;
+  border-radius: 1vh;
+  @include shadow-block(#fff);
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  padding: 1vh 2.5vh;
+  height: 100%;
+
+  @media screen and (max-width: $breakDesktop) {
+    box-shadow: none;
+  }
+  @media screen and (max-width: $breakTablet) {
+    box-shadow: none;
+  }
+  @media screen and (max-width: $breakMobile) {
+    box-shadow: none;
+  }
 }
 .user-box {
   position: relative;
@@ -314,9 +567,16 @@ span {
   font-size: 16px;
   border-collapse: collapse;
   border-spacing: 0;
-  max-width: 600px;
-  width: 100%;
-  margin: 42px 20px;
+  /* max-width: 600px;
+  width: 100%; */
+  width: 20vw;
+  @media screen and (max-width: $breakTablet) {
+    margin: 5vw 5vw;
+  }
+  @media screen and (max-width: $breakMobile) {
+    margin: 5vw 15vw;
+  }
+  /* margin: 42px 20px; */
   th {
     text-align: left;
   }

@@ -8,6 +8,11 @@ const connections: Connection[] = [
     callback: cart.confirmAjaxRequest,
   },
   {
+    event: 'checkout mobile button click',
+    // callback: cart.addressStateRequest,
+    callback: cart.confirmMobileAjaxRequest,
+  },
+  {
     event: 'cart shown',
     callback: [
       cart.productArrayRequest,

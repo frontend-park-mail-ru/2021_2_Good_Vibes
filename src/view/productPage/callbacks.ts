@@ -26,6 +26,22 @@ export const changeBtn: Callback = () => {
   });
 };
 
+export const changeBtnMobile: Callback = () => {
+  const addBtnParent = <HTMLButtonElement>document.getElementsByClassName('info-card-mobile-btn__cart')[0];
+
+  const cartBtnElem = <HTMLButtonElement>document.createElement('button');
+  cartBtnElem.className = 'info-card-btn__add-cart';
+  cartBtnElem.innerHTML = 'Перейти в корзину';
+
+  /*  const cartBtnElem = new InfoCardBtn(); */
+  addBtnParent.replaceWith(cartBtnElem);
+  cartBtnElem.addEventListener('click', (event) => {
+    event.preventDefault();
+
+    bus.emit('cart button click', undefined);
+  });
+};
+
 export const scrollToTop: Callback = () => {
   document.documentElement.scrollTop = 0;
 };
