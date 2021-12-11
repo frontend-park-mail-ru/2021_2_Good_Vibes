@@ -1,4 +1,4 @@
-import searchParams from '../../object/search/params';
+import searchParams from '../../services/search/params';
 import { Connection } from '../../types';
 import * as request from './callbacks';
 

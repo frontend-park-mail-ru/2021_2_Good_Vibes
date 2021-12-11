@@ -1,6 +1,6 @@
 /** @module Ajax */
 
-import { AjaxResponse } from '../types';
+import { AjaxResponse } from '../../types';
 
 /**
  * Объект с Ajax-запросами

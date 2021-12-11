@@ -1,5 +1,5 @@
-import bus from '../../init/bus';
-import searchParams from '../../object/search/params';
+import bus from '../../modules/bus/bus';
+import searchParams from '../../services/search/params';
 
 /* eslint-disable max-len */
 const initEvents: (self: HTMLElement) => void = (self) => {

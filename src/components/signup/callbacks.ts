@@ -1,6 +1,6 @@
-import bus from '../../init/bus';
+import bus from '../../modules/bus/bus';
 import { Callback } from '../../types';
-import validate from '../../validator/inputData';
+import validate from '../../modules/validator/inputData';
 // import redirect from '../../dispatcher/redirect';
 
 export const SignInShow: Callback = () => {

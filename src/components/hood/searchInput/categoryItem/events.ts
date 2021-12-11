@@ -1,4 +1,4 @@
-import bus from '../../../../init/bus';
+import bus from '../../../../modules/bus/bus';
 import { CategorySuggest } from '../../../../types';
 
 const initEvents: (self: HTMLElement, context: CategorySuggest) => void = (self, context) => {

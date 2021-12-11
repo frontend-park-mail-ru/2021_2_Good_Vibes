@@ -2,8 +2,8 @@ import { addToHistory } from '../../rout/callbacks';
 import { Connection, OrderRequest } from '../../types';
 import * as confirm from './callbacks';
 import * as request from '../request/callbacks';
-import searchParams from '../../object/search/params';
-import bus from '../../init/bus';
+import searchParams from '../../services/search/params';
+import bus from '../../modules/bus/bus';
 
 
 

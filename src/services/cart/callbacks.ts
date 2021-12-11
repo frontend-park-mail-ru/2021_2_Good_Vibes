@@ -1,4 +1,4 @@
-import bus from '../../init/bus';
+import bus from '../../modules/bus/bus';
 import { AjaxResponse, Callback, CartItem } from '../../types';
 import user from '../user/user';
 import cart from './cart';

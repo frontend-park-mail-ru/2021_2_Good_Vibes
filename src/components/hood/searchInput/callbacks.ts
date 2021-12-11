@@ -1,7 +1,7 @@
 import { Callback, Product, Suggests } from '../../../types';
 import ProductSuggestItem from './productItem/view';
 import CategorySuggestItem from './categoryItem/view';
-import bus from '../../../init/bus';
+import bus from '../../../modules/bus/bus';
 // import list from '../../productCard/list';
 
 const suggestList: {

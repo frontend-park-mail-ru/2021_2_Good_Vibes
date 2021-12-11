@@ -1,6 +1,6 @@
-import bus from '../../../init/bus';
+import bus from '../../../modules/bus/bus';
 import { Callback } from '../../../types';
-import orderData from '../../../object/orderData/orderData';
+import orderData from '../../../services/orderData/orderData';
 
 export const paymentPageRequest: Callback = () => {
   bus.emit('payment state request', undefined);

@@ -1,8 +1,8 @@
-import bus from '../init/bus';
-import routMap from './routMap';
+import bus from '../bus/bus';
+import routMap from '../../rout/routMap';
 
 class Router {
-  private site = 'https://peaceful-bell-d76220.netlify.app';
+  /* private site = 'https://dreamy-yonath-26f2eb.netlify.app'; */
 
   private list: { [pathname: string]: string } = {};
 

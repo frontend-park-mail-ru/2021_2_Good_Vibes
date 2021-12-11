@@ -1,5 +1,5 @@
-import bus from '../../../init/bus';
-import user from '../../../object/user/user';
+import bus from '../../../modules/bus/bus';
+import user from '../../../services/user/user';
 import { Callback } from '../../../types';
 
 export const signInStateRequest: Callback = () => {

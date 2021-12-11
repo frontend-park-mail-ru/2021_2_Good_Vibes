@@ -1,6 +1,6 @@
 /* eslint-disable import/extensions */
-import bus from '../init/bus';
-import ajax from './script';
+import bus from '../modules/bus/bus';
+import ajax from '../modules/rpc/ajax';
 import {
   AjaxResponse,
   Callback,
@@ -9,7 +9,7 @@ import {
   OrderRequest,
   Suggests,
 } from '../types';
-import searchParams from '../object/search/params';
+import searchParams from '../services/search/params';
 
 // const backendAddress = 'https://ozonback.herokuapp.com';
 // const backendAddress = 'http://37.139.33.76';

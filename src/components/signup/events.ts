@@ -1,4 +1,4 @@
-import bus from '../../init/bus';
+import bus from '../../modules/bus/bus';
 
 const initEvents: (self: HTMLElement) => void = (self) => {
   const signInBtn = <HTMLElement>self.getElementsByClassName('auth-content-form-signin__link')[0];

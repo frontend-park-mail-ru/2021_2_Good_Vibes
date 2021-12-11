@@ -1,6 +1,6 @@
-import bus from '../../../init/bus';
-import cart from '../../../object/cart/cart';
-import orderData from '../../../object/orderData/orderData';
+import bus from '../../../modules/bus/bus';
+import cart from '../../../services/cart/cart';
+import orderData from '../../../services/orderData/orderData';
 import { Callback, OrderRequest } from '../../../types';
 import productCardList from '../list';
 

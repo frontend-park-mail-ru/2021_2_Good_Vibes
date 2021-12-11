@@ -1,4 +1,4 @@
-import { product } from '../../ajax/callbacks';
+import { product } from '../../api/callbacks';
 import { AjaxResponse, Connection } from '../../types';
 import * as productPage from './callbacks';
 import newCommentContainer from './newCommentContainer/view';

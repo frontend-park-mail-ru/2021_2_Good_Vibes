@@ -1,4 +1,4 @@
-import { Product } from '../types';
+import { Product } from '../../types';
 
 export default class View {
   public self: HTMLElement;

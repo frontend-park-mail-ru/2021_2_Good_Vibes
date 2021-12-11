@@ -1,8 +1,8 @@
-import bus from '../../init/bus';
+import bus from '../../modules/bus/bus';
 import { Callback } from '../../types';
-import validate from '../../validator/inputData';
+import validate from '../../modules/validator/inputData';
 // import redirect from '../../dispatcher/redirect';
-import state from '../../dispatcher/state';
+import state from '../../modules/state/state';
 
 export const SignUpShow: Callback = () => {
   bus.emit('signUp state request', undefined);

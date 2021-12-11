@@ -1,5 +1,5 @@
 import { Callback } from '../types';
-import router from './router';
+import router from '../modules/router/router';
 
 export const init: Callback = () => {
   const root = <HTMLElement>document.getElementsByClassName('grit-container')[0];

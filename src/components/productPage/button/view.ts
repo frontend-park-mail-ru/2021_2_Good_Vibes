@@ -2,7 +2,7 @@ import * as compiledTemplate from './template.handlebars';
 // import bus from '../../../init/bus';
 import initEvents from './events';
 // import connections from './connections';
-import View from '../../view';
+import View from '../../../modules/vibeView/view';
 
 export default class InfoCardBtn extends View {
   private async renderHTML() {

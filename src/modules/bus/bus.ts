@@ -1,5 +1,5 @@
-import { Callback, Connection } from '../types';
-import { isDebug } from  '@utils/isDebug';
+import { Callback, Connection } from '../../types';
+import { isDebug } from  '../../utils/isDebug';
 
 class EventBus {
   private listeners: { [event: string]: Callback[] } = {};

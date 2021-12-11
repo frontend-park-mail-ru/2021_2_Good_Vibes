@@ -1,4 +1,4 @@
-import bus from '../../../init/bus';
+import bus from '../../../modules/bus/bus';
 import { Callback } from '../../../types';
 
 export const cleanInput: Callback = () => {

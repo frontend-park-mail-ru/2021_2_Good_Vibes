@@ -64,10 +64,4 @@ module.exports = {
     },
     historyApiFallback: true,
   },
-  resolve: {
-    extensions: [".ts"],
-    alias: {
-      "@utils": path.resolve(__dirname, "src/utils"),
-    },
-  },
 };

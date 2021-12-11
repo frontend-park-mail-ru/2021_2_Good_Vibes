@@ -1,6 +1,6 @@
-import bus from '../../../init/bus';
+import bus from '../../../modules/bus/bus';
 import { Callback, Product } from '../../../types';
-import cart from '../../../object/cart/cart';
+import cart from '../../../services/cart/cart';
 
 export const deleteCartItem: Callback = (context: Product) => {
   const { id } = context;

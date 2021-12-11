@@ -1,4 +1,4 @@
-import bus from '../../../init/bus';
+import bus from '../../../modules/bus/bus';
 
 const initEvents: (self: HTMLElement) => void = (self) => {
   const emptyCartLink = <HTMLElement>self.getElementsByClassName('basket-empty-text__link')[0];

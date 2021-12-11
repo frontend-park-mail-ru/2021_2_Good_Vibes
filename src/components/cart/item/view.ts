@@ -1,7 +1,7 @@
 import * as compiledTemplate from './template.handlebars';
-import View from '../../view';
+import View from '../../../modules/vibeView/view';
 import { Product, ViewInterface } from '../../../types';
-import bus from '../../../init/bus';
+import bus from '../../../modules/bus/bus';
 import connections from './connections';
 import initEvents from './events';
 import './item.scss';

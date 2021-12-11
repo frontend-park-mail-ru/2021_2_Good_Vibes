@@ -1,7 +1,7 @@
-import bus from '../init/bus';
-import { Product, ViewInterface, Callback } from '../types';
+import bus from '../../modules/bus/bus';
+import { Product, ViewInterface, Callback } from '../../types';
 import constructor from './constructors';
-import redirect from '../dispatcher/redirect';
+import redirect from '../../dispatcher/redirect';
 
 type ShowViewSignature = (obj: { 'name': string, 'context': Product }) => void;
 

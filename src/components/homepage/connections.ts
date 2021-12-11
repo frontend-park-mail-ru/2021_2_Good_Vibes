@@ -1,4 +1,4 @@
-import bus from '../../init/bus';
+import bus from '../../modules/bus/bus';
 import { Connection, Product } from '../../types';
 import * as homepage from './callbacks';
 

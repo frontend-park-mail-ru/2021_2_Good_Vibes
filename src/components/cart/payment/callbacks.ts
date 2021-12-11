@@ -1,5 +1,5 @@
-import bus from '../../../init/bus';
-import orderData from '../../../object/orderData/orderData';
+import bus from '../../../modules/bus/bus';
+import orderData from '../../../services/orderData/orderData';
 import { Callback } from '../../../types';
 
 export const confirmationStateRequest: Callback = () => {

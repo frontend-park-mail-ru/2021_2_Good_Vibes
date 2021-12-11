@@ -1,6 +1,6 @@
-import bus from '../../init/bus';
-import cart from '../../object/cart/cart';
-import user from '../../object/user/user';
+import bus from '../../modules/bus/bus';
+import cart from '../../services/cart/cart';
+import user from '../../services/user/user';
 import { addToHistory } from '../../rout/callbacks';
 import {
   AjaxResponse, Callback, Product,

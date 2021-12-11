@@ -1,18 +1,18 @@
-import ajaxConnections from '../ajax/connections';
-import Hood from '../view/hood/view';
-import bus from './bus';
+import ajaxConnections from '../api/connections';
+import Hood from '../components/hood/view';
+import bus from '../modules/bus/bus';
 import initConnections from './connections';
 
-import viewControlConnections from '../viewControl/connections';
+import viewControlConnections from '../rout/viewControl/connections';
 import dispatcherConnections from '../dispatcher/connections';
 import routerConnections from '../rout/connections';
-import userConnections from '../object/user/connecitons';
-import cartConnections from '../object/cart/connections';
-import Aside from '../view/aside/view';
+import userConnections from '../services/user/connecitons';
+import cartConnections from '../services/cart/connections';
+import Aside from '../components/aside/view';
 
-import SearchInput from '../view/hood/searchInput/view';
-import PopupSearch from '../view/hood/popupSearch/view';
-import Navbar from '../view/hood/navbar-mobile/view';
+import SearchInput from '../components/hood/searchInput/view';
+import PopupSearch from '../components/hood/popupSearch/view';
+import Navbar from '../components/hood/navbar-mobile/view';
 
 const init: () => void = () => {
   bus.add(userConnections);

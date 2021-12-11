@@ -2,9 +2,5 @@
   "compilerOptions": {
     "target": "es5",
     "removeComments": true,
-    "baseUrl": "./",
-    "paths": {
-      "@utils/": ["src/utils/"]
-    }
   }
 }

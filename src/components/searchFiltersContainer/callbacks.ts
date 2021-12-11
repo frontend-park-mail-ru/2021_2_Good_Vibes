@@ -1,5 +1,5 @@
 /* eslint-disable prefer-destructuring */
-import searchParams from '../../object/search/params';
+import searchParams from '../../services/search/params';
 import { Callback, Product } from '../../types';
 
 export const getParams: Callback = (array: Product[]) => {

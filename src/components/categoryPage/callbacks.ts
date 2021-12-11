@@ -3,7 +3,7 @@ import {
   Product,
 } from '../../types';
 import ProductCatdList from '../productCard/list';
-import categoryList from '../../object/category/list';
+import categoryList from '../../services/category/list';
 
 let categoryName: string;
 

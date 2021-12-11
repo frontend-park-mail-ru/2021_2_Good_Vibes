@@ -1,6 +1,6 @@
-import bus from "../../init/bus";
+import bus from "../../modules/bus/bus";
 import { AjaxResponse, Callback, Category } from "../../types";
-import categoryList from "../../object/category/list";
+import categoryList from "../../services/category/list";
 
 export const show: Callback = () => {
   const asideObj = <HTMLElement>(
