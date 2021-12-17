@@ -1,0 +1,28 @@
+<div class="layout-inner">
+  <div class="search-block">
+    <div class="search-left">
+      {{!  <div class="search-filter">
+      </div> }}
+    </div>
+
+    <div class="product-table" id="product-table{{id}}">
+      <div class="product-table-inner">
+        <span class="product-table__title">Все товары</span>
+        <div class="sort">
+          <span>Сортировать по: </span>
+          <span id="sort-price-toggle" data-status="off">цене<i
+              class="fas fa-arrow-up"
+            ></i>
+            <i class="fas fa-arrow-down"></i></span>
+          <span id="sort-rating-toggle" data-status="off">рейтингу<i
+              class="fas fa-arrow-up"
+            ></i>
+            <i class="fas fa-arrow-down"></i></span>
+        </div>
+
+        <div class="product-table-body" id="product-table-body{{id}}"></div>
+
+      </div>
+    </div>
+  </div>
+</div>

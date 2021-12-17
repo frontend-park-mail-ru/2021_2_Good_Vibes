@@ -1,0 +1,84 @@
+<div class="layout-inner">
+  <div class="navigation">
+    <div class="navigation-inner">
+      <a class="back-to-result__link" href="/homepage">Вернуться в каталог</a>
+    </div>
+  </div>
+  <div class="board">
+    <div class="board-inner" id="board">
+      <div class="board-left" id="board-left-side">
+        <div class="slides">
+          <img class="slides__picture" id="pic" src="{{image}}" alt="" />
+        </div>
+        <div class="info-card-mobile">
+          <span class="iinfo-card-mobile__name">{{name}}</span>
+          <p class="info-card-mobile__price">{{price}} ₽</p>
+          <div class="info-card-mobile__separator"></div>
+          <div
+            class="info-card-mobile-content"
+            id="card-profile"
+            data-action="userClick"
+          >
+            <div class="info-card-mobile-container">
+
+              <div class="info-card-mobile-rating">
+                <div class="info-card-mobile-rating__text">{{rating}}</div>
+                <div class="info-card-mobile-rating__rate">
+                  <span class="star"></span>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div class="info-card-mobile-btn" id="info-card-btns">
+            <div class="info-card-mobile-btn__wrap">
+              <button class="info-card-mobile-btn__cart">Добавить в корзину</button>
+            </div>
+          </div>
+          <div class="info-card-mobile__separator"></div>
+          <div class="info-card-mobile-about">
+            <span class="info-card-mobile-about__span">О товаре</span>
+            <span class="info-card-mobile-about__description">{{description}}</span>
+          </div>
+        </div>
+      </div>
+      <div class="board-right" id="board-right-side">
+        <div class="info-card">
+          <span class="info-card__name">{{name}}</span>
+          <p class="info-card__price">{{price}} ₽</p>
+          <div class="info-card__separator"></div>
+          <div
+            class="info-card-content"
+            id="card-profile"
+            data-action="userClick"
+          >
+            <div class="info-card-container">
+
+              <div class="info-card-rating">
+                <div class="info-card-rating__text">{{rating}}</div>
+                <div class="info-card-rating__rate">
+                  <span class="star"></span>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div class="info-card-btn" id="info-card-btns">
+            <div class="info-card-btn__wrap">
+              <button class="info-card-btn__cart">Добавить в корзину</button>
+            </div>
+          </div>
+          <div class="info-card__separator"></div>
+          <div class="info-card-about">
+            <span class="info-card-about__span">О товаре</span>
+            <span class="info-card-about__description">{{description}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="board-bottom" id="board-bottom-side">
+  </div>
+
+</div>

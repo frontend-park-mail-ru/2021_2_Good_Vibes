@@ -1,0 +1,896 @@
+/* @import './style.scss';
+
+html {
+  font-size: 62.5%;
+  font-family: "Nunito", sans-serif;
+}
+
+body {
+  height: 100vh;
+}
+
+a {
+  color: $text-color-1;
+  text-decoration: none;
+
+  &:hover {
+    color: $twitter-color;
+  }
+}
+
+/* ,
+/*:before,
+/*:after { 
+  box-sizing: border-box;
+  margin: 0;
+}
+
+button {
+  cursor: pointer;
+}
+
+select,
+input,
+button {
+  font-size: 1.6rem;
+  padding: 1rem;
+  border: 0.1rem $dirty-gray-color solid;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+input:hover,
+button:hover {
+  border: 0.1rem #404040 solid;
+}
+
+.btn {
+  width: 100%;
+  background-color: $twitter-color;
+}
+
+/* html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+} */
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+$textColorDefault: #000000;
+$textGrayColor: rgb(122, 122, 122);
+$purpleColor: rgb(112, 146, 254);
+$mainColor: rgb(211, 30, 30);
+$blue-color: #2980b9;
+/* $linkColor: rgb(112, 146, 254); */
+
+$twitter-color: #1da1f2;
+$text-color-1: #444;
+$bg-color-1: #fff;
+$dirty-gray-color: #808080;
+$light-gray-color: #c0c0c0;
+
+$breakDesktop: 1024px;
+$breakTablet: 768px;
+$breakMobile: 576px;
+
+$maxWidth: 1920;
+$maxWidthContainer: 1170;
+
+@mixin adaptiv-value($property, $startSize, $minSize, $type) {
+  $addSize: $startSize - $minSize;
+  @if $type == 1 {
+    #{$property}: $startSize + px;
+    @media (max-width: #{$maxWidthContainer + px}) {
+      #{$property}: calc(
+        #{$minSize + px} + #{$addSize} *
+          ((100vw - 320px) / #{$maxWidthContainer - 320})
+      );
+    }
+  } @else if $type == 2 {
+    #{$property}: $startSize + px;
+    @media (max-width: #{$maxWidthContainer + px}) {
+      #{$property}: calc(
+        #{$minSize + px} + #{$addSize} *
+          ((100vw - 320px) / #{$maxWidthContainer - 320})
+      );
+    }
+  } @else {
+    #{$property}: calc(
+      #{$minSize +
+        px} +
+        #{$addSize} *
+        ((100vw - 320px) / #{$maxWidthContainer - 320})
+    );
+  }
+}
+
+html {
+  /* font-size: 62.5%;
+  overflow-x: hidden; */
+  /* max-width: 100%; */
+  /* height: 75%; */
+  /* max-width: 100%; */
+  height: 100%;
+  height: -webkit-fill-available;
+  min-height: -webkit-fill-available;
+  min-width: 994px;
+}
+html.adaptive,
+html.adaptive body {
+  /* 
+  @media screen and (max-width: $breakDesktop) {
+    min-width: 1024px;
+  }
+
+  @media screen and (max-width: $breakTablet) {
+    min-width: 768px;
+  }
+
+  @media screen and (max-width: $breakMobile) {
+    min-width: 320px;
+  } */
+  min-width: 320px;
+}
+
+body {
+  font-family: Roboto, sans-serif;
+  /* margin: 0;
+  overflow-x: hidden;
+  background-color: #fff;
+
+  position: relative;
+  min-height: 88%;
+  padding-bottom: 10vh; */ /*25*/
+  /* @include adaptiv-value("padding", 50, 20, 0); */
+  min-height: 100%;
+  min-height: -webkit-fill-available;
+  overflow-x: hidden;
+  /* -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%; */
+  /* text-size-adjust: 100%;*/
+  min-width: 994px;
+  margin: 0;
+  padding: 0;
+  overflow-anchor: none;
+}
+
+@mixin set-size($w, $h) {
+  width: $w;
+  height: $h;
+}
+
+@mixin shadow-block($bg-color) {
+  background-color: $bg-color;
+  border: 0;
+  border-radius: 1vh;
+  box-shadow: 0 0 1vw rgba(0, 0, 0, 0.2);
+}
+
+@mixin product-block() {
+  background-color: white;
+  border: 0;
+  border-radius: 1vh;
+  box-shadow: 0 0 1vw rgba(0, 0, 0, 0.2);
+  box-sizing: border-box;
+  cursor: pointer;
+  overflow: hidden;
+  transition-duration: 0.5s;
+  transition-property: box-shadow;
+
+  &:hover {
+    box-shadow: rgba(0, 0, 0, 0.5) 0 0 10px;
+  }
+}
+
+@mixin overflow-text-width {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@mixin overflow-text-height($h) {
+  max-height: $h;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@mixin separator() {
+  border-top: 1px solid rgb(227, 227, 227);
+  margin-bottom: 1vh;
+}
+
+@mixin border-block() {
+  box-sizing: border-box;
+  border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+@mixin circle() {
+  object-fit: cover;
+  background: #c4c4c4;
+  border-radius: 50%;
+}
+
+@mixin star() {
+  width: 12vh;
+
+  &__rate span {
+    font-size: 3vh;
+    color: gold;
+
+    /*     color: lightgrey; */
+  }
+
+  &__rate > span:before {
+    content: "★";
+  }
+
+  /*&__rate>span.star-active {
+    color: gold;
+  }*/
+}
+
+@mixin blue-button($w, $h) {
+  height: $h;
+  width: $w;
+  border: 0;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 1.5vh;
+  text-align: center;
+  cursor: pointer;
+  color: rgb(255, 255, 255);
+  background-color: $twitter-color;
+  outline: none;
+  text-transform: uppercase;
+
+  &:hover {
+    background-color: $purpleColor;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  /* @media screen and (max-width: $breakMobile) {
+    /* font-size: 2vh; 
+    height: 4.5vh;
+  } */
+}
+
+@mixin description-label() {
+  display: flex;
+  font-size: 1.8vh;
+  color: #000000;
+  opacity: 0.5;
+  @media screen and (max-width: $breakMobile) {
+    font-size: 2vh;
+  }
+}
+
+@mixin light-button() {
+  position: relative;
+  display: inline-block;
+  padding: 10px 20px;
+  color: $twitter-color;
+  font-size: 16px;
+  text-decoration: none;
+  text-transform: uppercase;
+  overflow: hidden;
+  transition: 0.5s;
+  letter-spacing: 4px;
+  border-color: transparent;
+  background-color: #fff;
+  &:hover {
+    background: $twitter-color;
+    color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 5px $twitter-color, 0 0 25px $twitter-color,
+      0 0 50px $twitter-color, 0 0 100px $twitter-color;
+  }
+  span {
+    position: absolute;
+    display: block;
+  }
+  span:nth-child(1) {
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, $twitter-color);
+    animation: btn-anim1 1s linear infinite;
+  }
+  span:nth-child(2) {
+    top: -100%;
+    right: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(180deg, transparent, $twitter-color);
+    animation: btn-anim2 1s linear infinite;
+    animation-delay: 0.25s;
+  }
+  span:nth-child(3) {
+    bottom: 0;
+    right: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(270deg, transparent, $twitter-color);
+    animation: btn-anim3 1s linear infinite;
+    animation-delay: 0.5s;
+  }
+  span:nth-child(4) {
+    bottom: -100%;
+    left: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(360deg, transparent, $twitter-color);
+    animation: btn-anim4 1s linear infinite;
+    animation-delay: 0.75s;
+  }
+
+  @keyframes btn-anim1 {
+    0% {
+      left: -100%;
+    }
+    50%,
+    100% {
+      left: 100%;
+    }
+  }
+
+  @keyframes btn-anim2 {
+    0% {
+      top: -100%;
+    }
+    50%,
+    100% {
+      top: 100%;
+    }
+  }
+
+  @keyframes btn-anim3 {
+    0% {
+      right: -100%;
+    }
+    50%,
+    100% {
+      right: 100%;
+    }
+  }
+
+  @keyframes btn-anim4 {
+    0% {
+      bottom: -100%;
+    }
+    50%,
+    100% {
+      bottom: 100%;
+    }
+  }
+}
+
+@mixin white-button($w, $h) {
+  height: $h;
+  width: $w;
+  border: 1px solid #000000;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 1.5vh;
+  text-align: center;
+  cursor: pointer;
+  color: $textColorDefault;
+  background-color: snow;
+  outline: none;
+
+  &:hover {
+    background-color: rgb(229, 227, 227);
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+@mixin popup($w) {
+  @include set-size(100vw, 75vh);
+  top: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 101;
+
+  &-content {
+    position: relative;
+    @include block;
+    z-index: 102;
+
+    width: $w;
+
+    &-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      &__close {
+        @include set-size(2vh, 2vh);
+
+        position: absolute;
+        fill: rgb(120, 120, 120);
+
+        top: 1vh;
+        right: 1vh;
+
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
+
+@mixin block() {
+  background-color: white;
+  border: 0;
+  border-radius: 1vh;
+}
+
+@mixin input() {
+  height: 4vh;
+  font-size: 14px;
+  font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Helvetica, Arial, sans-serif;
+  /* color: black; */
+  border: 1px solid $purpleColor;
+  box-sizing: border-box;
+  border-radius: 0.5vh;
+  padding-left: 10px;
+  outline: none;
+}
+
+a {
+  color: $text-color-1;
+  text-decoration: none;
+
+  &:hover {
+    color: $twitter-color;
+  }
+}
+
+@mixin menu-link() {
+  text-decoration: none;
+  color: black;
+  cursor: pointer;
+  font-size: 1.6vh;
+  &:hover {
+    color: $purpleColor;
+  }
+  &:focus {
+    color: $purpleColor;
+  }
+  @media screen and (max-width: $breakMobile) {
+    font-size: 2vh;
+  }
+}
+
+button {
+  cursor: pointer;
+}
+
+/* select,
+input{
+  font-size: 1.6rem;
+  padding: 1rem;
+  border: 0.1rem $dirty-gray-color solid;
+  border-radius: 0.5rem;
+  cursor: pointer;
+} */
+
+* {
+  box-sizing: border-box;
+  /*   margin: 0; */
+}
+
+/* button {
+  cursor: pointer;
+}
+
+select,
+input,
+button {
+  font-size: 1.6rem;
+  padding: 1rem;
+  border: 0.1rem $dirty-gray-color solid;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+input:hover,
+button:hover {
+  border: 0.1rem #404040 solid;
+} */
+
+/* 
+@mixin overflow-text-width {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@mixin overflow-text-height($h) {
+  max-height: $h;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@mixin red-button($w, $h) {
+  height: $h;
+  width: $w;
+  border: 0;
+  border-radius: 3px;
+  text-decoration: none;
+  font-size: 1.5vh;
+  text-align: center;
+  cursor: pointer;
+  color: rgb(255, 255, 255);
+  background-color: $mainColor;
+  outline: none;
+  &:hover {
+    background-color: rgb(194, 23, 23);
+  }
+  &:focus {
+    outline: none;
+  }
+  @media screen and (max-width: $breakMobile) {
+    font-size: 2vh;
+    height: 4.5vh;
+  }
+}
+
+@mixin disable-button($w, $h) {
+  width: $w;
+  height: $h;
+  border: 1px solid #000000;
+  border-radius: 3px;
+  text-decoration: none;
+  font-size: 1.5vh;
+  text-align: center;
+  color: #666666;
+  background-color: rgb(255, 255, 255);;
+  outline: none;
+}
+
+@mixin cancel-button($w, $h) {
+  height: $h;
+  width: $w;
+  border: 0;
+  border-radius: 3px;
+  text-decoration: none;
+  font-size: 1.5vh;
+  text-align: center;
+  cursor: pointer;
+  color: rgb(255, 255, 255);
+  background-color: #747474;
+  outline: none;
+  &:hover {
+    background-color: #636363;
+  }
+  &:focus {
+    outline: none;
+  }
+  @media screen and (max-width: $breakMobile) {
+    font-size: 2vh;
+    height: 4.5vh;
+  }
+}
+
+@mixin white-button($w, $h) {
+  height: $h;
+  width: $w;
+  border: 1px solid #000000;
+  border-radius: 3px;
+  text-decoration: none;
+  font-size: 1.5vh;
+  text-align: center;
+  cursor: pointer;
+  color: $textColorDefault;
+  background-color: snow;
+  outline: none;
+  &:hover {
+    background-color: rgb(229, 227, 227);
+  }
+  &:focus {
+    outline: none;
+  }
+  @media screen and (max-width: $breakMobile) {
+    font-size: 2vh;
+    height: 4.5vh;
+  }
+}
+
+@mixin menu-link() {
+  text-decoration: none;
+  color: black;
+  cursor: pointer;
+  font-size: 1.6vh;
+  &:hover {
+    color: $linkColor;
+  }
+  &:focus {
+    color: $linkColor;
+  }
+  @media screen and (max-width: $breakMobile) {
+    font-size: 2vh;
+  }
+}
+
+@mixin input() {
+  /*    background: none; 
+  height: 4vh;
+  font-size: 2vh;
+  color: black;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  box-sizing: border-box;
+  border-radius: 0.5vh;
+  padding-left: 10px;
+  @media screen and (max-width: $breakMobile) {
+    height: 5vh;
+    font-size: 2.3vh;
+  }
+}
+
+@mixin description-label() {
+  display: flex;
+  font-size: 1.8vh;
+  color: #000000;
+  opacity: 0.5;
+  @media screen and (max-width: $breakMobile) {
+    font-size: 2vh;
+  }
+}
+
+@mixin block() {
+  background-color: white;
+  border: 0;
+  border-radius: 1vh;
+}
+
+@mixin border-block() {
+  box-sizing: border-box;
+  border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+@mixin shadow-block() {
+  background-color: white;
+  border: 0;
+  border-radius: 1vh;
+  box-shadow: 0 0 1vw rgba(0, 0, 0, 0.2);
+  @media screen and (max-width: $breakMobile) {
+    border-radius: 0;
+  }
+}
+
+@mixin product-block() {
+  background-color: white;
+  border: 0;
+  border-radius: 1vh;
+  box-shadow: 0 0 1vw rgba(0, 0, 0, 0.2);
+  box-sizing: border-box;
+  cursor: pointer;
+  overflow: hidden;
+  transition-duration: 0.5s;
+  transition-property: box-shadow;
+  &:hover {
+    box-shadow: rgba(0, 0, 0, 0.5) 0 0 10px;
+  }
+}
+
+@mixin circle() {
+  object-fit: cover;
+  background: #C4C4C4;
+  border-radius: 50%;
+}
+
+@mixin set-size($w, $h) {
+  width: $w;
+  height: $h;
+}
+
+@mixin separator() {
+  border-top: 1px solid rgb(227, 227, 227);
+  margin-bottom: 1vh;
+}
+
+@mixin separator-bottom {
+  border-bottom: 1px solid rgb(227, 227, 227);
+}
+
+@mixin star() {
+  width: 12vh;
+
+  &__rate span {
+    font-size: 2vh;
+
+    color: lightgrey;
+  }
+
+  &__rate > span:before {
+    content: '★';
+  }
+
+  &__rate > span.star-active {
+    color: gold;
+  }
+}
+
+@mixin popup($w) {
+  @include set-size(100vw, 100vh);
+  top: 0;
+  position: fixed;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 101;
+
+  background-color: rgba(0, 0, 0, 0.5);
+
+  &-content {
+    position: relative;
+    @include block;
+    z-index: 102;
+
+    width: $w;
+
+    @media screen and (max-width: $breakMobile) {
+      @include set-size(100vw, 100vh);
+
+      border-radius: 0;
+    }
+
+    &-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      &__close {
+        @include set-size(2vh, 2vh);
+
+        position: absolute;
+        fill: rgb(120, 120, 120);
+
+        top: 1vh;
+        right: 1vh;
+
+        &:hover {
+          cursor: pointer;
+        }
+
+        @media screen and (max-width: $breakMobile) {
+          top: 2vh;
+          right: 2vh;
+
+          @include set-size(3vh, 3vh);
+        }
+      }
+    }
+  }
+}
+
+@mixin message-container() {
+  clear: both;
+  position: absolute;
+  transform: translateX(100%);
+  display: flex;
+  right: 0;
+  top: 0;
+  z-index: 1000;
+  @media screen and (max-width: $breakDesktop) {
+    //top: -150px;
+    flex-direction: row-reverse;
+    transform: translateY(-111%);
+    align-items: flex-end;
+  }
+  &-arrow {
+    width: 12px;
+    height: 20px;
+    overflow: hidden;
+    position: relative;
+    float: left;
+    top: 6px;
+    right: -1px;
+    @media screen and (max-width: $breakDesktop) {
+      top: 15px;
+      right: 150px;
+      transform: rotate(270deg);
+    }
+
+    &-outer {
+      width: 0;
+      height: 0;
+      border-right: 20px solid #000000;
+      border-top: 10px solid transparent;
+      border-bottom: 10px solid transparent;
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0.1;
+    }
+
+    &-inner {
+      width: 0;
+      height: 0;
+      border-right: 20px solid #ffffff;
+      border-top: 10px solid transparent;
+      border-bottom: 10px solid transparent;
+      position: absolute;
+      top: 0;
+      left: 2px;
+    }
+  }
+  &-body {
+    float: left;
+    width: 300px;
+    height: auto;
+    background-color: #ffffff;
+    border: 1px solid rgba(0.0, 0.0, 0.0, 0.1);
+    padding: 6px 8px;
+    border-radius: 5px;
+    @media screen and (max-width: $breakDesktop) {
+      width: 90%;
+    }
+  }
+}
+
+.message-container {
+  @include message-container;
+}
+
+.error-hidden {
+  display: none;
+}
+
+.error-visible {
+  visibility: visible;
+  color: #D31E1E;
+  font-size: 1.3vh;
+  font-style: italic;
+}
+
+.error-success {
+  visibility: visible;
+  color: green;
+  font-size: 1.3vh;
+  font-style: italic;
+}
+
+.input-susses {
+  border: 1px solid green;
+}
+
+.input-error {
+  border: 1px solid red;
+}
+
+.list-errors {
+  font-size: 1.8vh;
+  color: #D31E1E;
+  @media screen and (max-width: $breakDesktop) {
+    padding-left: 30px;
+  }
+} */

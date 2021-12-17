@@ -1,23 +1,23 @@
-import bus from '../../init/bus';
-import cart from '../../object/cart/cart';
-import user from '../../object/user/user';
+import bus from '../../modules/bus/bus';
+import cart from '../../services/cart/cart';
+import user from '../../services/user/user';
 import { Callback } from '../../types';
 import redirect from '../redirect';
 
 export const signIn: Callback = () => {
-  console.error('signIn state denied');
+  // console.error('signIn state denied');
 
   bus.emit('profile state request', undefined);
 };
 
 export const signUp: Callback = () => {
-  console.error('signUp state denied');
+  // console.error('signUp state denied');
 
   bus.emit('profile state request', undefined);
 };
 
 export const profile: Callback = () => {
-  console.error('profile state denied');
+  // console.error('profile state denied');
 
   bus.emit('signIn state request', undefined);
 };
@@ -27,13 +27,13 @@ export const product: Callback = (obj: { 'responseText': string }) => {
 
   Promise.resolve()
     .then(() => JSON.parse(responseText))
-    .then((value) => console.error('product request denied', value))
+    // .then((value) => console.error('product request denied', value))
     .catch((err) => console.error('error product request denied response parse', err))
     .then(() => bus.emit('homepage state request', undefined));
 };
 
 export const address: Callback = () => {
-  console.error('address state denied');
+  // console.error('address state denied');
 
   if (!user.isAutorize()) {
     bus.emit('signIn state request', undefined);
@@ -49,7 +49,7 @@ export const address: Callback = () => {
 };
 
 export const payment: Callback = () => {
-  console.error('payment state denied');
+  // console.error('payment state denied');
 
   if (!user.isAutorize()) {
     bus.emit('signIn state request', undefined);
@@ -65,7 +65,7 @@ export const payment: Callback = () => {
 };
 
 export const confirmation: Callback = () => {
-  console.error('confirmation state denied');
+  // console.error('confirmation state denied');
 
   if (!user.isAutorize()) {
     bus.emit('signIn state request', undefined);
@@ -82,4 +82,18 @@ export const confirmation: Callback = () => {
 
 export const saveState: Callback = (obj: { 'state': string }) => {
   redirect.saveState(obj);
+};
+
+export const search: Callback = () => {
+  // console.error('search state denied');
+
+  bus.emit('homepage state request', undefined);
+};
+
+export const handleAjaxRecommendationDenied: Callback = (response: string) => {
+  Promise.resolve()
+    .then(() => JSON.parse(response))
+    .then((serverError) => console.log(serverError))
+    .catch((err) => console.error("JSON parse error", err))
+    .finally(() => bus.emit("homepage state request", undefined));
 };

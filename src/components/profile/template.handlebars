@@ -1,0 +1,71 @@
+<div class="layout-inner">
+
+  <span class="g-page-title">Профиль</span>
+  <div class="middle-container">
+    <div class="profile-block">
+      <div class="profile-menu">
+        <div class="profile-menu-inner">
+          <div class="profile-picture">
+            <img class="form__photo" id="photo" width="150px" src="" />
+            <label class="form__uploadBtn" id="uploadBtn" for="file">Загрузить
+              фото</label>
+          </div>
+          <h1 class="user-name">
+            <input class="form__uploadFile" type="file" id="file" /></h1>
+          <div class="profile-description">
+            <div class="profile-description-inner">
+              <button class="logout-btn" type="submit">
+                Выйти из профиля
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="profile-block-info">
+      <div class="profile-block-settings">
+        <form class="auth-box-form-profile" id="auth-form">
+           <h2>Информация</h2>
+          <div class="user-box">
+            <input class="user-box__login" type="login" name="login" />
+            <label>Имя пользователя</label>
+          </div>
+          <div class="user-box">
+            <input class="user-box__firstname" type="text" />
+            <label>Имя</label>
+          </div>
+          <div class="user-box">
+            <input class="user-box__secondname" type="text" />
+            <label>Фамилия</label>
+          </div>
+          <div class="user-box">
+            <input class="user-box__email" type="email" name="email" />
+            <label>Почта</label>
+          </div>
+          <button class="update-btn" type="submit">
+            Обновить
+          </button>
+        </form>
+      </div>
+    </div>
+
+  </div>
+  <span class="g-page-title">Заказы</span>
+  <table class="my_account_orders">
+
+    <thead>
+      <tr>
+        <th class="order-number">Заказ</th>
+        <th class="order-date">Стоимость</th>
+        <th class="order-total">Дата и время заказа</th>
+        {{! <th class="order-actions">Actions</th> }}
+      </tr>
+    </thead>
+
+    <tbody class="table-body">
+
+    </tbody>
+  </table>
+
+</div>

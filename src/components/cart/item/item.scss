@@ -1,0 +1,38 @@
+.cart {
+  &__image-img {
+    max-width: 10rem;
+    max-height: 10rem;
+  }
+
+  &__image {
+    flex: 1 1;
+  }
+
+  &__name {
+    flex: 8 1;
+  }
+
+  &__price {
+    flex: 1 1;
+    text-align: right;
+  }
+
+  &__link {
+    padding: 1rem;
+  }
+
+  &-list button,
+  &-list select {
+    font-size: 1.3rem;
+    padding: 0.5rem;
+  }
+
+  .remove-product {
+  width: 2vh;
+  height: 2vh;
+  position: absolute;
+  fill: #787878;
+  top: 1vh;
+  right: 1vh;
+}
+}

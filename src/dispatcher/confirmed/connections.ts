@@ -1,12 +1,18 @@
 import { addToHistory } from '../../rout/callbacks';
-import { Connection } from '../../types';
+import { Connection, OrderRequest } from '../../types';
 import * as confirm from './callbacks';
 import * as request from '../request/callbacks';
+import searchParams from '../../services/search/params';
+import bus from '../../modules/bus/bus';
+import * as searchFiltersContainer from '../../components/searchFiltersContainer/callbacks';
+
+
 
 const connections: Connection[] = [
   {
     event: 'signIn state confirmed',
     callback: [
+      // confirm.saveState,
       confirm.showSignIn,
       addToHistory,
     ],
@@ -14,6 +20,7 @@ const connections: Connection[] = [
   {
     event: 'signUp state confirmed',
     callback: [
+      // confirm.saveState,
       confirm.showSignUp,
       addToHistory,
     ],
@@ -21,6 +28,7 @@ const connections: Connection[] = [
   {
     event: 'profile state confirmed',
     callback: [
+      // confirm.saveState,
       confirm.showProfile,
       addToHistory,
     ],
@@ -28,6 +36,7 @@ const connections: Connection[] = [
   {
     event: 'homepage state confirmed',
     callback: [
+      // confirm.saveState,
       confirm.showHomepage,
       addToHistory,
     ],
@@ -72,6 +81,7 @@ const connections: Connection[] = [
   {
     event: 'product state confirmed',
     callback: [
+      // confirm.saveState,
       confirm.showProductPage,
       addToHistory,
     ],
@@ -79,6 +89,7 @@ const connections: Connection[] = [
   {
     event: 'cart state confirmed',
     callback: [
+      confirm.saveState,
       confirm.showCart,
       addToHistory,
     ],
@@ -88,21 +99,26 @@ const connections: Connection[] = [
     callback: [
       confirm.categoryArrayParse,
       confirm.category,
+      //searchFiltersContainer.setFiltersParams,
     ],
   },
   {
     event: 'category state confirmed',
     callback: [
+      // confirm.saveState,
       confirm.showCategoryPage,
     ],
   },
   {
     event: 'category ajax name',
-    callback: confirm.categoryAddToHistory,
+    callback: [
+      confirm.categoryAddToHistory,
+    ]
   },
   {
     event: 'address state confirmed',
     callback: [
+      // confirm.saveState,
       confirm.address,
       addToHistory,
     ],
@@ -110,6 +126,7 @@ const connections: Connection[] = [
   {
     event: 'payment state confirmed',
     callback: [
+      // confirm.saveState,
       confirm.payment,
       addToHistory,
     ],
@@ -117,6 +134,7 @@ const connections: Connection[] = [
   {
     event: 'confirmation state confirmed',
     callback: [
+      // confirm.saveState,
       confirm.confirmation,
       addToHistory,
     ],
@@ -124,6 +142,30 @@ const connections: Connection[] = [
   {
     event: 'order confirmed',
     callback: request.profile,
+  },
+  {
+    event: 'orders state confirmed',
+    callback: [
+      confirm.orders,
+      addToHistory,
+    ],
+  },
+  {
+    event: 'search state confirmed',
+    callback: [
+      confirm.search,
+      // addToHistory,
+    ],
+  },
+  {
+    event: 'cart confirm confirmed',
+    callback: [
+      (obj: OrderRequest): void => { bus.emit('cart ajax confirmed', obj); },
+    ],
+  },
+  {
+    event: 'ajax recommendations confirmed',
+    callback: confirm.handleAjaxRecommendationConfirmed,
   },
 ];
 

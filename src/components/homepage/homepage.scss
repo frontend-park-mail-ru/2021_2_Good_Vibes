@@ -1,0 +1,30 @@
+@import "../../styles/main.scss";
+
+.product-table {
+  width: 100%;
+
+  &-inner {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__title {
+    font-size: 3vh;
+    margin-bottom: 1vh;
+
+    @media screen and (max-width: $breakMobile) {
+      margin-left: 4vw;
+      margin-right: 4vw;
+    }
+  }
+
+  &-body {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    @media screen and (max-width: $breakMobile) {
+      margin: 0 4vw;
+    }
+  }
+}

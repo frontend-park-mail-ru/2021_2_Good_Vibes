@@ -1,12 +1,11 @@
 import { Callback } from '../types';
-import register from './register';
-import router from './router';
+import router from '../modules/router/router';
 
 export const init: Callback = () => {
-  const root = <HTMLElement>document.getElementsByClassName('grit-container')[0];
+  const root = <HTMLElement>document.getElementsByClassName('grid-container')[0];
   router.set(root);
 
-  register();
+  router.register();
   router.start();
 };
 

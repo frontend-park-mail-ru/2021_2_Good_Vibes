@@ -1,6 +1,6 @@
 import { Callback } from '../types';
 import checkList from './checkList';
-import bus from './bus';
+import bus from '../modules/bus/bus';
 
 export const initRequestsCheck: () => void = () => {
   let res = true;

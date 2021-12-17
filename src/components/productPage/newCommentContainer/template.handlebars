@@ -1,0 +1,36 @@
+<div class="comments-title">
+<span>Написать отзыв</span>
+</div>
+<div class="commentform">
+  <div class="field small">
+    <input
+      type="number"
+      name="new-comment-rating"
+      id="new-comment-rating"
+      min="0",
+      max="5",
+      step="1"
+      value="5"
+      class="new-comment-rating"
+    />
+    <label for="new-comment-rating" class="new-comment-rating1">Оцените покупку</label>
+  </div>
+ {{!--  <form> --}}
+    <div class="field large">
+      <textarea
+        type="text"
+        name="add-comment-text"
+        id="add-comment-text"
+        class="add-comment-text"
+      >
+      </textarea>
+      <label for="new-comment-rating" class="new-comment-rating2">Комментарий к
+        отзыву</label>
+    </div>
+    <br />
+    <button class="add-comment-btn" type="submit">Написать отзыв</button>
+{{!--   </form> --}}
+
+  <label class="new-comment-alert-label" style="visibility:hidden">ошибка
+    добавления комментария</label>
+</div>

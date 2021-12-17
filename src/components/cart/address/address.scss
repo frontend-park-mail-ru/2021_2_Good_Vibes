@@ -1,0 +1,73 @@
+/* @import '../../../scss/style.scss';
+
+.form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+
+    &__container-items {
+        display: flex;
+        flex-direction: column;
+        width: 32rem;
+        padding: 2rem;
+        border: 0.1rem $light-gray-color solid;
+        border-radius: 0.5rem;
+        list-style-type: none;
+        column-count: 2;
+    }
+
+    &__container-items li {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 1rem;
+        margin-top: 1rem;
+        font-size: 1.5rem;
+    }
+
+    & h1 {
+        font-size: 2.5rem;
+    }
+
+    &__btn-color {
+        background-color: $twitter-color;
+    }
+
+    &__error {
+        display: none;
+    }
+
+
+    &__changePhoto {
+         margin-bottom: 10rem;
+    }
+
+    &__pic {
+        height: 100px;
+        width: 100px;
+        position: absolute;
+        border-radius: 50%;
+        overflow: hidden;
+        border: 1px solid grey;
+        margin: 30px 4px;
+    }
+}
+
+.checkout-steps {
+    display: flex;
+    justify-content: space-between;
+    width: 40rem;
+    margin: 1rem auto;
+}
+
+.checkout-steps_none {
+    border-top: 0.3rem $light-gray-color solid;
+    color: $light-gray-color;
+    @extend %steps;
+}
+
+.checkout-steps_active {
+    border-top: 0.3rem $twitter-color solid;
+    color: $twitter-color;
+    @extend %steps;
+} */
