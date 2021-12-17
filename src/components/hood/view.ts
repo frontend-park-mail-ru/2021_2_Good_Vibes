@@ -7,13 +7,20 @@ import initEvents from './events';
 import './hood.scss';
 
 import SearchInput from './searchInput/view';
+import user from '../../services/user/user';
 
 export default class Hood extends View implements ViewInterface {
+  /* private async renderHTML() {
+    const html = compiledTemplate(this.context);
+    this.self.innerHTML = html;
+    initEvents(this.self);
+  } */
+
   private async renderHTML() {
     const html = compiledTemplate(this.context);
     this.self.innerHTML = html;
     initEvents(this.self);
-  }
+  } 
 
   public async render(): Promise<void> {
     await this.renderHTML();

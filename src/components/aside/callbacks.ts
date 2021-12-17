@@ -91,7 +91,7 @@ const rotateChevron: (el: HTMLElement) => void = (el) => {
 }; */
 
 export const hideByBtn: Callback = () => {
-  console.log("hidebybtn");
+  // console.log("hidebybtn");
   const asideObj = <HTMLElement>(
     document.getElementsByClassName("aside-container")[0]
   );
@@ -245,6 +245,6 @@ export const hideHandle: Callback = () => {
       asideBtnNone.contains(targetNode)
     )
       return;
-      hideByBtn(undefined);
+    hideByBtn(undefined);
   });
-}; 
+};

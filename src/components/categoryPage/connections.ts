@@ -11,7 +11,7 @@ const connections: Connection[] = [
   {
     event: 'add product array to category page',
     callback: [
-      categoryPage.createChankGenerator,
+      /* categoryPage.createChankGenerator, */
       categoryPage.renderArray,
       (array: Product[]): void => { bus.emit('get search filter params', array); },
     ],

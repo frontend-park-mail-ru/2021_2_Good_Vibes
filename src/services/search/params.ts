@@ -7,6 +7,7 @@ const searchParams: {
   maxRating: number,
   type: 'asc' | 'desc',
   orderType: 'rating' | 'price',
+  search: boolean,
 
   setDefault: () => void,
 } = {
@@ -16,6 +17,7 @@ const searchParams: {
   maxRating: 5,
   type: 'asc',
   orderType: 'price',
+  search: false,
 
   setDefault: () => {
     searchParams.minPrice = 0;
@@ -24,7 +26,12 @@ const searchParams: {
     searchParams.maxRating = 5;
     searchParams.type = 'asc';
     searchParams.orderType = 'price';
+    searchParams.search = false;
   },
 };
+
+Object.defineProperty(searchParams, 'setDefault', {
+  enumerable: false,
+});
 
 export default searchParams;

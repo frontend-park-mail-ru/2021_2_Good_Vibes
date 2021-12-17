@@ -37,22 +37,25 @@
 <h3 class="search-filter__title">Фильтр</h3>
 
 <div class="search-filter-elem">
+  <span class="search-filter-label">Цена</span>
   <div class="search-filter-amount" id="amount">
-    <input data-action="priceInput" class="search-filter-amount__from" id="fromAmount" type="text"
-      placeholder="Цена от, ₽" min="0" />
-    <input data-action="priceInput" class="search-filter-amount__to" id="toAmount" type="text" placeholder="до"
+    <input class="search-filter-amount__from" id="fromAmount" type="text"
+      placeholder="от, ₽" min="0" />
+    <input class="search-filter-amount__to" id="toAmount" type="text" placeholder="до"
       min="0" />
   </div>
 </div>
 <div class="search-filter-elem">
+  <span class="search-filter-label">Рейтинг</span>
   <div class="search-filter-amount" id="amount">
-    <input data-action="priceInput" class="search-filter-rating__from" id="fromAmount" type="text"
-      placeholder="Рейтинг от" min="0" step="0.5" max="5" />
-    <input data-action="priceInput" class="search-filter-rating__to" id="toAmount" type="text" placeholder="до" max="5"
+    <input class="search-filter-rating__from" id="fromAmount" type="text"
+      placeholder="от" min="0" step="0.5" max="5" />
+    <input class="search-filter-rating__to" id="toAmount" type="text" placeholder="до" max="5"
       min="0" step="0.5" />
   </div>
 </div>
-<div class="radio-container">
+
+{{!-- <div class="radio-container">
   <li>
     <div>
       <input type="radio" id="price-order-radio" name="order-type-radio" class="order-type-radio" value="price"
@@ -83,4 +86,4 @@
         убыванию</label>
     </div>
   </li>
-</div>
+</div> --}}

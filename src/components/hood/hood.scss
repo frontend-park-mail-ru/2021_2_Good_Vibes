@@ -63,7 +63,6 @@
     @media screen and (max-width: $breakMobile) {
       margin: 5vw 0;
     }
-
   }
 }
 
@@ -93,6 +92,53 @@
     max-width: 1504px;
     padding: 0 32px;
     margin: 0 auto;
+  }
+  &-dropdown {
+    float: right;
+
+    position: relative;
+    display: none;
+
+    &-content {
+      width: 20vh;
+      margin-top: 2.5vh;
+      @include block;
+      border: 1px solid rgb(227, 227, 227);
+      border-radius: 3px;
+
+      right: 0;
+      position: absolute;
+      z-index: 1;
+
+      &-inner {
+        margin: 2vh;
+      }
+
+      &_hidden {
+        display: none;
+      }
+
+      &-item {
+        margin: 1.3vh 0;
+        padding: 0;
+
+        display: flex;
+        align-items: center;
+        border: none;
+        background: none;
+
+        @include menu-link;
+
+        &:focus {
+          outline: none;
+        }
+      }
+      &__logo {
+        @include set-size(2vh, 2vh);
+
+        margin-right: 1vh;
+      }
+    }
   }
 }
 

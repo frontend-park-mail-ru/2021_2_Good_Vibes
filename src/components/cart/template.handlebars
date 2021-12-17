@@ -40,115 +40,13 @@
               <div class="basket__table_cell basket__table_cell--remove"></div>
             </div>
           </div>
-          <div class="basket__table_body">
+ <div class="basket__table_body">
             <div class="basket__table_row table-product-{{id}}">
-              <div class="basket__table_cell basket__table_cell--name">
-                <div class="basket__table_cell-row">
-                  <div class="basket__table_position-img">
-                    <img class="basket__table__img" src="{{image}}" alt="${{name}}" />
-                  </div>
-                  <div class="basket__table_position-body">
-                    <a class="basket__table_position-link" href="/product?id={{id}}" data-pjax="0">{{name}}</a>
-                  </div>
-                </div>
-                <div class="basket__table_mobile-info">
-                  <div class="basket__table_position-number">
-                    <span class="basket__table_label">Код.</span>
-                    <span class="basket__table_text">175244</span>
-                  </div>
-                  <div class="spinner">
-                    <input type="number"
-                      class="spinner__count count__current-calc g-input count__current current-count-143696"
-                      name="Good[143696]" value="1" data-id="143696" />
-                  </div>
-                  <span class="basket__table_text-bold"><span
-                      class="raw-item-price-147333 raw-total-price-calc">11899</span> <span
-                      class="currency">₽</span></span>
-
-
-                </div>
-                <div class="basket__table_cell basket__table_cell--price">
-                  <span class="basket__table_text"><span class="item-price-{{id}}">{{price}}</span>
-                    <span class="currency">₽</span></span>
-                </div>
-                <div class="basket__table_cell basket__table_cell--count">
-                  <div class="spinner">
-                    <div class="basket-count__minus spinner__action is-disabled">
-                      <svg class="svg-sprite-icon icon-minus spinner__action_icon">
-                        <use xlink:href="#minus"></use>
-                      </svg>
-                    </div>
-                    <input type="number"
-                      class="spinner__count count__current-calc g-input count__current current-count-143696"
-                      name="Good[143696]" value="1" data-id="143696" />
-                    <div class="basket-count__plus spinner__action">
-                      <svg class="svg-sprite-icon icon-plus spinner__action_icon">
-                        <use xlink:href="#plus"></use>
-                      </svg>
-                    </div>
-                  </div>
-                </div>
-                <div class="basket__table_cell basket__table_cell--sum">
-                  <span class="basket__table_text-bold">
-                    <span class="raw-item-price-{{id}} raw-total-price-calc">{{price}}</span>
-                    <span class="currency">₽</span>
-                  </span>
-                </div>
-                <div class="basket__table_cell basket__table_cell--remove">
-                  <div class="basket__table_remove">
-                    <a href="/cart/remove/{{id}}" title="Удалить" class="remove-product" data-id="{{id}}">
-                      <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
-                        xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512.001 512.001"
-                        style="enable-background:new 0 0 512.001 512.001;" xml:space="preserve">
-                        <g>
-                          <g>
-                            <path d="M284.286,256.002L506.143,34.144c7.811-7.811,7.811-20.475,0-28.285c-7.811-7.81-20.475-7.811-28.285,0L256,227.717
-			L34.143,5.859c-7.811-7.811-20.475-7.811-28.285,0c-7.81,7.811-7.811,20.475,0,28.285l221.857,221.857L5.858,477.859
-			c-7.811,7.811-7.811,20.475,0,28.285c3.905,3.905,9.024,5.857,14.143,5.857c5.119,0,10.237-1.952,14.143-5.857L256,284.287
-			l221.857,221.857c3.905,3.905,9.024,5.857,14.143,5.857s10.237-1.952,14.143-5.857c7.811-7.811,7.811-20.475,0-28.285
-			L284.286,256.002z"></path>
-                          </g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                      </svg>
-                    </a>
-                  </div>
-                </div>
-              </div>
-
+             
             </div>
-          </div>
+          </div> 
         </div>
-        <form id="w0" class="order-form" action="/profile" method="post">
+        <form class="order-form" action="/profile" method="post">
           <div class="basket-fiz-form-tab">
             <div class="cart-lines">
               <div class="cart-line-block">
@@ -159,7 +57,7 @@
                       <div class="g-form-block">
                         <div class="form-group field-orderform-name">
                           <label class="control-label" for="orderform-name">Имя</label>
-                          <input type="text" id="orderform-name" class="form-control" name="OrderForm[name]" value="" />
+                          <input type="text" id="orderform-name" class="form-control"/>
 
                           <div class="help-block"></div>
                         </div>
@@ -167,8 +65,7 @@
                       <div class="g-form-block">
                         <div class="form-group field-orderform-phone">
                           <label class="control-label" for="orderform-phone">Телефон</label>
-                          <input type="text" id="orderform-phone" class="form-control phone" name="OrderForm[phone]"
-                            value="" />
+                          <input type="text" id="orderform-phone" class="form-control phone" />
 
                           <div class="help-block"></div>
                         </div>
@@ -176,8 +73,7 @@
                       <div class="g-form-block">
                         <div class="form-group field-orderform-email">
                           <label class="control-label" for="orderform-email">Email</label>
-                          <input type="text" id="orderform-email" class="form-control" name="OrderForm[email]"
-                            value="" />
+                          <input type="text" id="orderform-email" class="form-control"/>
 
                           <div class="help-block"></div>
                         </div>
@@ -192,7 +88,7 @@
                       <div class="g-form-block">
                         <div class="form-group field-orderform-city">
                           <label class="control-label" for="orderform-city">Город</label>
-                          <input type="text" id="orderform-city" class="form-control" name="OrderForm[city]" value="" />
+                          <input type="text" id="orderform-city" class="form-control"/>
 
                           <div class="help-block"></div>
                         </div>
@@ -200,8 +96,7 @@
                       <div class="g-form-block">
                         <div class="form-group field-orderform-street">
                           <label class="control-label" for="orderform-street">Улица</label>
-                          <input type="text" id="orderform-street" class="form-control" name="OrderForm[street]"
-                            value="" />
+                          <input type="text" id="orderform-street" class="form-control"/>
 
                           <div class="help-block"></div>
                         </div>
@@ -210,8 +105,7 @@
                         <div class="g-form-block">
                           <div class="form-group field-orderform-house">
                             <label class="control-label" for="orderform-house">Дом</label>
-                            <input type="text" id="orderform-house" class="form-control" name="OrderForm[house]"
-                              value="" />
+                            <input type="text" id="orderform-house" class="form-control"/>
 
                             <div class="help-block"></div>
                           </div>
@@ -219,8 +113,7 @@
                         <div class="g-form-block">
                           <div class="form-group field-orderform-housing">
                             <label class="control-label" for="orderform-housing">Корпус</label>
-                            <input type="text" id="orderform-housing" class="form-control" name="OrderForm[housing]"
-                              value="" />
+                            <input type="text" id="orderform-housing" class="form-control"/>
 
                             <div class="help-block"></div>
                           </div>
@@ -228,8 +121,7 @@
                         <div class="g-form-block">
                           <div class="form-group field-orderform-building">
                             <label class="control-label" for="orderform-building">Строение</label>
-                            <input type="text" id="orderform-building" class="form-control" name="OrderForm[building]"
-                              value="" />
+                            <input type="text" id="orderform-building" class="form-control"/>
 
                             <div class="help-block"></div>
                           </div>
@@ -239,8 +131,7 @@
                         <div class="g-form-block">
                           <div class="form-group field-orderform-entrance">
                             <label class="control-label" for="orderform-entrance">Подъезд</label>
-                            <input type="text" id="orderform-entrance" class="form-control" name="OrderForm[entrance]"
-                              value="" />
+                            <input type="text" id="orderform-entrance" class="form-control"/>
 
                             <div class="help-block"></div>
                           </div>
@@ -248,8 +139,7 @@
                         <div class="g-form-block">
                           <div class="form-group field-orderform-floor">
                             <label class="control-label" for="orderform-floor">Этаж</label>
-                            <input type="text" id="orderform-floor" class="form-control" name="OrderForm[floor]"
-                              value="" />
+                            <input type="text" id="orderform-floor" class="form-control"/>
 
                             <div class="help-block"></div>
                           </div>
@@ -257,8 +147,7 @@
                         <div class="g-form-block">
                           <div class="form-group field-orderform-apartment">
                             <label class="control-label" for="orderform-apartment">Квартира</label>
-                            <input type="text" id="orderform-apartment" class="form-control" name="OrderForm[apartment]"
-                              value="" />
+                            <input type="text" id="orderform-apartment" class="form-control"/>
 
                             <div class="help-block"></div>
                           </div>
@@ -276,7 +165,7 @@
                     <div class="form-group field-orderform-delivery_method">
                       <label class="g-label g-label--accent" data-link="/cart/update-delivery"
                         for="orderform-delivery_method">Способ доставки</label>
-                      <select id="orderform-delivery_method" class="g-select" name="OrderForm[delivery_method]">
+                      <select id="orderform-delivery_method" class="g-select">
                         <option value="0">Самовывоз</option>
                         <option value="1" selected="">Доставка курьером</option>
                         <option value="3">Почта россии</option>
@@ -303,7 +192,7 @@
               </div>
 
               <div class="form-basket-order-block">
-                <div class="basket-order-total"><span>Итого к оплате:</span><span class="basket-order-total__number">585
+                <div class="basket-order-total"><span>Итого к оплате:</span><span class="basket-order-total__number">
                     <span class="currency">₽</span></span></div>
               </div>
               <div class="basket-order-buttons">
@@ -313,7 +202,7 @@
             </div>
           </div>
         </form>
-        <form id="w0" class="basket-form" action="/profile" method="post">
+        <form class="basket-form" action="/profile" method="post">
           <div class="basket-form__first">
             <div class="basket-form__first_row">
               <div class="basket-form__item">
@@ -324,7 +213,7 @@
                     <label class="input-group__label">Ваше имя *</label>
                     <div class="form-group field-individuals-name">
 
-                      <input type="text" id="individuals-name" class="input-group__field" name="OrderForm[name]" />
+                      <input type="text" id="individuals-name" class="input-group__field"/>
 
                       <div class="help-block"></div>
                     </div>
@@ -333,8 +222,7 @@
                     <label class="input-group__label">Телефон *</label>
                     <div class="form-group field-individuals-phone">
 
-                      <input type="text" id="individuals-phone" class="input-group__field phone"
-                        name="OrderForm[phone]" />
+                      <input type="text" id="individuals-phone" class="input-group__field phone"/>
 
                       <div class="help-block"></div>
                     </div>
@@ -343,7 +231,7 @@
                     <label class="input-group__label">E-mail *</label>
                     <div class="form-group field-individuals-email">
 
-                      <input type="text" id="individuals-email" class="input-group__field" name="OrderForm[email]" />
+                      <input type="text" id="individuals-email" class="input-group__field" />
 
                       <div class="help-block"></div>
                     </div>
@@ -359,7 +247,7 @@
                     <label class="input-group__label">Город</label>
                     <div class="form-group field-individuals-city">
 
-                      <input type="text" id="mobile-city" class="input-group__field" name="OrderForm[city]" />
+                      <input type="text" id="mobile-city" class="input-group__field"/>
 
                       <div class="help-block"></div>
                     </div>
@@ -368,7 +256,7 @@
                     <label class="input-group__label">Улица</label>
                     <div class="form-group field-individuals-street">
 
-                      <input type="text" id="mobile-street" class="input-group__field" name="OrderForm[street]" />
+                      <input type="text" id="mobile-street" class="input-group__field"/>
 
                       <div class="help-block"></div>
                     </div>
@@ -378,7 +266,7 @@
                       <label class="input-group__label">Дом</label>
                       <div class="form-group field-individuals-house">
 
-                        <input type="text" id="mobile-house" class="input-group__field" name="OrderForm[house]" />
+                        <input type="text" id="mobile-house" class="input-group__field" />
 
                         <div class="help-block"></div>
                       </div>
@@ -418,10 +306,7 @@
                     <div class="input-group">
                       <label class="input-group__label">Под.</label>
                       <div class="form-group field-individuals-entrance">
-
-                        <input type="text" id="individuals-entrance" class="input-group__field"
-                          name="OrderForm[entrance]" />
-
+                        <input type="text" id="individuals-entrance" class="input-group__field"/>
                         <div class="help-block"></div>
                       </div>
                     </div>
@@ -429,7 +314,7 @@
                       <label class="input-group__label">Этаж</label>
                       <div class="form-group field-individuals-floor">
 
-                        <input type="text" id="individuals-floor" class="input-group__field" name="OrderForm[floor]" />
+                        <input type="text" class="input-group__field" />
 
                         <div class="help-block"></div>
                       </div>
@@ -446,7 +331,7 @@
                 <label class="input-group__label input-group__label--color-orange">Способ доставки</label>
                 <div class="form-group field-individuals-delivery_method">
 
-                  <select id="individuals-delivery_method" class="select" name="OrderForm[delivery_method]">
+                  <select id="individuals-delivery_method" class="select">
                     <option value="0">Самовывоз</option>
                     <option value="1" selected="">Доставка курьером</option>
                     <option value="3">Почта россии</option>
@@ -462,7 +347,7 @@
                 <label class="input-group__label input-group__label--color-orange">Способ оплаты</label>
                 <div class="form-group field-individuals-payment_type">
 
-                  <select id="individuals-payment_type" class="select" name="OrderForm[payment_type]">
+                  <select id="individuals-payment_type" class="select">
                     <option value="1">Безналичным переводом</option>
                     <option value="4">Оплата онлайн</option>
                   </select>
@@ -474,8 +359,8 @@
 
             <div class="basket-form-second__item_group">
               <div class="basket-form__total">
-                <span class="basket-form__total_text">Итого к оплате</span>
-                <span class="basket-form__total_number basket-order-total__number">12289 <span
+                <span class="basket-form__total_text">Итого к оплате: </span>
+                <span class="basket-form__total_number basket-order-total__number-mobile"><span
                     class="currency">₽</span></span>
 
               </div>

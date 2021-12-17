@@ -6,7 +6,7 @@ const initEvents: (self: HTMLElement) => void = (self) => {
     event.preventDefault();
 
     bus.emit('signOut button click', undefined);
-  });  
+  });
 
   // ---------------------
   const profilePic = <HTMLImageElement>self.getElementsByClassName('form__photo')[0];
@@ -21,17 +21,17 @@ const initEvents: (self: HTMLElement) => void = (self) => {
     }
   };
 
- profilePic.onmouseover = mouseEventHandler;
-  profilePic.onmouseout = mouseEventHandler; 
+  profilePic.onmouseover = mouseEventHandler;
+  profilePic.onmouseout = mouseEventHandler;
 
   // ---------------------
   const uploadBtn = <HTMLImageElement>self.getElementsByClassName('form__photo')[0];
 
   uploadBtn.addEventListener('click', (event) => {
     event.preventDefault();
-    console.log('uload btn');
+    // console.log('uload btn');
     const file = <HTMLInputElement>document.getElementsByClassName('form__uploadFile')[0];
-    file.style.display = 'block'; 
+    file.style.display = 'block';
   });
 
   const file = <HTMLInputElement>self.getElementsByClassName('form__uploadFile')[0];
@@ -62,22 +62,22 @@ const initEvents: (self: HTMLElement) => void = (self) => {
   });
 
   // -------------------------
- /*  const ordersLink = <HTMLAnchorElement>self.getElementsByClassName('orders-link')[0];
-  // console.log(ordersLink);
-  ordersLink.addEventListener('click', (event) => {
-    event.preventDefault();
-
-    bus.emit('orders link click', undefined);
-  });
-
-  // -------------------------
-  const profileLink = <HTMLAnchorElement>self.getElementsByClassName('profile-link')[0];
-  // console.log(ordersLink);
-  profileLink.addEventListener('click', (event) => {
-    event.preventDefault();
-
-    bus.emit('profile link click', undefined);
-  }); */
+  /*  const ordersLink = <HTMLAnchorElement>self.getElementsByClassName('orders-link')[0];
+   // console.log(ordersLink);
+   ordersLink.addEventListener('click', (event) => {
+     event.preventDefault();
+ 
+     bus.emit('orders link click', undefined);
+   });
+ 
+   // -------------------------
+   const profileLink = <HTMLAnchorElement>self.getElementsByClassName('profile-link')[0];
+   // console.log(ordersLink);
+   profileLink.addEventListener('click', (event) => {
+     event.preventDefault();
+ 
+     bus.emit('profile link click', undefined);
+   }); */
 };
 
 export default initEvents;

@@ -22,6 +22,16 @@ export const hideAsideByBtn: Callback = () => {
   bus.emit("hide aside by button", undefined);
 };
 
+export const showProfileMenu: Callback = () => {
+  const menu = document.getElementsByClassName("header-dropdown")[0];
+  menu.classList.add('shown');
+}
+
+export const hideProfileMenu: Callback = () => {
+  const menu = document.getElementsByClassName("header-dropdown")[0];
+  menu.classList.remove('shown');
+}
+
 // export const saveState: Callback = (obj: { state: string }) => {
 //   redirect.saveState(obj);
 // };

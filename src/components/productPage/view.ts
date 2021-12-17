@@ -19,7 +19,7 @@ export default class ProductPage extends View implements ViewInterface {
     await this.renderHTML();
 
     // -----------------------
-    this.self.getElementsByClassName('board-bottom')[0].appendChild(newCommentContainer.self);
+    this.self.getElementsByClassName('board-bottom')[0].appendChild(newCommentContainer?.self);
     // ----------------------
 
     return this.show();

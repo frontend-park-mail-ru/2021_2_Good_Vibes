@@ -148,11 +148,10 @@
   flex: 0 0 100px;
   padding-right: 15px;
   width: 100px;
-  @media screen and (max-width: $breakTablet) {
-    display: none;
-  }
-  @media screen and (max-width: $breakMobile) {
-    display: none;
+  span {
+    @media screen and (max-width: $breakMobile) {
+      display: none;
+    }
   }
 }
 
@@ -160,11 +159,10 @@
   -webkit-box-flex: 0;
   flex: 0 0 100px;
   width: 100px;
-  @media screen and (max-width: $breakTablet) {
-    display: none;
-  }
-  @media screen and (max-width: $breakMobile) {
-    display: none;
+  .basket__table_label {
+    @media screen and (max-width: $breakMobile) {
+      display: none;
+    }
   }
 }
 
@@ -174,11 +172,14 @@
   padding: 0 15px;
   width: 140px;
   justify-content: center;
-  @media screen and (max-width: $breakTablet) {
-    display: none;
-  }
   @media screen and (max-width: $breakMobile) {
-    display: none;
+    width: 63%;
+    flex: none;
+  }
+  span {
+    @media screen and (max-width: $breakMobile) {
+      display: none;
+    }
   }
 }
 
@@ -188,11 +189,13 @@
   -webkit-box-pack: end;
   justify-content: flex-end;
   width: 90px;
-  @media screen and (max-width: $breakTablet) {
-    display: none;
-  }
   @media screen and (max-width: $breakMobile) {
-    display: none;
+    width: 33%;
+  }
+  .basket__table_label {
+    @media screen and (max-width: $breakMobile) {
+      display: none;
+    }
   }
 }
 
@@ -222,6 +225,7 @@
   padding: 15px 0;
   display: flex;
   position: relative;
+  flex-wrap: wrap;
 }
 
 .basket__table_cell-row {
@@ -284,6 +288,9 @@
   -webkit-box-flex: 0;
   flex: 0 0 100px;
   width: 100px;
+  @media screen and (max-width: $breakMobile) {
+    width: 100%;
+  }
 }
 
 .basket__table_cell {
@@ -391,14 +398,14 @@
   -webkit-box-pack: end;
   justify-content: flex-end;
   width: 50px;
-  @media screen and (max-width: $breakTablet)  {
+  @media screen and (max-width: $breakTablet) {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     position: absolute;
     top: 20px;
     right: 0;
-}
+  }
 }
 
 .basket__table_remove {
@@ -428,7 +435,7 @@
 
 .remove-product svg {
   width: 1vh;
-    height: 1vh;
+  height: 1vh;
 }
 
 .basket-fiz-form-tab {
@@ -871,7 +878,7 @@
 }
 
 .basket__table_mobile-info {
-    display: none;
+  display: none;
   @media screen and (max-width: $breakTablet) {
     margin-top: 15px;
     position: relative;

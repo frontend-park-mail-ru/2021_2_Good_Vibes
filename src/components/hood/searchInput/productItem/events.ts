@@ -8,7 +8,7 @@ const initEvents: (self: HTMLElement, context: ProductSuggest) => void = (self, 
   self.addEventListener('click', (event) => {
     event.preventDefault();
 
-    bus.emit('product state request', { id });
+    bus.emit('product state request', { id, search: true });
   });
 };
 

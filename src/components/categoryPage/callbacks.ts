@@ -2,7 +2,7 @@ import {
   Callback,
   Product,
 } from '../../types';
-import ProductCatdList from '../productCard/list';
+import ProductCardList from '../productCard/list';
 import categoryList from '../../services/category/list';
 
 let categoryName: string;
@@ -24,33 +24,32 @@ const gen = function* (productArray: Product[]) {
 
 let generator: Generator<Product[], Product[], unknown>;
 
-export const renderArray: Callback = () => {
-  const a = generator.next();
+export const renderArray: Callback = (products: Product[]) => {
+  /* const a = generator.next() */;
 
-  if (a.done) {
+  /* if (a.done) {
     return;
   }
-
+ */
   // console.log(a);
 
   const productContainer = document.getElementsByClassName('product-table-body')[0];
+  productContainer.textContent = '';
 
-  const viewArray = ProductCatdList.viewArray(a.value);
+  if (!products?.length) {
+    productContainer.appendChild(document.createTextNode('Нет товаров в этой категории'));
+    return;
+  }
+
+  const viewArray = ProductCardList.viewArray(products);
 
   viewArray.forEach((cardView) => {
     productContainer.appendChild(cardView.self);
   });
 };
 
-export const createChankGenerator: Callback = (array: Product[]) => {
-  const productContainer = document.getElementsByClassName('product-table-body')[0];
-
-  productContainer.textContent = '';
-
-  if (!array) {
-    productContainer.appendChild(document.createTextNode('Нет товаров в этой категории'));
-    return;
-  }
+/* export const createChankGenerator: Callback = () => {
+  
 
   generator = gen(array);
 
@@ -60,12 +59,12 @@ export const createChankGenerator: Callback = (array: Product[]) => {
   // renderArray();
   // renderArray();
   // renderArray();
-};
+}; */
 
 export const saveCurrentCategoryName: Callback = () => {
   const { search } = window.location;
 
-  console.log('saveCurrentCategoryName', search, window.location.pathname);
+  // console.log('saveCurrentCategoryName', search, window.location.pathname);
   // [, categoryName] = search.match(/.*name=(\w+)/u);
 
   [, categoryName] = window.location.pathname.match(/\/category\/(.+)/u);

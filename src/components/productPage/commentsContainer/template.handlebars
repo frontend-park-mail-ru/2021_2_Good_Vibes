@@ -1,4 +1,4 @@
-<br>
+{{!-- <br>
 <div class="user-container">
    <img class="user-avatar" src="{{avatar}}"> 
   <span>{{username}}</span>
@@ -10,7 +10,28 @@
 
   </div>
 </div>
-<div class="comment-text">{{text}}</div> 
+<div class="comment-text">{{text}}</div>
+ --}}
+{{!-- <div class="feedback__info">
+  <img class="user-avatar" src="{{avatar}}"> 
+  <span>{{username}}</span>
+  <a
+    class="feedback__header"
+    data-link="{on ~ctx.goToProfile lastComment.wbUserId}"
+    href="/profile/"
+    data-jsv="#945^/945^"
+  >{{username}}</a>
+  <div class="info-card-rating">
+    <div class="info-card-rating__rate">
+      <span class="star"></span>
+    </div>
+    <div class="info-card-rating__text">{{rating}}</div>
+
+  </div>
+</div>
+<div class="feedback__content">
+  <p class="feedback__text" itemprop="reviewBody">{{text}}
+  </p> --}}
 
 {{!-- <div class="reviews" id="reviews-seller">
   <div class="reviews-inner">
@@ -56,3 +77,34 @@
     </div>
   </div>
 </div> --}}
+
+<li class="comments__item feedback">
+  <div class="feedback__top-wrap">
+    <div class="feedback__img-block">
+      <a class="feedback__img-wrap img-plug" href="/profile/">
+        <img
+          class="feedback__img"
+          src="{{avatar}}"
+          width="40"
+          height="40"
+          alt="User avatar"
+        />
+      </a>
+    </div>
+    <div class="feedback__info">
+      <a class="feedback__header" href="/profile/">{{username}}</a>
+      <span class="feedback__date hide-mobile">{{date}}</span>
+
+      <div class="feedback__wrap">
+        <div class="info-card-comment__rate">
+          <div class="info-card-rating__comment">{{rating}}</div>
+          <span class="star__comment"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="feedback__content">
+    <p class="feedback__text">{{text}}
+    </p>
+  </div>
+</li>

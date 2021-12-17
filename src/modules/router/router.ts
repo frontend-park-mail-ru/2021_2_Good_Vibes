@@ -1,5 +1,8 @@
 import bus from '../bus/bus';
 import routMap from '../../rout/routMap';
+import { SearchParamsType } from '../../types';
+import SearchParams from '../../services/search/params';
+// import searchParams from '../../services/search/params';
 
 class Router {
   /* private site = 'https://dreamy-yonath-26f2eb.netlify.app'; */
@@ -21,10 +24,8 @@ class Router {
     Object.keys(routMap).forEach((key) => this.addToList(key, routMap[key]));
   }
 
-  public add(obj: { 'pathname': string }): void {
-    const { pathname } = obj;
-
-    console.log('rout add', pathname);
+  public add(obj: { 'pathname': string, 'searchParams'?: SearchParamsType }): void {
+    const { pathname, searchParams } = obj;
 
     let uri = pathname;
     const reg = pathname.match(/(\/.*)\?/);
@@ -32,60 +33,47 @@ class Router {
       [, uri] = reg;
     }
 
-    // if (!this.list[uri]) {
-    //   console.error('router add error');
-    //   return;
-    // }
+    let path = pathname;
 
-    if (pathname === `${window.location.pathname}${window.location.search}`) {
+    if (searchParams) {
+      path = path.concat('?');
+      Object.keys(searchParams).forEach((key) => {
+        path = path.concat(`${key}=${searchParams[key]}&`);
+      });
+      path = path.slice(0, path.length - 1);
+    }
+
+    if (path === `${window.location.pathname}${window.location.search}`) {
       return;
     }
 
     window.history.pushState(
       {
         state: this.list[uri],
+        searchParams,
       },
-      pathname,
-      pathname,
+      path,
+      path,
     );
   }
 
-  // private handlePathname(pathname: string): string {
-  //   if (!this.list[pathname]) {
-  //     return this.list['/'];
-  //   }
-
-  //   return this.list[pathname];
-  // }
-
   private handlePathname(pathname: string): string {
-
-    console.log('handlePathname', pathname);
-
     const temp = pathname.match(/\/category\/(.+)/);
 
-    console.log('temp', temp);
     if (temp !== null) {
       return 'category';
     }
-
-    console.log('bruh');
 
     if (!this.list[pathname]) {
       return this.list['/'];
     }
 
     return this.list[pathname];
-
-    // return pathname.slice(1);
-
   }
 
   private rout: () => void = () => {
     const { pathname, search } = window.location;
     const state = this.handlePathname(pathname);
-
-    console.log('adsf', pathname);
 
     const idReg = search.match(/.*id=(\d+)/);
     let id: number;
@@ -93,22 +81,18 @@ class Router {
       id = +idReg[1];
     }
 
-    // const nameReg = search.match(/.*name=(\w+)/u);
-    // let name = '';
-    // if (nameReg) {
-    //   name = name.concat(nameReg[1]);
-    // }
-
     const nameReg = pathname.match(/\/category\/(.+)/u);
     let name = '';
     if (nameReg) {
       name = name.concat(nameReg[1]);
     }
 
-    // bus.emit(`${state} state request`, { id, name });
+    const a = new URL(window.location.href);
+    a.searchParams.forEach((key, value) => {
+      SearchParams[value] = key;
+    });
 
-    console.log(`${state} state request`, { id, name, pathname });
-    bus.emit(`${state} state request`, { id, name, pathname });
+    bus.emit(`${state} state request`, { id, name, pathname, search: false });
   };
 
   public start(): void {

@@ -23,7 +23,7 @@ export default class CommentsContainer {
 
   constructor(context: Comment) {
     this.setContext(context);
-    this.self = <HTMLElement>document.createElement('div');
+    this.self = <HTMLElement>document.createElement('ul');
     this.self.className = 'comments-container';
     // bus.add(connections);
     this.render();

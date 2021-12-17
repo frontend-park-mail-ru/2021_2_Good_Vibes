@@ -1,6 +1,6 @@
-/* @import "../../../scss/main.scss";
+ @import "../../../styles/main.scss";
 
-.one-review {
+/*.one-review {
 
     &-inner {
         padding: 1vh;
@@ -135,6 +135,136 @@
     }
 } */
 
+.comments__item {
+  margin: 20px 0 0;
+}
+
 .comments-container {
+  font-size: 2vh;
+}
+
+.feedback {
+  padding-bottom: 8px;
+  @media screen and (max-width: $breakTablet) {
+    border-bottom: 1px solid #e8e8e8;
+  }
+  @media screen and (max-width: $breakMobile) {
+    border-bottom: 1px solid #e8e8e8;
+  }
+}
+
+.feedback__top-wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+}
+
+.feedback__img-block {
+  width: 40px;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  position: relative;
+  margin: 0 12px 8px 0;
+}
+
+.feedback__img-wrap {
+  padding-top: calc(100% * (1 / 1));
+  display: block;
+  height: 0;
+  position: relative;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.feedback__img {
+  display: block;
+  width: 100%;
+  height: auto;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  -webkit-transform: translate(0, -50%);
+  transform: translate(0, -50%);
+}
+
+.feedback__info {
+  max-width: calc(100% - 40px - 12px);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-align: baseline;
+  -ms-flex-align: baseline;
+  align-items: baseline;
+}
+
+.feedback__header {
+  border-bottom: 1px dashed;
+  font-size: 16px;
+  line-height: 22px;
+  color: #000;
+  border-color: initial;
+  text-decoration: none;
+  background-color: transparent;
+  cursor: pointer;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  font-weight: 700;
+  max-width: 100%;
+  margin: 0 12px 4px 0;
+}
+
+.feedback__date {
+  font-size: 14px;
+  line-height: 20px;
+  color: #8b8b8b;
+  margin: 0 12px 4px 0;
+}
+
+.feedback__wrap {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+}
+
+.info-card-rating__comment {
+    display: inline;
     font-size: 2vh;
+    margin-right: 0.5vh;
+}
+
+.info-card-comment__rate {
+    display: flex;
+    align-items: center;
+}
+
+.star__comment {
+    font-size: 2vh;
+    color: gold;
+}
+.star__comment:before {
+    content: "★";
+}
+
+.feedback__content {
+  padding-left: calc(50px + 20px);
+  margin-top: 16px;
+}
+
+.feedback__text {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  font-size: 14px;
+  line-height: 20px;
+  margin-bottom: 8px;
 }

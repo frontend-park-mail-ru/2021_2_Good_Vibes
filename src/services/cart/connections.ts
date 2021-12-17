@@ -7,6 +7,10 @@ const connections: Connection[] = [
     callback: cart.load,
   },
   {
+    event: 'cart get confirmed promo',
+    callback: cart.loadPromo,
+  },
+  {
     event: 'signout confirmed',
     callback: cart.drop,
   },

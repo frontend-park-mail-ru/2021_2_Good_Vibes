@@ -46,7 +46,7 @@ const eraseSuggestList: (suggests: Suggests) => void = (suggests) => {
 };
 
 export const showSuggests: Callback = (suggests: Suggests) => {
-  console.log('show suggests', suggests);
+  // console.log('show suggests', suggests);
 
   const searchContainer = <HTMLElement>document.getElementsByClassName('search-suggests-popup')[0];
 
@@ -159,4 +159,4 @@ export const hideHandle: Callback = () => {
       return;
     }
   });
-}; 
+};

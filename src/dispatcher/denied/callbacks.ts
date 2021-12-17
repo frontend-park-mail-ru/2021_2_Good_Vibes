@@ -89,3 +89,11 @@ export const search: Callback = () => {
 
   bus.emit('homepage state request', undefined);
 };
+
+export const handleAjaxRecommendationDenied: Callback = (response: string) => {
+  Promise.resolve()
+    .then(() => JSON.parse(response))
+    .then((serverError) => console.log(serverError))
+    .catch((err) => console.error("JSON parse error", err))
+    .finally(() => bus.emit("homepage state request", undefined));
+};

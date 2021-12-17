@@ -1,4 +1,21 @@
 @import "../../../styles/main.scss";
+.comments-title {
+  margin-bottom: 2vh;
+  span {
+    font-size: 2vh;
+    margin-top: 2vh;
+  }
+}
+
+.commentform {
+  display: flex;
+  flex-direction: column;
+}
+
+/* .new-comment-container {
+  width: 640px;
+}
+ */
 .new-comment-rating {
   width: 50px;
   height: 20px;
@@ -8,15 +25,14 @@
   padding: 0;
   text-align: center;
 }
-
 .add-comment-text {
-  height: 20px;
-  font-size: 14px;
+  height: 3vh;
+  font-size: 2vh;
   font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
     Roboto, Helvetica, Arial, sans-serif;
   border: 1px solid $twitter-color;
   box-sizing: border-box;
-  border-radius: 0.5vh;
+  /* border-radius: 0.5vh; */
   padding-left: 10px;
   outline: none;
   line-height: 30px;
@@ -24,15 +40,84 @@
 }
 
 .new-comment-rating1 {
+  font-size: 2vh;
   margin-right: 44px;
 }
 
 .new-comment-rating2 {
+  font-size: 2vh;
   margin-right: 10px;
 }
 
 .add-comment-btn {
-  @include light-button();
-  font-size: 10px;
+  @include blue-button(18vh, 4vh);
+  height: 3vh;
+  width: 12vh;
+  font-size: 1vh;
   margin-top: 5px;
+  @media screen and (max-width: $breakDesktop) {
+    height: 3vh;
+    width: 11vh;
+    font-size: 1vh;
+  }
+  @media screen and (max-width: $breakTablet) {
+    height: 2vh;
+    width: 11vh;
+  }
+  @media screen and (max-width: $breakMobile) {
+    height: 3vh;
+    width: 11vh;
+  }
+}
+
+.field {
+  position: relative;
+  margin-bottom: 10px;
+  input,
+  textarea {
+    height: 2.5vh;
+    width: 100%;
+    display: block;
+    outline: none;
+    padding: 5px;
+    font-size: 1.7vh;
+    &:focus {
+      border: 2px solid $twitter-color;
+    }
+    &:focus + label {
+      display: block;
+    }
+  }
+  textarea {
+    max-height: 250px;
+    height: 133px;
+    margin: 0px 7px 0px 0px;
+    border: 0px;
+    width: 100%;
+    resize: none;
+  }
+  label {
+    width: 100%;
+    background-color: $twitter-color;
+    display: block;
+    color: #fff;
+    padding: 3px;
+    font-size: 12px;
+    font-weight: 300;
+    display: none;
+  }
+}
+
+.small {
+  width: 15vw;
+  float: left;
+  margin-left: 2%;
+  &:first-child {
+    margin-left: 0%;
+  }
+}
+.large {
+  float: left;
+  width: 50vw;
+  border: 1px solid #d1d1d1;
 }

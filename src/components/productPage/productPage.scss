@@ -37,6 +37,12 @@
       display: none;
     }
   }
+
+  &-bottom {
+    @media screen and (max-width: $breakMobile) {
+      margin: 0 4vw;
+    }
+  }
 }
 
 .slides {
@@ -65,7 +71,7 @@
 
 .info-card {
   display: block;
-  position: sticky;
+  position: inherit;
   top: 10vh;
   margin: 2vw 0 0 0.3vw;
   padding-bottom: 1vw;
@@ -119,7 +125,7 @@
     align-items: center;
 
     &__text {
-      font-size: 2vh;
+      font-size: 3vh;
       margin-right: 0.5vh;
 
       @media screen and (max-width: $breakDesktop) {
@@ -266,7 +272,6 @@
     }
 
     &__rate span {
-
       @media screen and (max-width: $breakMobile) {
         font-size: 2.5vh;
       }

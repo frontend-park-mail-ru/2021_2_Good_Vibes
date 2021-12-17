@@ -44,19 +44,21 @@ export const calculateSubtotal: Callback = () => {
     return;
   }
   totalNumberSpan.innerHTML = `${totalPrice}<span class="currency">₽</span></span></div>`;
-  // totalNumberSpan.innerHTML = totalPrice.toString();
+
+  const totalNumberSpanMobile = <HTMLSpanElement>document.getElementsByClassName('basket-form__total_number basket-order-total__number-mobile')[0];
+  if (!totalNumberSpanMobile) {
+    return;
+  }
+  totalNumberSpanMobile.innerHTML = `${totalPrice}<span class="currency">₽</span></span></div>`;
 
 };
 
 export const showCartItems: Callback = (array: Product[]) => {
   const itemsContainer = <HTMLElement>document.getElementsByClassName('basket__table_body')[0];
-
   if (!itemsContainer) {
     return;
   }
-
   const viewArray = CartItemList.viewArray(array);
-
   // console.log(viewArray);
 
   viewArray.forEach((itemView, index) => {
@@ -130,13 +132,14 @@ export const confirmAjaxRequest: Callback = () => {
 
   orderData.payMethod = payMethodSelect.options[payMethodSelect.selectedIndex].text;
 
+  const emailInput = <HTMLSelectElement>document.getElementById('orderform-email');
+
   // console.log(orderData);
 
   const obj: OrderRequest = {
     address: orderData.address,
     products: array,
   };
-
   bus.emit('cart confirm request', obj);
 };
 
@@ -153,7 +156,7 @@ export const confirmMobileAjaxRequest: Callback = () => {
   const houseInput = <HTMLInputElement>document.getElementById('mobile-house');
   const apartmentInput = <HTMLInputElement>document.getElementById('mobile-apartment');
 
-  console.log('cityInput', cityInput);
+  // console.log('cityInput', cityInput);
 
   // orderData.address.city = cityInput.value.trim();
   // orderData.address.street = streetInput.value.trim();

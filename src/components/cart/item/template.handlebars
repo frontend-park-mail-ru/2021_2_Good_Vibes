@@ -31,21 +31,19 @@
                     <a
                       class="basket__table_position-link"
                       href="/product?id={{id}}"
-                      data-pjax="0"
                     >{{name}}</a>
                   </div>
                 </div>
-                <div class="basket__table_mobile-info">
+               {{!--  <div class="basket__table_mobile-info">
                                     <div class="spinner">
-    <input type="number" class="spinner__count count__current-calc g-input count__current current-count-143696"
-      name="Good[143696]" value="1" data-id="143696" />
+    <input type="number" class="spinner__count-mobile count__current-calc g-input count__current current-count-{{id}}" value="1" />
   </div>
 <span class="basket__table_text-bold">
-  <span class="raw-item-price-147333 raw-total-price-calc">11899</span> 
+  <span class="raw-item-price-{{id}} raw-total-price-calc">{{price}}</span> 
   <span class="currency">₽</span></span>
 
                   
-              </div>
+              </div> --}}
                </div>
               <div class="basket__table_cell basket__table_cell--price">
                 <span class="basket__table_text"><span
@@ -57,10 +55,8 @@
                 <div class="spinner">
                   <input
                     type="number"
-                    class="spinner__count count__current-calc g-input count__current current-count-143696"
-                    name="Good[143696]"
+                    class="spinner__count count__current-calc g-input count__current current-count-{{id}}"
                     value="1"
-                    data-id="143696"
                   />
                 </div>
               </div>
@@ -78,7 +74,6 @@
                     href="/cart/remove/{{id}}"
                     title="Удалить"
                     class="remove-product"
-                    data-id="{{id}}"
                   >
                     <svg
                       version="1.1"
@@ -134,3 +129,5 @@
                       </g>
                     </svg>
                   </a>
+                  </div>
+                    </div>

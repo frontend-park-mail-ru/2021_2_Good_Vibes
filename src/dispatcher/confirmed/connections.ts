@@ -4,6 +4,7 @@ import * as confirm from './callbacks';
 import * as request from '../request/callbacks';
 import searchParams from '../../services/search/params';
 import bus from '../../modules/bus/bus';
+import * as searchFiltersContainer from '../../components/searchFiltersContainer/callbacks';
 
 
 
@@ -109,7 +110,10 @@ const connections: Connection[] = [
   },
   {
     event: 'category ajax name',
-    callback: confirm.categoryAddToHistory,
+    callback: [
+      confirm.categoryAddToHistory,
+      searchFiltersContainer.setFiltersParams,
+    ]
   },
   {
     event: 'address state confirmed',
@@ -158,6 +162,10 @@ const connections: Connection[] = [
     callback: [
       (obj: OrderRequest): void => { bus.emit('cart ajax confirmed', obj); },
     ],
+  },
+  {
+    event: 'ajax recommendations confirmed',
+    callback: confirm.handleAjaxRecommendationConfirmed,
   },
 ];
 

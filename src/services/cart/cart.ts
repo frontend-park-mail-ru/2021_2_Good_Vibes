@@ -28,18 +28,20 @@ class Cart {
       this.add({
         id: item.product_id,
         number: item.number,
+        price: item.product_price,
       });
     });
   }
 
-  public set(obj: { id: number, number: number }) {
-    const { id, number } = obj;
+  public set(obj: { id: number, number: number, price: number }) {
+    const { id, number, price } = obj;
 
     const target = this.getItem(id);
     if (!target) {
       this.self.push({
         product_id: id,
         number,
+        product_price: price,
       });
     } else {
       target.number = number;
@@ -48,14 +50,15 @@ class Cart {
     this.localSave();
   }
 
-  public add(obj: { id: number, number: number }) {
-    const { id, number } = obj;
+  public add(obj: { id: number, number: number, price: number }) {
+    const { id, number, price } = obj;
 
     const target = this.getItem(id);
     if (!target) {
       this.self.push({
         product_id: id,
         number,
+        product_price: price,
       });
     } else {
       target.number += number;
@@ -64,8 +67,8 @@ class Cart {
     this.localSave();
   }
 
-  public delete(obj: { id: number, number: number }) {
-    const { id, number } = obj;
+  public delete(obj: { id: number, number: number, price: number }) {
+    const { id, number, price } = obj;
 
     const target = this.getItem(id);
 

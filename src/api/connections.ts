@@ -120,6 +120,12 @@ const ajaxConnections: Connection[] = [
     event: 'add comment request',
     callback: ajax.addComment,
   },
+  {
+    event: 'recommendation ajax request',
+    callback: [
+      ajax.recommendations,
+    ]
+  },
 ];
 
 export default ajaxConnections;

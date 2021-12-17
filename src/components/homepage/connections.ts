@@ -11,6 +11,11 @@ const connections: Connection[] = [
     ],
   },
   {
+    event: 'recommendations product array parsed',
+    callback:
+      homepage.addProductArrayRec,
+  },
+  {
     event: 'homepage hidden',
     callback: homepage.savePageYOffset,
   },

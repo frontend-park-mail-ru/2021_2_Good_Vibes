@@ -95,6 +95,11 @@
       margin-bottom: 2vh;
     }
 
+    &-label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
     &__title {
       margin-top: 0;
 
@@ -113,6 +118,7 @@
 
     &-elem {
       margin-bottom: 1vh;
+      flex-direction: column;
 
       @media screen and (max-width: $breakDesktop) {
         width: 100%;
@@ -257,10 +263,6 @@
       border-top: 1px solid rgba(0, 0, 0, 0.3);
     }
   }
-}
-
-.radio-container {
-  list-style-type: none;
 }
 
 label {

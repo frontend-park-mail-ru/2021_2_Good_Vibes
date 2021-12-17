@@ -5,6 +5,7 @@ import bus from '../../modules/bus/bus';
 import initEvents from './events';
 import connections from './connections';
 import SearchFiltersContainer from '../searchFiltersContainer/view';
+import './categoryPage.scss';
 
 export default class CategoryPage extends View implements ViewInterface {
   private async renderHTML() {

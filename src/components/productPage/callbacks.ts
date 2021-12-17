@@ -64,7 +64,7 @@ export const renderCommentContainer: Callback = (comment: Comment) => {
   // console.log('render single comment block', comment);
 
   const commentContainer = new CommentsContainer(comment);
-  document.getElementsByClassName('board-bottom')[0].appendChild(commentContainer.self);
+  document.getElementsByClassName('board-bottom')[0].appendChild(commentContainer?.self);
 };
 
 // export const generateCommentsArray: Callback = (array: Comment[]) => {
@@ -105,7 +105,7 @@ export const addCommentRequest: Callback = () => {
   const ratingInput = <HTMLInputElement>newCommentContainer.self.getElementsByClassName('new-comment-rating')[0];
   const rating = +ratingInput.value;
 
-  const textInput = <HTMLInputElement>newCommentContainer.self.getElementsByClassName('add-comment-text')[0];
+  const textInput = <HTMLTextAreaElement>newCommentContainer.self.getElementsByClassName('add-comment-text')[0];
   const text = textInput.value.trim();
 
   const comment: NewComment = {

@@ -131,7 +131,7 @@ export const showSearchResults: Callback = (obj: Product[]) => {
 };
 
 export const changeCategoryLabel: Callback = () => {
-  console.log('change category label');
+  // console.log('change category label');
 
   const searchInput = <HTMLInputElement>document.getElementsByClassName('search-input')[0];
   const value = searchInput.value.trim();

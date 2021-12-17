@@ -35,7 +35,7 @@ module.exports = {
     // path: path.resolve(__dirname, './reworking'),
     // filename: 'main_bundle.js',
   },
-  mode: "production",
+  mode: "development",
   plugins: [
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({

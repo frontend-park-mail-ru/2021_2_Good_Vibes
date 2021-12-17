@@ -27,6 +27,7 @@ export type AjaxResponse = {
 export type CartItem = {
   'product_id': number,
   'number': number,
+  'product_price': number,
 };
 
 export type Product = {
@@ -54,6 +55,7 @@ export type Address = {
 export type OrderRequest = {
   'address': Address,
   'products': CartItem[],
+  'email'?: string,
 };
 
 export type Order = {
@@ -63,12 +65,19 @@ export type Order = {
   'order_id': number,
   'products': Product[],
   'status': string,
+  'email'?: string,
 };
 
 export type Category = {
   'name': string,
   'description'?: string
   'children'?: Category[],
+};
+
+export type CategoryResponseObject = {
+  'products': Product[],
+  'min_price': number
+  'max_price': number,
 };
 
 export type Comment = {
@@ -97,4 +106,13 @@ export type NewComment = {
   product_id: number,
   rating: number,
   text: string,
+};
+
+export type SearchParamsType = {
+  minPrice: number,
+  maxPrice: number,
+  minRating: number,
+  maxRating: number,
+  type: 'asc' | 'desc',
+  orderType: 'rating' | 'price',
 };

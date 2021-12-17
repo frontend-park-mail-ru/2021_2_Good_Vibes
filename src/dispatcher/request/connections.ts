@@ -30,7 +30,7 @@ const connections: Connection[] = [
   {
     event: 'category state request',
     callback: [
-      searchParams.setDefault,
+      // searchParams.setDefault,
       request.category,
     ],
   },

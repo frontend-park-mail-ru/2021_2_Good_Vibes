@@ -43,6 +43,10 @@ const connections: Connection[] = [
     event: 'search state denied',
     callback: denied.search,
   },
+  {
+    event: 'ajax recommendations denied',
+    callback: denied.handleAjaxRecommendationDenied,
+  },
 ];
 
 export default connections;

@@ -13,6 +13,7 @@ class OrderData {
   };
 
   public payMethod: string;
+  public userEmail: string;
 
   public setAddress(obj: Address) {
     this.address.country = obj.country;
