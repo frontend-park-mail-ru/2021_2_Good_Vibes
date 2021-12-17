@@ -8,7 +8,9 @@ const searchParams: {
   type: 'asc' | 'desc',
   orderType: 'rating' | 'price',
   search: boolean,
-
+  maxPriceStatic: number,
+  minPriceStatic: number,
+  categoryName: string,
   setDefault: () => void,
 } = {
   minPrice: 0,
@@ -18,7 +20,9 @@ const searchParams: {
   type: 'asc',
   orderType: 'price',
   search: false,
-
+  minPriceStatic: 0,
+  maxPriceStatic: 0,
+  categoryName: "",
   setDefault: () => {
     searchParams.minPrice = 0;
     searchParams.maxPrice = DEFAULT_MAX_PRICE;

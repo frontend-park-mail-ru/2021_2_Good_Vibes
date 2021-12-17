@@ -99,6 +99,7 @@ const connections: Connection[] = [
     callback: [
       confirm.categoryArrayParse,
       confirm.category,
+      //searchFiltersContainer.setFiltersParams,
     ],
   },
   {
@@ -112,7 +113,6 @@ const connections: Connection[] = [
     event: 'category ajax name',
     callback: [
       confirm.categoryAddToHistory,
-      searchFiltersContainer.setFiltersParams,
     ]
   },
   {

@@ -226,7 +226,10 @@ export const categoryRequest: Callback = (obj: {
   let { search } = obj;
   if (!search) search = false;
   console.log(obj);
-
+  if (searchParams.categoryName != name) {
+    searchParams.setDefault();
+  }
+  searchParams.categoryName = name;
   const { minPrice, maxPrice, maxRating, minRating, type, orderType } =
     searchParams;
 
