@@ -9,11 +9,17 @@ const connections: Connection[] = [
   },
   {
     event: 'show suggests',
-    callback: searchInput.showSuggests,
+    callback: [
+      searchInput.changeInputStyleOpen,
+      searchInput.showSuggests,
+    ]
   },
   {
     event: 'delete suggests list',
-    callback: searchInput.deleteSuggests,
+    callback: [
+      searchInput.changeInputStyleDelete,
+      searchInput.deleteSuggests,
+    ]
   },
   // {
   //   event: 'search request confirmed',
@@ -24,6 +30,7 @@ const connections: Connection[] = [
     callback: [
       searchInput.changeCategoryLabel,
       searchInput.showSearchResults,
+      searchInput.cleanInput,
     ],
   },
 ];

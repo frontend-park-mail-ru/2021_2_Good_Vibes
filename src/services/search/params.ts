@@ -38,4 +38,17 @@ Object.defineProperty(searchParams, 'setDefault', {
   enumerable: false,
 });
 
+
+Object.defineProperty(searchParams, 'maxPriceStatic', {
+  enumerable: false,
+});
+
+Object.defineProperty(searchParams, 'minPriceStatic', {
+  enumerable: false,
+});
+
+Object.defineProperty(searchParams, 'categoryName', {
+  enumerable: false,
+});
+
 export default searchParams;

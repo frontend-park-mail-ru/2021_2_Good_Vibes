@@ -1,36 +1,50 @@
-<div class="comments-title">
-<span>Написать отзыв</span>
-</div>
+{{! <div class="comments-title">
+  <span>Написать отзыв</span>
+</div> }}
 <div class="commentform">
-  <div class="field small">
-    <input
-      type="number"
-      name="new-comment-rating"
-      id="new-comment-rating"
-      min="0",
-      max="5",
-      step="1"
-      value="5"
-      class="new-comment-rating"
-    />
+  {{! <div class="field small">
+    <input type="number" name="new-comment-rating" id="new-comment-rating" min="0" , max="5" , step="1" value="5"
+      class="new-comment-rating" />
     <label for="new-comment-rating" class="new-comment-rating1">Оцените покупку</label>
-  </div>
- {{!--  <form> --}}
-    <div class="field large">
-      <textarea
-        type="text"
-        name="add-comment-text"
-        id="add-comment-text"
-        class="add-comment-text"
-      >
-      </textarea>
-      <label for="new-comment-rating" class="new-comment-rating2">Комментарий к
-        отзыву</label>
+  </div> }}
+  <div class="comment-container">
+    <div class="f9z8">
+      <div class="f9y9 ga0">
+        Оцените покупку
+      </div>
+      <div class="rating__estimate" style="visibility: hidden;">Ваша оценка: <span class="rating__estimate_span"></span>
+      </div>
+      <div class="rating">
+        <div class="rating__body">
+          <div class="rating__active"></div>
+          <div class="rating__items">
+            <input class="rating__item" type="radio" name="rating" value="1" aria-label="Ужасный товар" />
+            <input class="rating__item" type="radio" name="rating" value="2" aria-label="Плохой товар" />
+            <input class="rating__item" type="radio" name="rating" value="3" aria-label="Обычный товар" />
+            <input class="rating__item" type="radio" name="rating" value="4" aria-label="Хороший товар" />
+            <input class="rating__item" type="radio" name="rating" value="5" aria-label="Отличный товар" />
+          </div>
+        </div>
+        <div class="rating__value"></div>
+      </div>
     </div>
-    <br />
-    <button class="add-comment-btn" type="submit">Написать отзыв</button>
-{{!--   </form> --}}
+    <form>
+      <div class="field large">
+        <textarea type="text" name="add-comment-text" id="add-comment-text" class="add-comment-text">
+        </textarea>
+        <label for="new-comment-rating" class="new-comment-rating2">Комментарий
+          к отзыву</label>
+      </div>
+      {{!-- <br /> --}}
 
-  <label class="new-comment-alert-label" style="visibility:hidden">ошибка
-    добавления комментария</label>
+      <label class="new-comment-alert-label" style="visibility:hidden">ошибка
+        добавления комментария</label>
+      <br>
+
+      <button class="add-comment-btn" type="submit">Написать отзыв</button>
+    </form>
+
+    {{!-- <label class="new-comment-alert-label" style="visibility:hidden">ошибка
+      добавления комментария</label> --}}
+  </div>
 </div>

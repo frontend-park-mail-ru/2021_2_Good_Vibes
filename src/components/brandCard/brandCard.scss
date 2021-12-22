@@ -1,0 +1,51 @@
+@import "../../styles/main.scss";
+
+/* img:hover {
+  width: 200px;
+  height: 200px;
+  margin-top: -10px;
+  margin-left: -10px;
+  top: 10%;
+  left: 10%;
+  z-index: 5;
+} */
+
+.a3p5 {
+  transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  transition-property: color;
+  cursor: pointer;
+}
+
+.e4j5 img {
+  border-radius: 12px;
+  /* height: 100%; */
+  -o-object-fit: cover;
+  object-fit: cover;
+  transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  transition-property: filter;
+  /* width: 100%; */
+  padding: 2vw 0vw;
+  width: -webkit-fill-available;
+}
+/* .ui-p1 {
+  max-height: 100%;
+  max-width: 100%;
+} */
+img {
+  border: none;
+  outline: none;
+}
+
+.e4k1 .a6x3.e4k2 {
+  left: 24px;
+  position: absolute;
+  top: 14%;
+}
+.e4j5 .a6x3 {
+  margin: 0;
+}
+
+.brand-card {
+  width: 21vw;
+  height: 150px;
+}

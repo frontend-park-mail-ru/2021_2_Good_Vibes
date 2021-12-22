@@ -1,4 +1,3 @@
-/* eslint-disable import/extensions */
 import bus from "../modules/bus/bus";
 import ajax from "../modules/rpc/ajax";
 import {
@@ -7,9 +6,14 @@ import {
   CartItem,
   NewComment,
   OrderRequest,
+  ProductId,
   Suggests,
+  Comment,
+  Order,
 } from "../types";
 import searchParams from "../services/search/params";
+import { response } from "express";
+import cart from "../services/cart/cart";
 
 // const backendAddress = 'https://ozonback.herokuapp.com';
 // const backendAddress = 'http://37.139.33.76';
@@ -106,6 +110,36 @@ export const product: Callback = (obj: { id: number; price: number }) => {
     );
 };
 
+export const productInfoByIdForReview: Callback = (obj: Comment) => {
+
+  ajax
+    .get({
+      url: `${backendAddress}/product?id=${obj.product_id}`,
+    })
+    .then(({ responseText }) =>
+      bus.emit("product info review request success", { product: JSON.parse(responseText), comment: obj })
+    )
+    .catch(({ responseText }) =>
+      bus.emit("product request denied", { responseText })
+    );
+};
+
+export const productInfoByIdForOrdersList: Callback = ({ id }: { id: number }) => {
+
+  ajax
+    .get({
+      url: `${backendAddress}/product?id=${id}`,
+    })
+    .then(({ responseText }) =>
+      bus.emit("product info by id for orders list request success", { product: JSON.parse(responseText) })
+    )
+    .catch(({ responseText }) =>
+      bus.emit("product request denied", { responseText })
+    );
+};
+
+
+
 export const productArrayRequest: Callback = (array: CartItem[]) => {
   const result = [];
   console.log(array);
@@ -175,6 +209,11 @@ export const cartGet = () => {
 };
 
 export const cartConfirm: Callback = (obj: OrderRequest) => {
+
+  if (cart.getPromo !== '') {
+    obj.promocode = cart.getPromo;
+  }
+
   ajax
     .post({
       url: `${backendAddress}/cart/confirm`,
@@ -194,6 +233,8 @@ export const categoryGet: Callback = () => {
     .catch((response: Response) => bus.emit("category get denied", response))
     .then(() => bus.emit("category get finished", undefined));
 };
+
+
 
 // export const categoryRequest: Callback = (obj: { name: string }) => {
 //   const { name } = obj;
@@ -315,8 +356,7 @@ export const avatarUpload: Callback = (file: File) => {
 };
 
 export const orderList: Callback = () => {
-  // console.log('orderList ajax request');
-
+  console.log('orderList ajax request');
   ajax
     .get({
       url: `${backendAddress}/profile/orders`,
@@ -329,6 +369,19 @@ export const orderList: Callback = () => {
       bus.emit("orders list denied", response)
     );
 };
+
+export const reviewsRequestList: Callback = (username: string) => {
+  ajax
+    .get({
+      url: `${backendAddress}/user/reviews?name=${username}`
+    })
+    .then((response: AjaxResponse) =>
+      bus.emit('reviews request confirmed', response)
+    )
+    .catch((response: AjaxResponse) =>
+      console.log(response)
+    );
+}
 
 // =======================
 export const comments: Callback = (obj: { id: number }) => {
@@ -408,14 +461,27 @@ export const suggests: Callback = (obj: { str: string }) => {
     );
 };
 
-export const search: Callback = (obj: { str: string }) => {
+export const search: Callback = (obj: { str: string, search?: boolean }) => {
   const { str } = obj;
+
+  // debugger;
+
+
+  const { minPrice, maxPrice, maxRating, minRating, type, orderType } =
+    searchParams;
+
+  let { search } = obj;
+  if (!search) search = false;
+
+
   ajax
     .get({
-      url: `${backendAddress}/search?str=${str}`,
+      // url: `${backendAddress}/search?str=${str}`,
+      url: `${backendAddress}/search?str=${str}&price_min=${minPrice}&price_max=${maxPrice}&rating_min=${minRating}&rating_max=${maxRating}&order=${orderType}&order_type=${type}&search=${search}`,
+
     })
     .then((response: AjaxResponse) =>
-      bus.emit("search state confirmed", response)
+      bus.emit("search state confirmed", { pathname: '/search', str, ...response })
     )
     .catch((response: AjaxResponse) =>
       bus.emit("search state denied", response)
@@ -474,3 +540,129 @@ export const cartGetPromo = () => {
     .catch(({ responseText }) => bus.emit("cart get denied promo", { responseText }))
     .then(() => bus.emit("cart get finished promo", undefined));
 };
+
+export const favorite: Callback = () => {
+  console.log("ajax favoriteProductGet callback");
+  ajax
+    .get({
+      url: `${backendAddress}/product/favorite/get`,
+    })
+    .then((response: AjaxResponse) =>
+      bus.emit("favorite ajax confirmed", response)
+    )
+    .catch((response: AjaxResponse) =>
+      bus.emit("favorite ajax denied", response)
+    );
+};
+
+export const brands: Callback = () => {
+  console.log("ajax brands callback");
+  ajax
+    .get({
+      url: `${backendAddress}/brands/get`,
+    })
+    .then((response: AjaxResponse) =>
+      bus.emit("brands ajax confirmed", response)
+    )
+    .catch((response: AjaxResponse) =>
+      bus.emit("brands ajax denied", response)
+    );
+};
+
+export const newest: Callback = () => {
+  console.log("ajax newestProductGet callback");
+  ajax
+    .get({
+      url: `${backendAddress}/product/new/get`,
+    })
+    .then((response: AjaxResponse) =>
+      bus.emit("newest ajax confirmed", response)
+    )
+    .catch((response: AjaxResponse) =>
+      bus.emit("newest ajax denied", response)
+    );
+};
+
+export const brandProducts: Callback = (obj: { name: string, id: number }) => {
+  const { name, id } = obj;
+  console.log("ajax newestProductGet callback");
+  ajax
+    .get({
+      // url: `${backendAddress}/brand/products?name=${name}`,
+      url: `${backendAddress}/brand/products?id=${id}`,
+    })
+    .then((response: AjaxResponse) =>
+      bus.emit("brands product ajax confirmed", { ...response, id })
+    )
+    .catch((response: AjaxResponse) =>
+      bus.emit("brands product ajax denied", response)
+    );
+};
+
+
+export const sales: Callback = () => {
+  console.log("ajax sales callback");
+  ajax
+    .get({
+      url: `${backendAddress}/sales`,
+    })
+    .then((response: AjaxResponse) =>
+      bus.emit("sales ajax confirmed", response)
+    )
+    .catch((response: AjaxResponse) =>
+      bus.emit("sales ajax denied", response)
+    );
+};
+
+
+export const addProductFavorite: Callback = (obj: { 'id': number }) => {
+  console.log("ajax addProductFavorite callback");
+  ajax
+    .post({
+      url: `${backendAddress}/product/favorite/add`,
+      body: obj,
+    })
+    .then((response: AjaxResponse) => {
+      const obj = JSON.parse(response.responseText);
+      bus.emit("add favorite ajax confirmed", { id: obj.id })
+    })
+    .catch((response: AjaxResponse) =>
+      console.log("add favorite product bad")
+    )
+}
+
+export const delProductFavorite: Callback = (obj: { 'id': number }) => {
+  console.log("ajax delProductFavorite callback");
+  ajax
+    .post({
+      url: `${backendAddress}/product/favorite/delete`,
+      body: obj,
+    })
+
+    .then((response: AjaxResponse) => {
+      const obj = JSON.parse(response.responseText);
+      bus.emit("del favorite ajax confirmed", { id: obj.id })
+    })
+
+    .catch((response: AjaxResponse) =>
+      console.log("del favorite product bad")
+    )
+}
+
+export const cartCheck: Callback = (obj: OrderRequest) => {
+  ajax.post({
+    url: `${backendAddress}/cart/check`,
+    body: obj,
+  })
+
+    .then((response: AjaxResponse) => JSON.parse(response.responseText))
+    .then((obj: Order) => {
+      if (obj.cost_with_promo === obj.cost) {
+        bus.emit('promo not valid', undefined);
+        return;
+      }
+
+      bus.emit('promo valid', obj);
+    })
+    .catch((err) => console.error('cart check error: ', err));
+}

@@ -14,6 +14,30 @@ export const cartStateRequest: Callback = () => {
   bus.emit("cart state request", undefined);
 };
 
+export const favoriteStateRequest: Callback = () => {
+  bus.emit("favorite state request", undefined);
+};
+
+export const brandsStateRequest: Callback = () => {
+  bus.emit("brands state request", undefined);
+};
+
+export const newestStateRequest: Callback = () => {
+  bus.emit("newest state request", undefined);
+};
+
+export const salesStateRequest: Callback = () => {
+  bus.emit("sales state request", undefined);
+};
+
+export const ordersStateRequest: Callback = () => {
+  bus.emit("orders state request", undefined);
+}
+
+export const reviewsStateRequest: Callback = () => {
+  bus.emit("reviews state request", undefined);
+}
+
 export const showAside: Callback = () => {
   bus.emit("show aside", undefined);
 };
@@ -45,4 +69,8 @@ export const showSearch: Callback = () => {
   console.log('body', bodyElem); */
   const search = document.getElementsByClassName('popup-search')[0];
   search.classList.add('shown');
+};
+
+export const signOutRequest: Callback = () => {
+  bus.emit("signout ajax request", undefined);
 };

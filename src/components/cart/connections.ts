@@ -38,6 +38,16 @@ const connections: Connection[] = [
     event: 'put product to cart',
     callback: cart.calculateSubtotal,
   },
+
+  // -------------------------------
+  {
+    event: 'promo not valid',
+    callback: cart.promoAlert,
+  },
+  {
+    event: 'promo valid',
+    callback: cart.promoHandle,
+  },
 ];
 
 export default connections;

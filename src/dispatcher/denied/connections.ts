@@ -47,6 +47,10 @@ const connections: Connection[] = [
     event: 'ajax recommendations denied',
     callback: denied.handleAjaxRecommendationDenied,
   },
+  {
+    event: 'ajax favorite denied',
+    callback: denied.handleAjaxFavoriteDenied,
+  },
 ];
 
 export default connections;

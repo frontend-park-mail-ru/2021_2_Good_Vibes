@@ -3,7 +3,7 @@
 .board {
   font-style: normal;
   font-weight: normal;
-  @include shadow-block(#fff);
+  /* @include shadow-block(#fff); */
   padding: 2vh;
   margin: 1.5vw auto 3vh;
   @media screen and (max-width: $breakDesktop) {
@@ -16,7 +16,7 @@
   }
 
   &-left {
-    width: 60%;
+    width: 75%;
 
     @media screen and (max-width: $breakDesktop) {
       width: 65%;
@@ -151,6 +151,19 @@
     }
 
     &__cart,
+    &__add-cart {
+      @include blue-button(80%, 4vh);
+      margin-top: 2vh;
+      background-color: $twitter-color;
+      @media screen and (max-width: $breakDesktop) {
+        font-size: 1.4vh;
+      }
+      @media screen and (max-width: $breakTablet) {
+        font-size: 1.4vh;
+      }
+    }
+
+    &__favorite,
     &__add-cart {
       @include blue-button(80%, 4vh);
       margin-top: 2vh;
@@ -348,3 +361,82 @@
     cursor: pointer;
   }
 }
+
+.slider {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: 2vw;
+}
+
+@media screen and (max-width: 576px) {
+  .slider-inner {
+    width: 15%;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+}
+
+.carousel-wrapper {
+  position: relative;
+  overflow: hidden;
+  width: 5vw;
+  height: 43vh;
+  @media screen and (max-width: 768px) {
+    width: 6vh;
+  }
+}
+
+.mini-img-container {
+  width: 60px;
+  height: 420px;
+  visibility: visible;
+  position: absolute;
+  visibility: hidden;
+}
+
+.picture-frame img {
+  padding-top: 1vh;
+  padding-bottom: 1vh;
+  opacity: 1;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -o-object-fit: cover;
+  object-fit: cover;
+  cursor: pointer;
+  width: 5vw;
+  height: 4vw;
+  @media screen and (max-width: 768px) {
+    width: 6vh;
+    height: 5vh;
+  }
+}
+/* 
+.slider-preview__picture {
+  padding-top: 1vh;
+  padding-bottom: 1vh;
+  opacity: 1;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -o-object-fit: cover;
+  object-fit: cover;
+  cursor: pointer;
+  width: 5vw;
+  height: 4vw;
+} */

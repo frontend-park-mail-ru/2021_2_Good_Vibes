@@ -1,4 +1,5 @@
 import bus from '../../../modules/bus/bus';
+import debounce from '../../../modules/debounce/debounce';
 
 const initEvents: (self: HTMLElement) => void = (self) => {
   const searchInput = <HTMLInputElement>self.getElementsByTagName('input')[0];
@@ -24,16 +25,10 @@ const initEvents: (self: HTMLElement) => void = (self) => {
     // console.log('!!! submit', str);
     // bus.emit('search ajax request', { str });
     bus.emit('search state request', { str });
+    bus.emit('close button click', undefined);
   });
 
-  // -----------------------
-  searchInput.addEventListener('input', (event) => {
-    event.preventDefault();
 
-    const str = searchInput.value;
-    // console.log('search input value', str);
-    bus.emit('suggests ajax request', { str });
-  });
 
   // ----------------------
   document.addEventListener('click', (event) => {
@@ -59,6 +54,18 @@ const initEvents: (self: HTMLElement) => void = (self) => {
     event.preventDefault();
 
     bus.emit('close button click', undefined);
+  });
+
+  // -----------------------
+
+  const debouncedBusEmit = debounce(bus.emit, bus, 500);
+
+  searchInput.addEventListener('input', (event) => {
+    event.preventDefault();
+
+    const str = searchInput.value;
+
+    debouncedBusEmit('suggests ajax request', { str });
   });
 };
 

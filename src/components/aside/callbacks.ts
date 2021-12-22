@@ -166,6 +166,7 @@ export const addCategory: (obj: Category, parent: HTMLElement) => HTMLElement =
 
     categoryList[name] = description;
     const child = <HTMLUListElement>document.createElement("ul");
+    child.className = 'categories__ul';
 
     child.style.paddingLeft = "10px";
     child.style.listStyleType = "none";

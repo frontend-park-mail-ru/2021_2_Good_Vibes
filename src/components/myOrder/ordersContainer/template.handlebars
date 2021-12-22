@@ -1,0 +1,45 @@
+<div class="orders-history__row">
+  <div class="orders-history__col date">
+    {{date}}
+  </div>
+  <div class="orders-history__col">
+    <div class="order-item">
+      <div class="order-item__title">
+        <div class="order-item__info">
+          {{! <span>15.07.2020</span> }}
+          <span class="price-title">Покупка товара на сумму</span>
+          <span>{{cost}} ₽</span>
+        </div>
+      </div>
+      <div class="order-item__collapse">
+        <div class="order-item__pay">
+          <p>Статус: <span>{{status}}</span></p>
+        </div>
+      </div>
+      <ul class="order-item__list">
+        {{!-- <li class="order-item__product">
+          <div class="order-item__data">
+            <div class="order-item__img img-plug">
+              <img width="75" height="100" src="//images.wbstatic.net/c246x328/new/13030000/13030057-1.jpg"
+                alt="По следам гроссмейстера. Решебник">
+            </div>
+            <div class="order-item__desc">
+              <h2 class="order-item__name">Издательство Врублевская Ольга Анатольевна, По следам гроссмейстера. Решебник
+              </h2>
+            </div>
+          </div>
+          <div class="order-item__price">{{ price }} ₽</div>
+        </li> --}}
+      </ul>
+    </div>
+  </div>
+  <div class="orders-history__col">
+    <button class="orders-history__detail closed">
+      Детали
+    </button>
+  </div>
+  {{! </li>
+  </ul>
+  </li>
+  </ul> }}
+</div>

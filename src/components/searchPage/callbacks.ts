@@ -1,0 +1,84 @@
+import {
+  Callback,
+  Product,
+} from '../../types';
+import ProductCardList from '../productCard/list';
+import categoryList from '../../services/category/list';
+
+let categoryName: string;
+
+const pageYOffset: { [name: string]: number } = {};
+
+const gen = function* (productArray: Product[]) {
+  const chankLength = 6;
+
+  const a: Product[] = [];
+  let i: number;
+  for (i = 0; i < Math.floor(productArray.length / chankLength); i += 1) {
+    yield productArray.slice(i * chankLength, (i + 1) * chankLength);
+  }
+  yield productArray.slice(i * chankLength, productArray.length);
+
+  return a;
+};
+
+let generator: Generator<Product[], Product[], unknown>;
+
+export const renderArray: Callback = (products: Product[]) => {
+  /* const a = generator.next() */;
+
+  /* if (a.done) {
+    return;
+  }
+ */
+  // console.log(a);
+
+  const productContainer = document.getElementsByClassName('product-table-body')[0];
+  productContainer.textContent = '';
+
+  if (!products?.length) {
+    productContainer.appendChild(document.createTextNode('Нет товаров в этой категории'));
+    return;
+  }
+
+  const viewArray = ProductCardList.viewArray(products);
+
+  viewArray.forEach((cardView) => {
+    productContainer.appendChild(cardView.self);
+  });
+};
+
+/* export const createChankGenerator: Callback = () => {
+  
+
+  generator = gen(array);
+
+  // renderArray(undefined);
+  // renderArray();
+  // renderArray();
+  // renderArray();
+  // renderArray();
+  // renderArray();
+}; */
+
+export const saveCurrentCategoryName: Callback = () => {
+  const { search } = window.location;
+
+  // console.log('saveCurrentCategoryName', search, window.location.pathname);
+  // [, categoryName] = search.match(/.*name=(\w+)/u);
+
+  [, categoryName] = window.location.pathname.match(/\/category\/(.+)/u);
+};
+
+export const savePageYOffset: Callback = () => {
+  pageYOffset[categoryName] = window.pageYOffset;
+};
+
+export const scrollToPageYOffset: Callback = () => {
+  document.documentElement.scrollTop = pageYOffset[categoryName] || 0;
+};
+
+export const changeCategoryName: Callback = () => {
+  const name = <HTMLElement>document.getElementsByClassName('product-table__title')[0];
+  name.textContent = categoryList[categoryName];
+};

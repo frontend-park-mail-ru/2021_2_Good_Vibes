@@ -2,6 +2,7 @@ import { Callback, Product, Suggests } from '../../../types';
 import ProductSuggestItem from './productItem/view';
 import CategorySuggestItem from './categoryItem/view';
 import bus from '../../../modules/bus/bus';
+import SearchInput from './view';
 // import list from '../../productCard/list';
 
 const suggestList: {
@@ -106,6 +107,16 @@ export const deleteSuggests: Callback = () => {
   });
 };
 
+export const cleanInput: Callback = () => {
+  // console.warn('123123');
+  const input = <HTMLInputElement>document.getElementsByClassName('search-input')[0];
+
+
+  if (input) {
+    input.value = '';
+  }
+}
+
 export const parseResponse: Callback = (obj: { 'responseText': string }) => {
   const { responseText } = obj;
   Promise.resolve()
@@ -131,11 +142,30 @@ export const showSearchResults: Callback = (obj: Product[]) => {
 };
 
 export const changeCategoryLabel: Callback = () => {
-  // console.log('change category label');
+  console.log('change category label');
 
   const searchInput = <HTMLInputElement>document.getElementsByClassName('search-input')[0];
-  const value = searchInput.value.trim();
+  // const value = searchInput.value.trim();
 
   const label = <HTMLSpanElement>document.getElementsByClassName('product-table__title')[0];
+
+  const a = decodeURI(window.location.search);
+  const reg = a.match(/.*str=([\w|а-яА-Я|\s]+).*/);
+  let value = '';
+  if (reg) {
+    value = reg[1];
+  }
+
   label.textContent = `Поиск по результату '${value}'`;
+
+};
+
+export const changeInputStyleOpen: Callback = () => {
+  const inputSuggests = document.getElementsByClassName('search-input')[0];
+  inputSuggests.classList.add('openSuggests');
+};
+
+export const changeInputStyleDelete: Callback = () => {
+  const inputSuggests = document.getElementsByClassName('search-input')[0];
+  inputSuggests.classList.remove('openSuggests');
 };

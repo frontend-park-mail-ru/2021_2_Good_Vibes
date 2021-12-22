@@ -3,25 +3,25 @@ import * as profile from "./callbacks";
 
 const connections: Connection[] = [
   {
-    event: "signOut button click",
-    callback: profile.signOutRequest,
-  },
-  {
     event: "profile shown",
-    callback: [profile.fieldsFill, profile.ordersListRequest],
+    callback: [
+      profile.fieldsFill,
+      profile.hideAlert,
+    ],
   },
   {
     event: "update button click",
-    callback: [profile.profileUploadRequest, profile.avatarUploadRequest],
+    callback: [
+      profile.profileUploadRequest,
+      profile.avatarUploadRequest,
+      profile.changeInfoDisabled,
+    ],
   },
   {
-    event: "orders list confirmed",
-    callback: profile.parseResponse,
+    event: "change button click",
+    callback: profile.changeInfo,
   },
-  {
-    event: "show orders list",
-    callback: profile.showOrderList,
-  },
+
   /* {
     event: "orders link click",
     callback: profile.ordersStateRequest,
@@ -30,6 +30,13 @@ const connections: Connection[] = [
   //   event: 'profile link click',
   //   callback: profile.
   // }
+
+  // ----------------
+  {
+    event: 'profile upload confirmed',
+    callback: profile.handleUpdateConfirmed,
+  },
+
 ];
 
 export default connections;

@@ -62,9 +62,8 @@ export const commentsRequest: Callback = (context: Product) => {
 
 export const renderCommentContainer: Callback = (comment: Comment) => {
   // console.log('render single comment block', comment);
-
   const commentContainer = new CommentsContainer(comment);
-  document.getElementsByClassName('board-bottom')[0].appendChild(commentContainer?.self);
+  document.getElementsByClassName('layout-inner')[0].appendChild(commentContainer?.self);
 };
 
 // export const generateCommentsArray: Callback = (array: Comment[]) => {
@@ -79,7 +78,6 @@ export const generateCommentsArray: Callback = (obj: { 'responseText': string })
   // console.log('generate commenst array', array);
 
   const { responseText } = obj;
-
   Promise.resolve()
     .then(() => JSON.parse(responseText))
     .catch((err) => console.error(err))
@@ -102,8 +100,9 @@ export const newCommentContainerShow: Callback = (context: Product) => {
 export const addCommentRequest: Callback = () => {
   const { id } = newCommentContainer.context;
 
-  const ratingInput = <HTMLInputElement>newCommentContainer.self.getElementsByClassName('new-comment-rating')[0];
-  const rating = +ratingInput.value;
+  const ratingNumber = <HTMLElement>newCommentContainer.self.getElementsByClassName('rating__value')[0];
+  const rating = +ratingNumber.textContent;
+  /* const estimate = ratingInput.ariaLabel; */
 
   const textInput = <HTMLTextAreaElement>newCommentContainer.self.getElementsByClassName('add-comment-text')[0];
   const text = textInput.value.trim();
@@ -140,4 +139,45 @@ export const handleResponse: Callback = (obj: { 'responseText': string }) => {
       renderCommentContainer(parsedObj);
     })
     .catch((err) => console.error(err))
+};
+
+export const changeBtnOnDelFavorite: Callback = (obj: { 'id': number }) => {
+  const { id } = obj;
+  let addBtnParent = <HTMLButtonElement>document.getElementsByClassName('info-favorite-btn__favorite')[0];
+  const favoriteBtnElem = <HTMLButtonElement>document.createElement('button');
+  favoriteBtnElem.innerHTML = 'Удалить из избранного'
+  favoriteBtnElem.className = 'info-favorite-btn__favorite flagIsFavorite_true'
+  addBtnParent.replaceWith(favoriteBtnElem);
+  favoriteBtnElem.addEventListener('click', (event) => {
+    event.preventDefault();
+
+    bus.emit('del product from favorite', { id });
+  });
+};
+
+export const changeBtnToAddFavorite: Callback = (obj: { 'id': number }) => {
+  const { id } = obj;
+  let addBtnParent = <HTMLButtonElement>document.querySelector('.info-favorite-btn__favorite');
+  const favoriteBtnElem = <HTMLButtonElement>document.createElement('button');
+  favoriteBtnElem.innerHTML = 'Добавить в избранное'
+  console.log(addBtnParent);
+  favoriteBtnElem.className = 'info-favorite-btn__favorite flagIsFavorite_false'
+
+  // const productCardOnFavoritePage = <HTMLElement>document.getElementsByName(id.toString())[0];
+
+  // console.warn(productCardOnFavoritePage);
+  // productCardOnFavoritePage?.remove();
+
+  /*  const cartBtnElem = new InfoCardBtn(); */
+  addBtnParent.replaceWith(favoriteBtnElem);
+  favoriteBtnElem.addEventListener('click', (event) => {
+    event.preventDefault();
+
+    bus.emit('add product to favorite', { id });
+  });
+};
+
+export const setMainImg: Callback = ({ src }: { src: string }) => {
+  const mainImg = <HTMLImageElement>document.getElementsByClassName('slider-preview__picture')[0];
+  mainImg.src = src;
 };

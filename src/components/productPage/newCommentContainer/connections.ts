@@ -11,6 +11,15 @@ const connections: Connection[] = [
     event: 'add comment button click',
     callback: () => { bus.emit('add comment ajax request', undefined); },
   },
+
+  {
+    event: 'set rating',
+    callback: newCommentContainer.initRatings,
+  },
+  {
+    event: 'add comment request denied',
+    callback: newCommentContainer.handleError,
+  },
 ];
 
 export default connections;

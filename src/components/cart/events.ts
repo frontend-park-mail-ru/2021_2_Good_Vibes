@@ -1,4 +1,6 @@
 import bus from '../../modules/bus/bus';
+import cart from '../../services/cart/cart';
+import { OrderRequest } from '../../types';
 
 const initEvents: (self: HTMLElement) => void = (self) => {
   // // -----------------
@@ -26,6 +28,34 @@ const initEvents: (self: HTMLElement) => void = (self) => {
 
     bus.emit('checkout mobile button click', undefined);
   });
+
+  // -----------------
+  const promoInput = <HTMLInputElement>self.getElementsByClassName('promo-input')[0];
+  const promoBtn = <HTMLButtonElement>self.getElementsByClassName('promo-btn')[0];
+  const promoAlertLabel = <HTMLLabelElement>self.getElementsByClassName('promo-alert-label')[0];
+
+  promoBtn.addEventListener('click', (event) => {
+    event.preventDefault();
+
+    const promocode = promoInput.value;
+
+    const obj: OrderRequest = { products: cart.get(), promocode }
+
+    bus.emit('cart check request', obj);
+  });
+
+  promoInput.oninput = (event) => {
+    event.preventDefault();
+
+    promoAlertLabel.style.visibility = 'hidden';
+
+    if (promoInput.value === '') {
+      promoBtn.disabled = true;
+      return;
+    };
+
+    promoBtn.disabled = false;
+  }
 };
 
 export default initEvents;

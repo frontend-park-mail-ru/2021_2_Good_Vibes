@@ -106,6 +106,16 @@ export const deleteSuggests: Callback = () => {
   });
 };
 
+export const cleanInput: Callback = () => {
+  // console.warn('ckasdfs');  // console.warn('123123');
+  const input = <HTMLInputElement>document.getElementsByClassName('search-input-popup')[0];
+
+
+  if (input) {
+    input.value = '';
+  }
+};
+
 export const parseResponse: Callback = (obj: { 'responseText': string }) => {
   const { responseText } = obj;
   Promise.resolve()
@@ -125,7 +135,7 @@ export const parseSearchResponse: Callback = (obj: { 'responseText': string }) =
 export const showSearchResults: Callback = (obj: Product[]) => {
   // console.log('show search result', obj);
 
-  bus.emit('add product array to category page', obj);
+  bus.emit('add product array to search page', obj);
 
   // bus.emit('search state request', undefined);
 };
@@ -134,10 +144,19 @@ export const changeCategoryLabel: Callback = () => {
   console.log('change category label');
 
   const searchInput = <HTMLInputElement>document.getElementsByClassName('search-input')[0];
-  const value = searchInput.value.trim();
+  // const value = searchInput.value.trim();
 
   const label = <HTMLSpanElement>document.getElementsByClassName('product-table__title')[0];
+
+  const a = decodeURI(window.location.search);
+  const reg = a.match(/.*str=([\w|а-яА-Я|\s]+).*/);
+  let value = '';
+  if (reg) {
+    value = reg[1];
+  }
+
   label.textContent = `Поиск по результату '${value}'`;
+
 };
 
 export const closeInput: Callback = () => {

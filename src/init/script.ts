@@ -41,27 +41,33 @@ const init: () => void = () => {
   const header = <HTMLElement>document.getElementsByClassName('header')[0];
   const footer = <HTMLElement>document.getElementsByClassName('footer')[0];
 
-  header.style.visibility = 'hidden';
-  footer.style.visibility = 'hidden';
+  // header.style.visibility = 'hidden';
+  // footer.style.visibility = 'hidden';
+
+  // hood.hide();
 
   // ----------------
   const searchInput = new SearchInput(undefined);
 
   document.getElementsByClassName('header__inner')[0].appendChild(searchInput.self);
   const search = <HTMLElement>document.getElementsByClassName('search-suggests')[0];
-  search.style.visibility = 'visible';
+  search.style.visibility = 'hidden';
 
   const popupSearch = new PopupSearch(undefined);
 
   document.getElementsByClassName('body')[0].appendChild(popupSearch.self);
   const popup = <HTMLElement>document.getElementsByClassName('search-suggests-popup')[0];
-  popup.style.visibility = 'visible';
+  popup.style.visibility = 'hidden';
 
   const navbar = new Navbar(undefined);
 
   document.getElementsByClassName('body')[0].appendChild(navbar.self);
   const navbarMobile = <HTMLElement>document.getElementsByClassName('navbar-mobile')[0];
-  navbarMobile.style.visibility = 'visible';
+  navbarMobile.style.visibility = 'hidden';
+
+
+  // header.style.visibility = 'hidden';
+  // footer.style.visibility = 'hidden';
 };
 
 export default init;

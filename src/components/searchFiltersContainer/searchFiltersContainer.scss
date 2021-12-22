@@ -149,13 +149,28 @@
       display: flex;
       width: 100%;
 
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+          -webkit-appearance: none;
+          margin: 0;
+        }
+
+        /* Firefox */
+        input[type=number] {
+          -moz-appearance: textfield;
+        }
+
       &__from {
         @include set-size(14vh, 4vh);
         @include input;
         font-size: 1.5vh;
 
         border-radius: 0.5vh 0 0 0.5vh;
-        background-color: whitesmoke;
+
+        // background-color: whitesmoke;
+
+        // background-color: black;
+
         @media screen and (max-width: $breakDesktop) {
           @include set-size(50%, 5vh);
         }

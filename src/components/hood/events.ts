@@ -1,3 +1,4 @@
+import { order } from "../../api/callbacks";
 import bus from "../../modules/bus/bus";
 
 const initEvents: (self: HTMLElement) => void = (self) => {
@@ -31,10 +32,25 @@ const initEvents: (self: HTMLElement) => void = (self) => {
     bus.emit("profile button click", undefined);
   });
 
+  const reviewsBtnMenu = <HTMLElement>(
+    self.getElementsByClassName('reviews')[0]
+  );
+  reviewsBtnMenu.addEventListener("click", (event) => {
+    event.preventDefault();
+    bus.emit("reviews button click", undefined);
+  })
+
+  const ordersBtnMenu = <HTMLElement>(
+    self.getElementsByClassName('orders')[0]
+  );
+  ordersBtnMenu.addEventListener("click", (event) => {
+    event.preventDefault();
+    bus.emit("orders button click", undefined);
+  })
+
   const signOutBtn = self.getElementsByClassName('logout')[0];
   signOutBtn.addEventListener("click", (event) => {
     event.preventDefault();
-
     bus.emit("signOut button click", undefined);
   });
   // ------------------
@@ -47,6 +63,30 @@ const initEvents: (self: HTMLElement) => void = (self) => {
     bus.emit("cart button click", undefined);
   });
 
+  //--------------------
+  const favoriteBtn = <HTMLAnchorElement>(
+    self.getElementsByClassName('icons__link-like')[0]
+  );
+  favoriteBtn?.addEventListener("click", (event) => {
+    event.preventDefault();
+    bus.emit("favorite button click", undefined);
+  });
+  //----------------------
+  const newestBtn = <HTMLElement>(
+    self.getElementsByClassName('new')[0]
+  );
+  newestBtn?.addEventListener("click", (event) => {
+    event.preventDefault();
+    bus.emit("newest button click", undefined);
+  })
+
+  const salesBtn = <HTMLElement>(
+    self.getElementsByClassName('sales')[0]
+  );
+  salesBtn?.addEventListener("click", (event) => {
+    event.preventDefault();
+    bus.emit("sales button click", undefined);
+  })
   // ---------------------
   const asideBtn = <HTMLElement>self.getElementsByClassName('header__aside')[0];
   asideBtn.addEventListener("click", (event) => {
@@ -61,19 +101,10 @@ const initEvents: (self: HTMLElement) => void = (self) => {
     bus.emit("aside button click hide", undefined);
   });
 
-  const searchBtn = <HTMLElement>(
-    self.getElementsByClassName('nav-element__search')[0]
-  );
-  searchBtn.addEventListener("click", (event) => {
-    event.preventDefault();
-
-    bus.emit("search button click", undefined);
-  });
-
   //----------------------------------------------------
 
   const profileContainerNode = <Node>(
-    self.getElementsByClassName('header-dropdown')[0]
+    self.getElementsByClassName('header-dropdown-content')[0]
   );
   const profileBtnNode = <Node>(
     self.getElementsByClassName("icons__link-avatar")[0]
@@ -96,6 +127,37 @@ const initEvents: (self: HTMLElement) => void = (self) => {
       return;
     bus.emit("hide handle profile", undefined);
   });
+
+  //----------------------------------------------------
+  const searchBtn = <HTMLElement>(
+    self.getElementsByClassName('nav-element__search')[0]
+  );
+  searchBtn.addEventListener("click", (event) => {
+    event.preventDefault();
+
+    bus.emit("search button click", undefined);
+  });
+
+  // -----------------------------
+  const favoriteBtnMenu = <HTMLElement>(
+    self.getElementsByClassName('favorite')[0]
+  );
+  favoriteBtnMenu?.addEventListener("click", (event) => {
+    event.preventDefault();
+
+    bus.emit("favorite button click", undefined);
+  })
+
+
+  // -----------------------------
+  const brandsBtnMenu = <HTMLElement>(
+    self.getElementsByClassName('nav__link brands')[0]
+  );
+  brandsBtnMenu?.addEventListener("click", (event) => {
+    event.preventDefault();
+
+    bus.emit("brands button click", undefined);
+  })
 };
 
 export default initEvents;

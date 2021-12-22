@@ -6,11 +6,15 @@ const connections: Connection[] = [
   {
     event: 'get search filter params',
     callback: [
-        searchFiltersContainer.getParams,
+      searchFiltersContainer.getParams,
     ],
   },
   {
     event: 'category ajax request',
+    callback: searchFiltersContainer.setFiltersParams,
+  },
+  {
+    event: 'search ajax request',
     callback: searchFiltersContainer.setFiltersParams,
   },
 ];

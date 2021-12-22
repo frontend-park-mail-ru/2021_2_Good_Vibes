@@ -22,6 +22,21 @@ const initEvents: (self: HTMLElement) => void = (self) => {
 
   // ----------------
   Object.values(input).forEach((inputElement) => {
+    inputElement.addEventListener('input', (event) => {
+      event.preventDefault();
+
+      const a = <HTMLInputElement>event.target;
+      const value = a.value;
+
+      const b = value[value.length - 1];
+      if (!b.match(/^\d+$/)) {
+        a.value = value.slice(0, value.length - 1);
+      }
+    });
+  });
+
+  // ----------------
+  Object.values(input).forEach((inputElement) => {
     inputElement.addEventListener('change', (event) => {
       event.preventDefault();
 

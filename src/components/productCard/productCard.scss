@@ -4,6 +4,7 @@
   @include set-size(12vw, 20vw);
   @include product-block;
 
+  box-shadow: 0 0 1vw rgba(0, 0, 10, 0.08);
   position: relative;
   margin: 0.5vw;
 
@@ -16,19 +17,18 @@
   @media screen and (max-width: $breakDesktop) {
     @include set-size(18vw, 29vw);
     margin: 0.7vw;
-}
+  }
 
-@media screen and (max-width: $breakTablet) {
-  @include set-size(24vw, 39vw);
-  margin: 1vw;
-}
+  @media screen and (max-width: $breakTablet) {
+    @include set-size(24vw, 39vw);
+    margin: 1vw;
+  }
 
   @media screen and (max-width: $breakMobile) {
-      @include set-size(43vw, 60vw);
-      margin: 1.5vw;
+    @include set-size(43vw, 60vw);
+    margin: 1.5vw;
   }
-  
-  
+
   &-inner {
     @include set-size(100%, 100%);
 
@@ -121,4 +121,551 @@
       }
     }
   }
+}
+
+.gWVnqI {
+  display: inline-block;
+  vertical-align: top;
+  height: 100%;
+  transition: opacity 0.3s ease 0s;
+  opacity: 1;
+}
+
+.dUVDsl {
+  transition: box-shadow 0.4s ease-in-out 0s;
+  box-shadow: rgbф(0, 0, 0, 1) 0px 2px 4px 0px;
+}
+
+.elZscS {
+  position: relative;
+  display: block;
+  border-radius: 8px;
+  background-color: rgb(255, 255, 255);
+  color: rgb(51, 51, 51);
+}
+
+.kiHSSs {
+  font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Helvetica, Arial, sans-serif;
+  line-height: 24px;
+  font-weight: 400;
+  font-size: 14px;
+  color: rgb(112, 146, 254);
+}
+
+.hqbBwg {
+  position: relative;
+  margin: 0px;
+  padding: 0px;
+  font-size: 0px;
+  line-height: 0;
+}
+
+.ejAnCG {
+  position: relative;
+  width: 100%;
+  height: 0px;
+  padding-bottom: 100%;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.fSqMRW {
+  background-color: rgb(250, 250, 250);
+}
+
+.hANHaT {
+  position: absolute;
+  overflow: hidden;
+  inset: 0px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  background: rgb(245, 245, 245);
+}
+
+.cEwhee {
+  position: absolute;
+  background: transparent;
+  inset: 0px;
+}
+
+.eTkIhD {
+  width: 100%;
+  height: 100%;
+  background: rgb(245, 245, 245);
+}
+
+.eTkIhD > image {
+  transition: opacity 0.4s ease-in-out 0s;
+  opacity: 1;
+}
+
+.iBdLAW {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+}
+
+@media screen and (min-width: 768px) {
+  .hGnUvJ {
+    min-width: 24px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .hGnUvJ {
+    height: 24px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .hGnUvJ {
+    bottom: 16px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .hGnUvJ {
+    left: 16px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .hGnUvJ {
+    width: calc(100% - 16px);
+  }
+}
+
+.hGnUvJ {
+  position: absolute;
+  display: flex;
+  z-index: 1;
+  width: calc(100% - 42px);
+  left: 12px;
+  bottom: 12px;
+  height: 20px;
+  min-width: 20px;
+}
+
+@media screen and (min-width: 768px) {
+  .kgKATk {
+    max-width: calc(100% - 16px);
+  }
+}
+@media screen and (min-width: 992px) {
+  .kgKATk {
+    padding-right: 8px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .kgKATk {
+    padding-right: 8px;
+  }
+}
+
+.kgKATk {
+  position: relative;
+  padding-right: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+  border-radius: 4px;
+  background-color: rgba(51, 51, 51, 0.24);
+  color: rgb(255, 255, 255);
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+}
+
+.cMmKVa.cMmKVa {
+  line-height: 1;
+}
+@media screen and (min-width: 768px) {
+  .cMmKVa {
+    margin-left: 8px;
+  }
+}
+.cMmKVa {
+  color: rgb(255, 255, 255);
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-left: 4px;
+}
+
+@media screen and (min-width: 992px) {
+  .gOrdpE {
+    font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
+      Roboto, Helvetica, Arial, sans-serif;
+    line-height: 24px;
+    font-weight: 400;
+    font-size: 14px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .gOrdpE {
+    font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
+      Roboto, Helvetica, Arial, sans-serif;
+    line-height: 24px;
+    font-weight: 400;
+    font-size: 14px;
+  }
+}
+
+.gOrdpE {
+  display: inline-block;
+  vertical-align: baseline;
+  font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Helvetica, Arial, sans-serif;
+  line-height: 16px;
+  font-weight: 400;
+  font-size: 12px;
+  letter-spacing: 0.2px;
+  color: rgb(51, 51, 51);
+}
+
+@media screen and (min-width: 768px) {
+  .dyeUTf {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+.dyeUTf {
+  position: relative;
+  display: flex;
+  -webkit-box-pack: start;
+  justify-content: flex-start;
+  -webkit-box-align: center;
+  align-items: center;
+  padding-left: 12px;
+  padding-right: 12px;
+  padding-top: 8px;
+}
+
+.cZDNVI {
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: flex;
+  flex-flow: row nowrap;
+  -webkit-box-align: center;
+  align-items: center;
+}
+
+.dyeUTf .sc-bdfBwQ {
+  order: 0;
+}
+
+.ivAKBi {
+  flex-shrink: 0;
+  min-width: 0px;
+}
+@media screen and (min-width: 768px) {
+  .cLXOZo {
+    font-family: "Fira Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
+      Roboto, Helvetica, Arial, sans-serif;
+    font-weight: 500;
+    line-height: 0px;
+    font-size: 20px;
+  }
+}
+
+.cLXOZo {
+  display: block;
+  font-family: "Fira Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Helvetica, Arial, sans-serif;
+  font-weight: 500;
+  line-height: 0px;
+  font-size: 16px;
+  color: rgb(51, 51, 51);
+}
+
+p {
+  overflow-wrap: break-word;
+  white-space: pre-line;
+}
+
+@media (min-width: 768px) {
+  .OccwX.free {
+    font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
+      Roboto, Helvetica, Arial, sans-serif;
+    line-height: 24px;
+    font-weight: 600;
+    font-size: 16px;
+  }
+}
+.OccwX.free {
+  font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Helvetica, Arial, sans-serif;
+  line-height: 24px;
+  font-weight: 600;
+  font-size: 14px;
+}
+.kUzkwc {
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  color: inherit;
+}
+
+@media screen and (min-width: 768px) {
+  .bPsEGX {
+    padding: 4px 8px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .bPsEGX {
+    top: -12px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .bPsEGX {
+    right: 8px;
+  }
+}
+
+.bPsEGX {
+  position: absolute;
+  right: 7px;
+  top: -8px;
+  padding: 2px 5px;
+  margin-left: auto;
+}
+.bodVEi.bodVEi {
+  width: 100%;
+}
+@media screen and (min-width: 768px) {
+  .bPsEGX svg {
+    height: 24px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .bPsEGX svg {
+    width: 24px;
+  }
+}
+
+.bPsEGX svg {
+  width: 20px;
+  height: 20px;
+}
+
+@media screen and (min-width: 768px) {
+  .bodVEi {
+    display: block;
+  }
+}
+
+.bodVEi {
+  position: absolute;
+  top: -5px;
+  left: 0px;
+  color: rgb(255, 255, 255);
+  display: none;
+}
+
+.dgprYP.dgprYP {
+  width: 100%;
+}
+@media screen and (min-width: 768px) {
+  .bPsEGX svg {
+    height: 24px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .bPsEGX svg {
+    width: 24px;
+  }
+}
+.bPsEGX svg {
+  width: 20px;
+  height: 20px;
+}
+
+@media screen and (min-width: 768px) {
+  .dgprYP {
+    display: none;
+  }
+}
+
+.dgprYP {
+  position: absolute;
+  top: -5px;
+  left: 0px;
+  color: rgb(255, 255, 255);
+  display: block;
+}
+
+@media screen and (min-width: 768px) {
+  .fjpEZS {
+    width: 40px;
+  }
+}
+
+.fjpEZS {
+  display: flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+  margin-right: -8px;
+  margin-left: -8px;
+  width: 40px;
+}
+
+@media screen and (min-width: 768px) {
+  .iykkVT {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+.iykkVT {
+  position: relative;
+  width: 20px;
+  height: 20px;
+}
+
+.hlfIVe {
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  transform: scale(2);
+  transition: opacity 0.2s ease-in-out 0s, transform 0.2s ease-in-out 0s,
+    visibility 0.1s ease-in-out 0s;
+}
+
+@media screen and (min-width: 768px) {
+  .bPsEGX svg {
+    height: 24px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .bPsEGX svg {
+    width: 24px;
+  }
+}
+
+.bPsEGX svg {
+  width: 20px;
+  height: 20px;
+}
+
+.hLAcwE {
+  visibility: visible;
+  opacity: 1;
+  position: absolute;
+  transform: scale(1);
+  transition: opacity 0.2s ease-in-out 0s, transform 0.2s ease-in-out 0s,
+    visibility 0.1s ease-in-out 0s;
+}
+
+@media screen and (min-width: 768px) {
+  .bPsEGX svg {
+    height: 24px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .bPsEGX svg {
+    width: 24px;
+  }
+}
+
+.bPsEGX svg {
+  width: 20px;
+  height: 20px;
+}
+.fJwxOm {
+  color: rgb(51, 51, 51);
+}
+
+.oRWom.oRWom {
+  padding-top: 0px;
+}
+
+.oRWom {
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: flex;
+  flex-flow: row nowrap;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+}
+
+@media screen and (min-width: 768px) {
+  .kdENcv {
+    padding: 16px;
+  }
+}
+
+.kdENcv {
+  width: 100%;
+  padding: 8px 12px;
+}
+
+@media screen and (min-width: 768px) {
+  .hhRMNj {
+    font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
+      Roboto, Helvetica, Arial, sans-serif;
+    line-height: 24px;
+    font-weight: 400;
+    font-size: 16px;
+  }
+}
+
+.hhRMNj {
+  display: inline-block;
+  vertical-align: baseline;
+  font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Helvetica, Arial, sans-serif;
+  line-height: 24px;
+  font-weight: 400;
+  font-size: 14px;
+  color: rgb(51, 51, 51);
+}
+
+.chWUIt {
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0px;
+}
+@media screen and (min-width: 768px) {
+  .degejw {
+    font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
+      Roboto, Helvetica, Arial, sans-serif;
+    line-height: 24px;
+    font-weight: 400;
+    font-size: 16px;
+  }
+}
+
+.degejw {
+  display: block;
+  font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Helvetica, Arial, sans-serif;
+  line-height: 24px;
+  font-weight: 400;
+  font-size: 14px;
+  color: rgb(51, 51, 51);
+}
+
+.cXzms {
+  padding: 2px;
+  border-radius: 10px;
+  background: linear-gradient(to left bottom, rgb(72, 204, 254), rgb(212, 99, 254));
+}
+
+.elZscS {
+  position: relative;
+  display: block;
+  border-radius: 8px;
+  background-color: rgb(255, 255, 255);
+  color: rgb(51, 51, 51);
 }

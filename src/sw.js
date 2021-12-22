@@ -12,6 +12,13 @@ let cacheUrls = [
   '/address',
   '/payment',
   '/confirmation',
+  '/favorite',
+  '/orders',
+  '/reviews',
+  '/new',
+  '/brands',
+  '/brand/product',
+  '/brand',
 ];
 
 this.addEventListener('install', (event) => {

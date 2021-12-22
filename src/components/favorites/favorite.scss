@@ -1,0 +1,101 @@
+@import "../../styles/main.scss";
+
+.product-table {
+  width: 100%;
+
+  &-inner {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__title {
+    font-size: 3vh;
+    margin-bottom: 1vh;
+
+    @media screen and (max-width: $breakMobile) {
+      margin-left: 4vw;
+      margin-right: 4vw;
+    }
+  }
+
+  &-body {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    @media screen and (max-width: $breakMobile) {
+      margin: 0 4vw;
+    }
+  }
+}
+
+.favorite-block-info {
+  width: 70%;
+  height: 100%;
+  margin-left: 10vw;
+
+  @media screen and (max-width: $breakDesktop) {
+    width: 100%;
+    height: 100%;
+    margin-top: 30px;
+    margin-left: 0;
+  }
+  @media screen and (max-width: $breakTablet) {
+    width: 100%;
+    height: 100%;
+    margin-top: 30px;
+    margin-left: 0;
+  }
+  @media screen and (max-width: $breakMobile) {
+    width: 100%;
+    height: 100%;
+    margin-top: 30px;
+    margin-left: 0;
+  }
+  &-settings {
+    width: 80%;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+}
+
+.favorite-box {
+  border: 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  height: 100%;
+  h2 {
+    margin: 0 0 30px;
+    padding: 0;
+    color: #333;
+    font-size: 35px;
+    letter-spacing: 0.4px;
+    line-height: 30px;
+    @media screen and (max-width: 1400px) {
+      font-size: 40px;
+    }
+    @media screen and (max-width: $breakDesktop) {
+      font-size: 20px;
+    }
+    @media screen and (max-width: $breakTablet) {
+      font-size: 20px;
+    }
+    @media screen and (max-width: $breakMobile) {
+      font-size: 20px;
+    }
+  }
+}

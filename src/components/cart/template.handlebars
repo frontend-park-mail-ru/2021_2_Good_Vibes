@@ -1,22 +1,3 @@
-{{! <div class="layout-inner">
-  <div class="cart">
-    <div class="cart-list">
-      <ul class="cart-list__container">
-        <li>
-          <h3>Выбранные товары</h3>
-          <div>Количество</div>
-          <div>Цена</div>
-        </li>
-        <div class="cart-list__items"></div>
-      </ul>
-    </div>
-    <div class="cart__action">
-      <div class="cart__subtotal"></div>
-      <button class="btn">Оформить заказ</button>
-    </div>
-  </div>
-</div> }}
-
 <div class="layout-inner">
   <div class="cart">
     <div class="container">
@@ -40,12 +21,60 @@
               <div class="basket__table_cell basket__table_cell--remove"></div>
             </div>
           </div>
- <div class="basket__table_body">
+          <div class="basket__table_body">
             <div class="basket__table_row table-product-{{id}}">
-             
+
             </div>
-          </div> 
+          </div>
         </div>
+
+        <div class="promo-container">
+          <input type="text" placeholder="введите промокод" class="promo-input" id="promo-input" />
+          <label for="promo-input" style="visibility: hidden;" class="promo-alert-label">Промокод недействителен</label>
+
+          <button class="promo-btn" disabled>Проверить промокод</button>
+
+        </div> 
+        <div class="coupon-row">
+        <div class="coupon-row__column">
+            
+<form id="cart-giftd-form" class="giftd-cart-form" action="/cart/add-gift" method="POST">
+<input type="hidden" name="_csrf" value="hTE8ElDAvsXv964qWLbowZkgCxJ_7FzZfaIXKSpIVxTmZ0ZRGq3t96q45H4egZC040p8Qk2nJe4ym1EfRQIYWA==">    <div class="giftd-cart-form__row">
+        <div class="giftd-cart-form__fields">
+            <div class="form-group field-cartgiftdform-code">
+
+<input type="text" id="cartgiftdform-code" class="giftd-cart-form__field_group" name="CartGiftdForm[code]" placeholder="Введите промокод">
+
+
+</div>        </div>
+        <div class="giftd-cart-form__actions">
+            <div class="giftd-cart-form__actions_row">
+                <button type="submit" class="btn btn-primary">Применить</button>            </div>
+           {{!--  <div class="giftd-cart-form__text giftd-cart-form__text-description">
+                <b>Внимание!</b> Подарочной картой можно воспользоваться 1 раз.
+            </div> --}}
+        </div>
+    </div>
+    <div class="giftd-cart-form__row">
+        <div class="error-summary" style="display:none"><ul></ul></div>    </div>
+    </form>        </div>
+        <div class="coupon-row__column">
+            
+<form id="cart-coupon-form" class="coupon-cart-form" action="/cart/add-coupon" method="POST">
+<input type="hidden" name="_csrf" value="hTE8ElDAvsXv964qWLbowZkgCxJ_7FzZfaIXKSpIVxTmZ0ZRGq3t96q45H4egZC040p8Qk2nJe4ym1EfRQIYWA==">   {{!--  <div class="coupon-cart-row">
+        <label>Введите код:</label>
+        <div class="form-group field-cartcouponform-code required has-error">
+
+<input type="text" id="cartcouponform-code" class="form-control" name="CartCouponForm[code]" aria-required="true" aria-invalid="true">
+
+
+</div>        <button type="submit" class="btn btn-primary">Применить</button>    </div> --}}
+    <div class="coupon-cart-row">
+        <div class="error-summary" style="display:none"><ul></ul></div>    </div>
+    </form>        </div>
+    </div>
+
+
         <form class="order-form" action="/profile" method="post">
           <div class="basket-fiz-form-tab">
             <div class="cart-lines">
@@ -57,7 +86,7 @@
                       <div class="g-form-block">
                         <div class="form-group field-orderform-name">
                           <label class="control-label" for="orderform-name">Имя</label>
-                          <input type="text" id="orderform-name" class="form-control"/>
+                          <input type="text" id="orderform-name" class="form-control" />
 
                           <div class="help-block"></div>
                         </div>
@@ -73,7 +102,7 @@
                       <div class="g-form-block">
                         <div class="form-group field-orderform-email">
                           <label class="control-label" for="orderform-email">Email</label>
-                          <input type="text" id="orderform-email" class="form-control"/>
+                          <input type="text" id="orderform-email" class="form-control" />
 
                           <div class="help-block"></div>
                         </div>
@@ -88,7 +117,7 @@
                       <div class="g-form-block">
                         <div class="form-group field-orderform-city">
                           <label class="control-label" for="orderform-city">Город</label>
-                          <input type="text" id="orderform-city" class="form-control"/>
+                          <input type="text" id="orderform-city" class="form-control" />
 
                           <div class="help-block"></div>
                         </div>
@@ -96,7 +125,7 @@
                       <div class="g-form-block">
                         <div class="form-group field-orderform-street">
                           <label class="control-label" for="orderform-street">Улица</label>
-                          <input type="text" id="orderform-street" class="form-control"/>
+                          <input type="text" id="orderform-street" class="form-control" />
 
                           <div class="help-block"></div>
                         </div>
@@ -105,7 +134,7 @@
                         <div class="g-form-block">
                           <div class="form-group field-orderform-house">
                             <label class="control-label" for="orderform-house">Дом</label>
-                            <input type="text" id="orderform-house" class="form-control"/>
+                            <input type="text" id="orderform-house" class="form-control" />
 
                             <div class="help-block"></div>
                           </div>
@@ -113,41 +142,15 @@
                         <div class="g-form-block">
                           <div class="form-group field-orderform-housing">
                             <label class="control-label" for="orderform-housing">Корпус</label>
-                            <input type="text" id="orderform-housing" class="form-control"/>
+                            <input type="text" id="orderform-housing" class="form-control" />
 
                             <div class="help-block"></div>
                           </div>
                         </div>
                         <div class="g-form-block">
                           <div class="form-group field-orderform-building">
-                            <label class="control-label" for="orderform-building">Строение</label>
-                            <input type="text" id="orderform-building" class="form-control"/>
-
-                            <div class="help-block"></div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="g-form-block--3-col">
-                        <div class="g-form-block">
-                          <div class="form-group field-orderform-entrance">
-                            <label class="control-label" for="orderform-entrance">Подъезд</label>
-                            <input type="text" id="orderform-entrance" class="form-control"/>
-
-                            <div class="help-block"></div>
-                          </div>
-                        </div>
-                        <div class="g-form-block">
-                          <div class="form-group field-orderform-floor">
-                            <label class="control-label" for="orderform-floor">Этаж</label>
-                            <input type="text" id="orderform-floor" class="form-control"/>
-
-                            <div class="help-block"></div>
-                          </div>
-                        </div>
-                        <div class="g-form-block">
-                          <div class="form-group field-orderform-apartment">
-                            <label class="control-label" for="orderform-apartment">Квартира</label>
-                            <input type="text" id="orderform-apartment" class="form-control"/>
+                            <label class="control-label" for="orderform-building">Квартира</label>
+                            <input type="text" id="orderform-building" class="form-control" />
 
                             <div class="help-block"></div>
                           </div>
@@ -210,25 +213,25 @@
                 </div>
                 <div class="basket-form__item_body">
                   <div class="input-group">
-                    <label class="input-group__label">Ваше имя *</label>
+                    <label class="input-group__label">Ваше имя</label>
                     <div class="form-group field-individuals-name">
 
-                      <input type="text" id="individuals-name" class="input-group__field"/>
+                      <input type="text" id="individuals-name" class="input-group__field" />
 
                       <div class="help-block"></div>
                     </div>
                   </div>
                   <div class="input-group">
-                    <label class="input-group__label">Телефон *</label>
+                    <label class="input-group__label">Телефон</label>
                     <div class="form-group field-individuals-phone">
 
-                      <input type="text" id="individuals-phone" class="input-group__field phone"/>
+                      <input type="text" id="individuals-phone" class="input-group__field phone" />
 
                       <div class="help-block"></div>
                     </div>
                   </div>
                   <div class="input-group">
-                    <label class="input-group__label">E-mail *</label>
+                    <label class="input-group__label">E-mail</label>
                     <div class="form-group field-individuals-email">
 
                       <input type="text" id="individuals-email" class="input-group__field" />
@@ -247,7 +250,7 @@
                     <label class="input-group__label">Город</label>
                     <div class="form-group field-individuals-city">
 
-                      <input type="text" id="mobile-city" class="input-group__field"/>
+                      <input type="text" id="mobile-city" class="input-group__field" />
 
                       <div class="help-block"></div>
                     </div>
@@ -256,7 +259,7 @@
                     <label class="input-group__label">Улица</label>
                     <div class="form-group field-individuals-street">
 
-                      <input type="text" id="mobile-street" class="input-group__field"/>
+                      <input type="text" id="mobile-street" class="input-group__field" />
 
                       <div class="help-block"></div>
                     </div>
@@ -272,7 +275,7 @@
                       </div>
                     </div>
                     <div class="input-group">
-                      <label class="input-group__label">Корп.</label>
+                      <label class="input-group__label">Корпус</label>
                       <div class="form-group field-individuals-housing">
 
                         <input type="text" id="individuals-housing" class="input-group__field"
@@ -282,39 +285,11 @@
                       </div>
                     </div>
                     <div class="input-group">
-                      <label class="input-group__label">Стр.</label>
+                      <label class="input-group__label">Квартира</label>
                       <div class="form-group field-individuals-building">
 
                         <input type="text" id="individuals-building" class="input-group__field"
                           name="OrderForm[building]" />
-
-                        <div class="help-block"></div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="input-group-multiple">
-                    <div class="input-group">
-                      <label class="input-group__label">Кв./офис</label>
-                      <div class="form-group field-individuals-apartment">
-
-                        <input type="text" id="mobile-apartment" class="input-group__field"
-                          name="OrderForm[apartment]" />
-
-                        <div class="help-block"></div>
-                      </div>
-                    </div>
-                    <div class="input-group">
-                      <label class="input-group__label">Под.</label>
-                      <div class="form-group field-individuals-entrance">
-                        <input type="text" id="individuals-entrance" class="input-group__field"/>
-                        <div class="help-block"></div>
-                      </div>
-                    </div>
-                    <div class="input-group">
-                      <label class="input-group__label">Этаж</label>
-                      <div class="form-group field-individuals-floor">
-
-                        <input type="text" class="input-group__field" />
 
                         <div class="help-block"></div>
                       </div>

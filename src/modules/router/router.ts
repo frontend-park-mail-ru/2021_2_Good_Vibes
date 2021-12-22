@@ -24,8 +24,8 @@ class Router {
     Object.keys(routMap).forEach((key) => this.addToList(key, routMap[key]));
   }
 
-  public add(obj: { 'pathname': string, 'searchParams'?: SearchParamsType }): void {
-    const { pathname, searchParams } = obj;
+  public add(obj: { 'pathname': string, 'searchParams'?: SearchParamsType, 'str'?: string, 'id'?: number }): void {
+    const { pathname, searchParams, str, id } = obj;
 
     let uri = pathname;
     const reg = pathname.match(/(\/.*)\?/);
@@ -35,17 +35,50 @@ class Router {
 
     let path = pathname;
 
-    if (searchParams) {
+    // if (searchParams || str) {
+    //   path = path.concat('?');
+    // }
+
+
+    if (searchParams || str || id) {
       path = path.concat('?');
+    }
+
+    if (str) {
+      path = path.concat(`str=${decodeURI(str)}&`);
+    }
+
+    if (id) {
+      path = path.concat(`id=${id}&`);
+    }
+
+    // if (searchParams) {
+    //   Object.keys(searchParams).forEach((key) => {
+    //     if (key === 'str')
+    //       return true;
+
+    //     path = path.concat(`${key}=${searchParams[key]}&`);
+    //   });
+    // }
+
+    if (searchParams && !id) {
       Object.keys(searchParams).forEach((key) => {
+        if (key === 'str')
+          return true;
+
         path = path.concat(`${key}=${searchParams[key]}&`);
       });
+    }
+
+    if (searchParams || str || id) {
       path = path.slice(0, path.length - 1);
     }
 
-    if (path === `${window.location.pathname}${window.location.search}`) {
+    if (path === `${window.location.pathname}${decodeURI(window.location.search)}`) {
       return;
     }
+
+    // console.warn(path);
 
     window.history.pushState(
       {
@@ -59,6 +92,8 @@ class Router {
 
   private handlePathname(pathname: string): string {
     const temp = pathname.match(/\/category\/(.+)/);
+
+    // console.warn(this.list, pathname);
 
     if (temp !== null) {
       return 'category';
@@ -75,7 +110,7 @@ class Router {
     const { pathname, search } = window.location;
     const state = this.handlePathname(pathname);
 
-    const idReg = search.match(/.*id=(\d+)/);
+    const idReg = search.match(/.*id=(\d+).*/);
     let id: number;
     if (idReg) {
       id = +idReg[1];
@@ -87,12 +122,46 @@ class Router {
       name = name.concat(nameReg[1]);
     }
 
+    // debugger;
+
     const a = new URL(window.location.href);
     a.searchParams.forEach((key, value) => {
+      // if (key === 'str') {
+      //   console.warn('asdfa');
+      //   return true;
+      // }
+
       SearchParams[value] = key;
     });
 
-    bus.emit(`${state} state request`, { id, name, pathname, search: false });
+
+
+
+    let str = '';
+    const strReg = decodeURI(search).match(/.*str=([а-яА-Я|\w|\s]+).*/);
+    if (strReg) {
+      str = strReg[1];
+    }
+
+    // console.warn({
+    //   id, name, pathname, search: false,
+    //   str,
+    //   state
+    //   // str: search
+    // })
+
+    // debugger;
+
+    // export const brandProductStateRequest: Callback = (obj: { 'name': string, id: number }) => {
+    //   bus.emit('brand products ajax request', obj);
+    // };
+
+
+    bus.emit(`${state} state request`, {
+      id, name, pathname, search: false,
+      str,
+      // str: search
+    });
   };
 
   public start(): void {

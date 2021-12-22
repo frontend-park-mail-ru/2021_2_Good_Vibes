@@ -2,7 +2,7 @@ import bus from '../../modules/bus/bus';
 import cart from '../../services/cart/cart';
 import orderData from '../../services/orderData/orderData';
 import user from '../../services/user/user';
-import { Address, Callback, OrderRequest, Product } from '../../types';
+import { Address, Callback, Order, OrderRequest, Product } from '../../types';
 import CartItemList from './list';
 
 export const addressStateRequest: Callback = () => {
@@ -131,7 +131,6 @@ export const confirmAjaxRequest: Callback = () => {
   const payMethodSelect = <HTMLSelectElement>document.getElementById('orderform-payment_type');
 
   orderData.payMethod = payMethodSelect.options[payMethodSelect.selectedIndex].text;
-
   const emailInput = <HTMLSelectElement>document.getElementById('orderform-email');
 
   // console.log(orderData);
@@ -139,6 +138,7 @@ export const confirmAjaxRequest: Callback = () => {
   const obj: OrderRequest = {
     address: orderData.address,
     products: array,
+    email: emailInput.value.trim(),
   };
   bus.emit('cart confirm request', obj);
 };
@@ -189,4 +189,32 @@ export const confirmMobileAjaxRequest: Callback = () => {
   };
 
   bus.emit('cart confirm request', obj);
+};
+
+// ---------------------
+export const promoAlert: Callback = () => {
+  // console.warn('promo alert', undefined);
+
+  const inputAlertLabel = <HTMLLabelElement>document.getElementsByClassName('promo-alert-label')[0];
+  inputAlertLabel.style.visibility = 'visible';
+
+  cart.setPromo = '';
+
+  calculateSubtotal(undefined);
+};
+
+export const promoHandle: Callback = (obj: Order) => {
+  // console.warn('promo valid', obj)
+
+  cart.setPromo = obj.promocode;
+
+  // console.warn(cart.getPromo);
+
+  const totalPriceLabel = <HTMLSpanElement>document.getElementsByClassName('basket-order-total__number')[0];
+  totalPriceLabel.innerHTML = `
+    <s>${obj.cost}<span class="currency"> ₽</span></s>
+    <br>
+    ${obj.cost_with_promo}
+    <span class="currency"> ₽</span>
+  `
 };

@@ -1,0 +1,261 @@
+@import "../../styles/main.scss";
+
+.product-table {
+  width: 100%;
+
+  &-inner {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__title {
+    font-size: 3vh;
+    margin-bottom: 1vh;
+  }
+
+  &-body {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
+
+.search {
+  &-block {
+    display: flex;
+    flex-direction: row;
+    @media screen and (max-width: $breakDesktop) {
+      flex-direction: column;
+    }
+    @media screen and (max-width: $breakTablet) {
+      flex-direction: column;
+    }
+    @media screen and (max-width: $breakMobile) {
+      flex-direction: column;
+    }
+  }
+
+  &-left {
+    /* display: flex;
+    flex-direction: column;
+    margin-right: 2vh; */
+    /* height: 900px; */
+    display: flex;
+    flex-direction: column;
+
+    @media screen and (max-width: $breakDesktop) {
+      flex-direction: column;
+    }
+
+    @media screen and (max-width: $breakTablet) {
+      flex-direction: column;
+    }
+
+    @media screen and (max-width: $breakMobile) {
+      flex-direction: column;
+    }
+  }
+
+  &-filter {
+    @media screen and (max-width: $breakDesktop) {
+      /* @include shadow-block; */
+
+      padding: 0 2vh 1vh;
+      margin-bottom: 2vh;
+    }
+    @media screen and (max-width: $breakTablet) {
+      /* @include shadow-block; */
+
+      padding: 0 2vh 1vh;
+      margin-bottom: 2vh;
+    }
+    @media screen and (max-width: $breakMobile) {
+      /* @include shadow-block; */
+
+      padding: 0 2vh 1vh;
+      margin-bottom: 2vh;
+    }
+
+    &__title {
+      margin-top: 0;
+      @media screen and (max-width: $breakDesktop) {
+        margin-top: revert;
+      }
+      @media screen and (max-width: $breakTablet) {
+        margin-top: revert;
+      }
+
+      @media screen and (max-width: $breakMobile) {
+        margin-top: revert;
+      }
+    }
+
+    &-elem {
+      margin-bottom: 1vh;
+      @media screen and (max-width: $breakDesktop) {
+        width: 100%;
+        margin-bottom: 1.5vh;
+
+        display: flex;
+        justify-content: center;
+      }
+      @media screen and (max-width: $breakTablet) {
+        width: 100%;
+        margin-bottom: 1.5vh;
+
+        display: flex;
+        justify-content: center;
+      }
+
+      @media screen and (max-width: $breakMobile) {
+        width: 100%;
+        margin-bottom: 1.5vh;
+
+        display: flex;
+        justify-content: center;
+      }
+    }
+
+    &-amount {
+      display: flex;
+      width: 100%;
+
+      &__from {
+        @include set-size(14vh, 4vh);
+        @include input;
+        font-size: 1.5vh;
+
+        border-radius: 0.5vh 0 0 0.5vh;
+        background-color: whitesmoke;
+        @media screen and (max-width: $breakDesktop) {
+          @include set-size(50%, 5vh);
+        }
+        @media screen and (max-width: $breakTablet) {
+          @include set-size(50%, 5vh);
+        }
+        @media screen and (max-width: $breakMobile) {
+          @include set-size(50%, 5vh);
+        }
+      }
+
+      &__to {
+        @include set-size(13vh, 4vh);
+        @include input;
+        font-size: 1.5vh;
+
+        border-radius: 0 0.5vh 0.5vh 0;
+        background-color: whitesmoke;
+        @media screen and (max-width: $breakDesktop) {
+          @include set-size(50%, 5vh);
+        }
+        @media screen and (max-width: $breakTablet) {
+          @include set-size(50%, 5vh);
+        }
+        @media screen and (max-width: $breakMobile) {
+          @include set-size(50%, 5vh);
+        }
+      }
+    }
+
+    &-rating {
+      display: flex;
+      width: 100%;
+
+      &__from {
+        @include set-size(14vh, 4vh);
+        @include input;
+        font-size: 1.5vh;
+
+        border-radius: 0.5vh 0 0 0.5vh;
+        background-color: whitesmoke;
+        @media screen and (max-width: $breakDesktop) {
+          @include set-size(50%, 5vh);
+        }
+        @media screen and (max-width: $breakTablet) {
+          @include set-size(50%, 5vh);
+        }
+        @media screen and (max-width: $breakMobile) {
+          @include set-size(50%, 5vh);
+        }
+      }
+
+      &__to {
+        @include set-size(13vh, 4vh);
+        @include input;
+        font-size: 1.5vh;
+
+        border-radius: 0 0.5vh 0.5vh 0;
+        background-color: whitesmoke;
+        @media screen and (max-width: $breakDesktop) {
+          @include set-size(50%, 5vh);
+        }
+        @media screen and (max-width: $breakTablet) {
+          @include set-size(50%, 5vh);
+        }
+        @media screen and (max-width: $breakMobile) {
+          @include set-size(50%, 5vh);
+        }
+      }
+    }
+  }
+}
+
+.sort {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-bottom: 10px;
+  span {
+    margin-right: 20px;
+    color: #909090;
+  }
+  @media screen and (max-width: 576px) {
+    margin: 0 6vw;
+  }
+}
+
+#sort-price-toggle,
+#sort-rating-toggle {
+  cursor: pointer;
+  border-bottom: 1px dashed #8b8b8b;
+  margin-right: 20px;
+}
+
+#sort-price-toggle[data-status="asc"],
+#sort-price-toggle[data-status="desc"],
+#sort-rating-toggle[data-status="asc"],
+#sort-rating-toggle[data-status="desc"] {
+  color: $twitter-color;
+  border-color: $twitter-color;
+}
+
+#sort-price-toggle[data-status="asc"] .fa-arrow-down {
+  display: none;
+}
+
+#sort-price-toggle[data-status="desc"] .fa-arrow-up {
+  display: none;
+}
+
+#sort-price-toggle[data-status="off"] .fa-arrow-down,
+#sort-price-toggle[data-status="off"] .fa-arrow-up {
+  display: none;
+}
+
+#sort-rating-toggle[data-status="asc"] .fa-arrow-down {
+  display: none;
+}
+
+#sort-rating-toggle[data-status="desc"] .fa-arrow-up {
+  display: none;
+}
+
+#sort-rating-toggle[data-status="off"] .fa-arrow-down,
+#sort-rating-toggle[data-status="off"] .fa-arrow-up {
+  display: none;
+}

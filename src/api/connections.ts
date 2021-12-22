@@ -1,4 +1,3 @@
-/* eslint-disable import/extensions */
 import { Connection } from '../types';
 import * as ajax from './callbacks';
 
@@ -27,6 +26,10 @@ const ajaxConnections: Connection[] = [
     event: 'product ajax request',
     callback: ajax.product,
   },
+  {
+    event: 'brand products ajax request',
+    callback: ajax.brandProducts,
+  },
   // {
   //   event: 'cart ajax request',
   //   callback: ajax.cart
@@ -48,6 +51,15 @@ const ajaxConnections: Connection[] = [
   {
     event: 'cart get request',
     callback: ajax.cartGet,
+  },
+  {
+    event: 'product info by id for reviews',
+    callback: ajax.productInfoByIdForReview,
+  },
+
+  {
+    event: 'product info by id for orders list request',
+    callback: ajax.productInfoByIdForOrdersList,
   },
 
   {
@@ -105,6 +117,10 @@ const ajaxConnections: Connection[] = [
     callback: ajax.orderList,
   },
   {
+    event: 'reviews list request',
+    callback: ajax.reviewsRequestList,
+  },
+  {
     event: 'comments ajax request',
     callback: ajax.comments,
   },
@@ -125,6 +141,34 @@ const ajaxConnections: Connection[] = [
     callback: [
       ajax.recommendations,
     ]
+  },
+  {
+    event: 'favorite ajax request',
+    callback: [
+      ajax.favorite,
+    ]
+  },
+  {
+    event: 'brands ajax request',
+    callback: [
+      ajax.brands,
+    ]
+  },
+  {
+    event: 'newest ajax request',
+    callback: [
+      ajax.newest,
+    ]
+  },
+  {
+    event: 'sales ajax request',
+    callback: [
+      ajax.sales,
+    ]
+  },
+  {
+    event: 'cart check request',
+    callback: ajax.cartCheck,
   },
 ];
 

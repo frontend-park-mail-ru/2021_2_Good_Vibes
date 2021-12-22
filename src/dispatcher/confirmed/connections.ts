@@ -95,6 +95,38 @@ const connections: Connection[] = [
     ],
   },
   {
+    event: 'favorite state confirmed',
+    callback: [
+      confirm.saveState,
+      confirm.showFavorite,
+      addToHistory,
+    ],
+  },
+  {
+    event: 'brands state confirmed',
+    callback: [
+      confirm.saveState,
+      confirm.showBrands,
+      addToHistory,
+    ],
+  },
+  {
+    event: 'newest state confirmed',
+    callback: [
+      confirm.saveState,
+      confirm.showNewest,
+      addToHistory,
+    ],
+  },
+  {
+    event: 'sales state confirmed',
+    callback: [
+      confirm.saveState,
+      confirm.showSales,
+      addToHistory,
+    ],
+  },
+  {
     event: 'category ajax confirmed',
     callback: [
       confirm.categoryArrayParse,
@@ -103,10 +135,51 @@ const connections: Connection[] = [
     ],
   },
   {
+    event: 'favorite ajax confirmed',
+    callback: [
+      confirm.favorite,
+      confirm.handleAjaxFavoriteConfirmed,
+    ],
+  },
+  {
+    event: 'brands ajax confirmed',
+    callback: [
+      confirm.handleAjaxBrandsConfirmed,
+      confirm.brands,
+    ]
+  },
+  {
+    event: 'newest ajax confirmed',
+    callback: [
+      confirm.handleAjaxNewestConfirmed,
+      confirm.newest,
+    ],
+  },
+  {
+    event: 'brands product ajax confirmed',
+    callback: [
+      confirm.handleAjaxBrandsProductsConfirmed,
+      confirm.brandProducts,
+    ],
+  },
+  {
+    event: 'sales ajax confirmed',
+    callback: [
+      confirm.handleAjaxSalesConfirmed,
+      confirm.sales,
+    ],
+  },
+  {
     event: 'category state confirmed',
     callback: [
       // confirm.saveState,
       confirm.showCategoryPage,
+    ],
+  },
+  {
+    event: 'brands products state confirmed',
+    callback: [
+      confirm.brandProducts,
     ],
   },
   {
@@ -141,7 +214,8 @@ const connections: Connection[] = [
   },
   {
     event: 'order confirmed',
-    callback: request.profile,
+    // callback: request.profile,
+    callback: request.orders,
   },
   {
     event: 'orders state confirmed',
@@ -149,6 +223,13 @@ const connections: Connection[] = [
       confirm.orders,
       addToHistory,
     ],
+  },
+  {
+    event: 'reviews state confirmed',
+    callback: [
+      confirm.reviews,
+      addToHistory,
+    ]
   },
   {
     event: 'search state confirmed',

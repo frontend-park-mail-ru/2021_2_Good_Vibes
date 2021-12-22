@@ -24,6 +24,13 @@ const initEvents: (self: HTMLElement) => void = (self) => {
 
     bus.emit('profile button click', undefined);
   });
+
+  const favoriteMobileBtn = <HTMLElement>self.getElementsByClassName('navbar-mobile__link--favorites')[0];
+  favoriteMobileBtn.addEventListener('click', (event) => {
+    event.preventDefault();
+
+    bus.emit('favorite button click', undefined);
+  });
 };
 
 export default initEvents;

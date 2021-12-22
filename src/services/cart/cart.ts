@@ -2,6 +2,7 @@ import { CartItem } from '../../types';
 
 class Cart {
   private self: CartItem[] = [];
+  private promo: string;
 
   private confirmed = false;
 
@@ -114,6 +115,14 @@ class Cart {
     this.self = localStorage.getItem('cartItems')
       ? JSON.parse(localStorage.getItem('cartItems'))
       : [];
+  }
+
+  set setPromo(promo: string) {
+    this.promo = promo;
+  }
+
+  get getPromo() {
+    return this.promo;
   }
 }
 

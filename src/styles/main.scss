@@ -67,6 +67,8 @@ li {
   list-style: none;
 }
 
+
+
 $textColorDefault: #000000;
 $textGrayColor: rgb(122, 122, 122);
 $purpleColor: rgb(112, 146, 254);
@@ -112,6 +114,15 @@ $maxWidthContainer: 1170;
         #{$addSize} *
         ((100vw - 320px) / #{$maxWidthContainer - 320})
     );
+  }
+}
+
+a {
+  color: $text-color-1;
+  text-decoration: none;
+
+  &:hover {
+    color: $twitter-color;
   }
 }
 
@@ -461,14 +472,7 @@ body {
   outline: none;
 }
 
-a {
-  color: $text-color-1;
-  text-decoration: none;
 
-  &:hover {
-    color: $twitter-color;
-  }
-}
 
 @mixin menu-link() {
   text-decoration: none;
@@ -476,10 +480,10 @@ a {
   cursor: pointer;
   font-size: 1.6vh;
   &:hover {
-    color: $purpleColor;
+    color: $twitter-color;
   }
   &:focus {
-    color: $purpleColor;
+    color: $twitter-color;
   }
   @media screen and (max-width: $breakMobile) {
     font-size: 2vh;

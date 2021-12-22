@@ -35,7 +35,6 @@ const viewGenerate: (name: string) => void = (name: string) => {
 
 export const showView: ShowViewSignature = (obj: { 'name': string, 'context': Product }) => {
   const { name, context } = obj;
-
   const header = <HTMLElement>document.getElementsByClassName('header')[0];
   const footer = <HTMLElement>document.getElementsByClassName('footer')[0];
   const viewer = <HTMLElement>document.getElementsByClassName('wiki-viewer')[0];
@@ -78,9 +77,7 @@ export const showView: ShowViewSignature = (obj: { 'name': string, 'context': Pr
   }
 
   // --------------------
-
   viewMap[name].visibility = true;
-
   let fullName = name;
   if (context) {
     fullName += ` ${context.id}`;

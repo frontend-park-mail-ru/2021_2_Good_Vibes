@@ -3,3 +3,4 @@ node_modules
 .netlify
 src/main_bundle.js
 dist
+package-lock.json

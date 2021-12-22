@@ -42,5 +42,8 @@ export default class SearchInput {
   public show(): void {
     this.self.style.visibility = 'visible';
     this.self.hidden = false;
+
+    const search = <HTMLElement>document.getElementsByClassName('search-input')[0];
+    search.style.visibility = 'visible';
   }
 }

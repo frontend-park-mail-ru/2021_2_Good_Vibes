@@ -95,20 +95,23 @@
   }
   &-dropdown {
     float: right;
-
     position: relative;
     display: none;
 
     &-content {
       width: 20vh;
-      margin-top: 2.5vh;
-      @include block;
-      border: 1px solid rgb(227, 227, 227);
+      margin-top: 45px;
+      border: 0;
+      border-radius: 1vh;
+      border: 1px solid;
       border-radius: 3px;
-
       right: 0;
       position: absolute;
       z-index: 1;
+      background: linear-gradient(to right, $twitter-color 25%, #fff 20%);
+      border-radius: 10px;
+      position: absolute;
+      border-color: #d0d0d0;
 
       &-inner {
         margin: 2vh;
@@ -136,7 +139,7 @@
       &__logo {
         @include set-size(2vh, 2vh);
 
-        margin-right: 1vh;
+        margin-right: 2vh;
       }
     }
   }
@@ -181,6 +184,7 @@
   padding: 16px 9px; */
   border: none;
   background: 0 0;
+  height: 42px;
   /* margin-right: 20px; */
 }
 
@@ -384,13 +388,30 @@
 }
 
 .search-suggests {
+  background: -webkit-linear-gradient(
+    0deg,
+    rgb(229, 229, 229) 45%,
+    rgb(245, 245, 245) 73%,
+    rgb(255, 255, 255)
+  );
+  background: -moz-linear-gradient(
+    0deg,
+    rgb(229, 229, 229) 45%,
+    rgb(245, 245, 245) 73%,
+    rgb(255, 255, 255)
+  );
+  background: linear-gradient(
+    0deg,
+    rgb(229, 229, 229) 45%,
+    rgb(245, 245, 245) 73%,
+    rgb(255, 255, 255)
+  );
   position: absolute;
   left: 0;
   right: 0;
-  /* top: 45%; */
-  background: white;
   z-index: 1;
-  border-radius: 10px;
+  border-bottom-left-radius: 18px;
+  border-bottom-right-radius: 18px;
 }
 
 .search-suggest {
