@@ -51,7 +51,7 @@ const init: () => void = () => {
 
   document.getElementsByClassName('header__inner')[0].appendChild(searchInput.self);
   const search = <HTMLElement>document.getElementsByClassName('search-suggests')[0];
-  search.style.visibility = 'hidden';
+  /* search.style.visibility = 'hidden'; */
 
   const popupSearch = new PopupSearch(undefined);
 
@@ -62,8 +62,11 @@ const init: () => void = () => {
   const navbar = new Navbar(undefined);
 
   document.getElementsByClassName('body')[0].appendChild(navbar.self);
+
+  // debugger;
+
   const navbarMobile = <HTMLElement>document.getElementsByClassName('navbar-mobile')[0];
-  navbarMobile.style.visibility = 'hidden';
+  navbarMobile.style.visibility = 'visible';
 
 
   // header.style.visibility = 'hidden';

@@ -16,6 +16,8 @@ export const addProductArray: Callback = (array: Product[]) => {
 };
 
 export const addProductArrayRec: Callback = (array: Product[]) => {
+  // debugger;
+
   const productContainer = document.getElementById('product-table-bodytrends');
   /* productContainer.textContent = '';
 
@@ -23,7 +25,7 @@ export const addProductArrayRec: Callback = (array: Product[]) => {
 
   const viewArray = ProductCatdList.viewArray(array);
   viewArray?.forEach((cardView) => {
-    productContainer.appendChild(cardView.self);
+    productContainer?.appendChild(cardView.self);
   });
 };
 
@@ -32,7 +34,7 @@ export const savePageYOffset: Callback = () => {
 };
 
 export const scrollToPageYOffset: Callback = () => {
-   document.documentElement.scrollTop = pageYOffset || 0;
+  document.documentElement.scrollTop = pageYOffset || 0;
 };
 /*
 const hideSignInContent: Callback = () => {

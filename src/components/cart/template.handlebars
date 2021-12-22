@@ -28,28 +28,29 @@
           </div>
         </div>
 
-        <div class="promo-container">
+        {{!-- <div class="promo-container">
           <input type="text" placeholder="введите промокод" class="promo-input" id="promo-input" />
           <label for="promo-input" style="visibility: hidden;" class="promo-alert-label">Промокод недействителен</label>
 
           <button class="promo-btn" disabled>Проверить промокод</button>
 
-        </div> 
+        </div>  --}}
         <div class="coupon-row">
         <div class="coupon-row__column">
             
 <form id="cart-giftd-form" class="giftd-cart-form" action="/cart/add-gift" method="POST">
-<input type="hidden" name="_csrf" value="hTE8ElDAvsXv964qWLbowZkgCxJ_7FzZfaIXKSpIVxTmZ0ZRGq3t96q45H4egZC040p8Qk2nJe4ym1EfRQIYWA==">    <div class="giftd-cart-form__row">
+<input type="hidden" name="_csrf" value="hTE8ElDAvsXv964qWLbowZkgCxJ_7FzZfaIXKSpIVxTmZ0ZRGq3t96q45H4egZC040p8Qk2nJe4ym1EfRQIYWA==">
+<label for="promo-input" style="visibility: hidden;" class="promo-alert-label">Промокод недействителен</label>    <div class="giftd-cart-form__row">
         <div class="giftd-cart-form__fields">
             <div class="form-group field-cartgiftdform-code">
 
-<input type="text" id="cartgiftdform-code" class="giftd-cart-form__field_group" name="CartGiftdForm[code]" placeholder="Введите промокод">
+<input type="text" id="promo-input" class="promo-input" placeholder="Введите промокод">
 
 
 </div>        </div>
         <div class="giftd-cart-form__actions">
             <div class="giftd-cart-form__actions_row">
-                <button type="submit" class="btn btn-primary">Применить</button>            </div>
+                <button type="submit" class="promo-btn" disabled>Применить</button>            </div>
            {{!--  <div class="giftd-cart-form__text giftd-cart-form__text-description">
                 <b>Внимание!</b> Подарочной картой можно воспользоваться 1 раз.
             </div> --}}

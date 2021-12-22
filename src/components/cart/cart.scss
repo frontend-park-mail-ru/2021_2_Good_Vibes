@@ -1,85 +1,4 @@
 @import "../../styles/main.scss";
-/* html.adaptive, html.adaptive body {
-  min-width: 1200px;
-} */
-/* .cart {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
-
-  &-list {
-    flex: 3 1 60rem;
-  }
-
-  &__action {
-    flex: 1 1 20rem;
-    background-color: $bg-color-1;
-    border-radius: 0.5rem;
-    padding: 1rem;
-  }
-
-  &-list__container {
-    padding: 1rem;
-    list-style-type: none;
-  }
-
-  &-list__container li {
-    display: flex;
-    justify-content: space-between;
-    padding-bottom: 1rem;
-    margin-bottom: 1rem;
-    border-bottom: 0.1rem $light-gray-color solid;
-  }
-} */
-
-/* .cart {
-  position: relative;
-  padding: 60px 0;
-}
-
-.container {
-  position: relative;
-  max-width: 1280px;
-  margin: 0 auto;
-}
-
-.g-page-title {
-  margin: 30px 0 30px;
-  font-size: 2rem;
-}
-
-.basket-content {
-  display: flex;
-  -webkit-box-pack: justify;
-  justify-content: space-between;
-}
-
-.basket-main {
-  flex-shrink: 0;
-}
-
-.basket-table {
-  width: 100%;
-  margin-bottom: 0;
-  border-collapse: collapse;
-
-  td {
-    text-align: left;
-    padding: 10px;
-    border-bottom: 1px solid #eee;
-  }
-  th {
-    font-size: .9375rem;
-    color: #d09f74;
-    text-align: left;
-    padding: 10px;
-    border-bottom: 1px solid #eee;
-  }
-
-  &__price {
-    font-size: 14px;
-  }
-} */
 
 .cart {
   font-size: 1vw;
@@ -406,7 +325,7 @@
   align-items: center;
   display: flex;
   @media screen and (max-width: $breakMobile) {
-   transform: translateX(-30px);
+    transform: translateX(-30px);
   }
 }
 
@@ -474,7 +393,7 @@
 
 .basket__table_text {
   @media screen and (max-width: $breakMobile) {
-  transform: translateX(-15px);
+    transform: translateX(-15px);
   }
 }
 
@@ -789,46 +708,6 @@
   margin-bottom: 0;
 }
 
-/* .basket-order-buttons .g-btn {
-   
-} */
-/* .g-btn.g-btn--black {
-  @include blue-button(18vh, 4vh);
-  width: 100%;
-  border: 0;
-} */
-
-/* .g-btn {
-    line-height: 40px;
-    display: inline;
-    height: 40px;
-    padding: 0 20px;
-    cursor: pointer;
-    text-align: center;
-    text-transform: uppercase;
-    border: 0;
-} */
-
-/* .form-control {
-  /* @include input;
-  line-height: 30px;
-  width: 100%;
-  @media screen and (max-width: $breakTablet) {
-    height: 2vh;
-  } 
-  height: 4vh;
-  font-size: 14px;
-  font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
-    Roboto, Helvetica, Arial, sans-serif;
-  border: 1px solid #7092fe;
-  box-sizing: border-box;
-  border-radius: 0.5vh;
-  padding-left: 10px;
-  outline: none;
-  line-height: 30px;
-  width: 100%;
-} */
-
 .form-group > input {
   line-height: 40px;
   width: 100%;
@@ -854,24 +733,10 @@
   width: 100%;
   margin-bottom: 10px;
 }
-/* .g-btn.g-btn--black {
-  font-family: "clear_sansbold", Arial, sans-serif;
-  text-decoration: none;
-  color: #fff;
-  background-color: #343434;
-} */
-.g-btn {
+
+.g-btn,
+.promo-btn {
   @include blue-button(80px, 40px);
-  /* line-height: 40px;
-  display: inline;
-  height: 40px;
-  padding: 0 20px;
-  cursor: pointer;
-  text-align: center;
-  text-decoration: underline;
-  text-transform: uppercase;
-  border: 0;
-  background-color: #fff; */
   @media screen and (max-width: 1920px) {
     @include blue-button(20vw, 40px);
     font-size: 16px;
@@ -888,6 +753,15 @@
     @include blue-button(50vw, 40px);
     font-size: 16px;
   }
+  @media screen and (max-width: 320px) {
+    @include blue-button(90vw, 40px);
+    font-size: 16px;
+  }
+}
+
+.promo-btn {
+  padding: 0;
+  max-width: 224px;
 }
 
 .order-form {
@@ -918,59 +792,10 @@
     margin-top: 5vw;
   }
 }
-/* .basket-form__first {
-  min-width: 200px;
-}
- */
-/* @media screen and (max-width: 1023px) {
-  .order-form {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
-    flex-direction: column;
-  }
-}
-
-@media screen and (max-width: 639px) {
-  .cart-lines {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
-    flex-direction: column;
-  }
-}
- */
-
-/*  @media screen and (max-width: 1023px) {
- .basket-form {
-     -webkit-box-orient: vertical;
-     -webkit-box-direction: normal;
-     -ms-flex-direction: column;
-     flex-direction: column;
- }
-}
- 
- .basket-form {
-     display: -webkit-box;
-     display: -ms-flexbox;
-     display: flex;
- } */
 
 .basket-form {
   width: 90vw;
 }
-
-/*  .form-group>input {
-  line-height: 40px;
-  width: 100%;
-  height: 40px;
-  padding: 0 15px;
-  background-color: #fff !important;
-  border: 1px solid #d1d1d1;
-  background-color: transparent;
-  -webkit-box-shadow: inset 0 1px 5px 1px rgba(0, 0, 0, 1);
-  box-shadow: inset 0 1px 5px 1px rgba(0, 0, 0, 1);
-} */
 
 .basket-form__item_header {
   margin-bottom: 20px;
@@ -1060,12 +885,12 @@
   display: flex;
   justify-content: space-between;
   align-content: center;
-  margin: 50px 50px 0 50px;
+  /*  margin: 50px 50px 0 50px; */
 }
 
 .coupon-row__column {
   display: block;
-  width: 50%;
+  /* width: 50%; */
   display: flex;
   justify-content: flex-end;
 }
@@ -1085,30 +910,32 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: url(	https://kitchen-time.ru/assets/f00fd022/img/gift_bg.jpg) no-repeat;
+  background: url(../../img/gift_bg.jpeg)
+    no-repeat;
   background-size: cover;
   min-width: 224px;
   width: 224px;
   height: 119px;
 }
 
-.giftd-cart-form__fields>.form-group {
-  margin: 0!important;
+.giftd-cart-form__fields > .form-group {
+  margin: 0 !important;
 }
 
-.giftd-cart-form__fields>.form-group>input {
+.giftd-cart-form__fields > .form-group > input {
   width: 200px;
   padding: 0 10px;
 }
 
 .giftd-cart-form__actions {
   display: flex;
+  align-items: flex-start;
   flex-direction: column;
-  padding: 0 10px;
 }
 
 .giftd-cart-form__actions_row {
   margin-bottom: 10px;
+  margin-top: 40px;
 }
 
 .giftd-cart-form__text {
@@ -1118,7 +945,16 @@
 
 .giftd-cart-form__row {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   margin-bottom: 10px;
 }
 
+.promo-alert-label {
+  margin-bottom: 10px;
+  margin-top: 10px;
+  color: red;
+}
+
+s {
+  color: red;
+}

@@ -30,6 +30,7 @@ const initEvents: (self: HTMLElement) => void = (self) => {
     event.preventDefault();
 
     bus.emit("profile button click", undefined);
+    bus.emit("hide handle profile", undefined);
   });
 
   const reviewsBtnMenu = <HTMLElement>(
@@ -38,6 +39,7 @@ const initEvents: (self: HTMLElement) => void = (self) => {
   reviewsBtnMenu.addEventListener("click", (event) => {
     event.preventDefault();
     bus.emit("reviews button click", undefined);
+    bus.emit("hide handle profile", undefined);
   })
 
   const ordersBtnMenu = <HTMLElement>(
@@ -46,12 +48,14 @@ const initEvents: (self: HTMLElement) => void = (self) => {
   ordersBtnMenu.addEventListener("click", (event) => {
     event.preventDefault();
     bus.emit("orders button click", undefined);
+    bus.emit("hide handle profile", undefined);
   })
 
   const signOutBtn = self.getElementsByClassName('logout')[0];
   signOutBtn.addEventListener("click", (event) => {
     event.preventDefault();
     bus.emit("signOut button click", undefined);
+    bus.emit("hide handle profile", undefined);
   });
   // ------------------
   const cartBtn = <HTMLAnchorElement>(
@@ -61,6 +65,7 @@ const initEvents: (self: HTMLElement) => void = (self) => {
     event.preventDefault();
 
     bus.emit("cart button click", undefined);
+    bus.emit("hide handle profile", undefined);
   });
 
   //--------------------
@@ -70,6 +75,8 @@ const initEvents: (self: HTMLElement) => void = (self) => {
   favoriteBtn?.addEventListener("click", (event) => {
     event.preventDefault();
     bus.emit("favorite button click", undefined);
+
+    // bus.emit("hide handle profile", undefined);
   });
   //----------------------
   const newestBtn = <HTMLElement>(
@@ -78,6 +85,8 @@ const initEvents: (self: HTMLElement) => void = (self) => {
   newestBtn?.addEventListener("click", (event) => {
     event.preventDefault();
     bus.emit("newest button click", undefined);
+
+    // bus.emit("hide handle profile", undefined);
   })
 
   const salesBtn = <HTMLElement>(
@@ -110,7 +119,14 @@ const initEvents: (self: HTMLElement) => void = (self) => {
     self.getElementsByClassName("icons__link-avatar")[0]
   );
 
+  // profileBtnMenu.onclick = event => {
+  //   event.preventDefault();
+  //   bus.emit("hide handle profile", undefined);
+  // }
+
   document.addEventListener("click", (event) => {
+
+    // debugger
 
     const targetNode = <Node>event.target;
     const targetElement = <HTMLElement>event.target;
@@ -146,6 +162,7 @@ const initEvents: (self: HTMLElement) => void = (self) => {
     event.preventDefault();
 
     bus.emit("favorite button click", undefined);
+    bus.emit("hide handle profile", undefined);
   })
 
 

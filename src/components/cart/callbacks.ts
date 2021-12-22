@@ -105,7 +105,7 @@ export const confirmAjaxRequest: Callback = () => {
   const cityInput = <HTMLInputElement>document.getElementById('orderform-city');
   const streetInput = <HTMLInputElement>document.getElementById('orderform-street');
   const houseInput = <HTMLInputElement>document.getElementById('orderform-house');
-  const apartmentInput = <HTMLInputElement>document.getElementById('orderform-apartment');
+  const apartmentInput = <HTMLInputElement>document.getElementById('orderform-building');
 
   // console.log('cityInput', cityInput);
 
@@ -167,7 +167,7 @@ export const confirmMobileAjaxRequest: Callback = () => {
     city: cityInput.value.trim(),
     street: streetInput.value.trim(),
     house: houseInput.value.trim(),
-    flat: apartmentInput.value.trim(),
+    /* flat: apartmentInput.value.trim(), */
 
     country: 'country',
     index: 'index',

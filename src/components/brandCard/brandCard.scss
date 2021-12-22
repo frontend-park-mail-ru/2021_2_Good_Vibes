@@ -1,15 +1,5 @@
 @import "../../styles/main.scss";
 
-/* img:hover {
-  width: 200px;
-  height: 200px;
-  margin-top: -10px;
-  margin-left: -10px;
-  top: 10%;
-  left: 10%;
-  z-index: 5;
-} */
-
 .a3p5 {
   transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   transition-property: color;
@@ -18,14 +8,15 @@
 
 .e4j5 img {
   border-radius: 12px;
-  /* height: 100%; */
   -o-object-fit: cover;
   object-fit: cover;
   transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   transition-property: filter;
-  /* width: 100%; */
   padding: 2vw 0vw;
-  width: -webkit-fill-available;
+  width: max-content;
+  height: 100%;
+  width: 100%;
+  object-fit: scale-down;
 }
 /* .ui-p1 {
   max-height: 100%;

@@ -43,7 +43,7 @@ export const profile: Callback = () => {
 
 export const homepage: Callback = () => {
   bus.emit('homepage ajax request', undefined);
-  bus.emit('recommendation ajax request', undefined);
+  // bus.emit('recommendation ajax request', undefined);
 };
 
 export const product: Callback = (obj: { 'id': number, 'search'?: boolean }) => {

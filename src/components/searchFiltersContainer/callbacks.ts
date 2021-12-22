@@ -6,10 +6,10 @@ export const getParams: Callback = (array: Product[]) => {
 
   // debugger;
 
-  const minPriceInput = <HTMLInputElement>document.getElementsByClassName('search-filter-amount__from')[0];
-  const maxPriceInput = <HTMLInputElement>document.getElementsByClassName('search-filter-amount__to')[0];
-  const minRatingInput = <HTMLInputElement>document.getElementsByClassName('search-filter-rating__from')[0];
-  const maxRatingInput = <HTMLInputElement>document.getElementsByClassName('search-filter-rating__to')[0];
+  const minPriceInput = <HTMLInputElement>document?.getElementsByClassName('search-filter-amount__from')[0];
+  const maxPriceInput = <HTMLInputElement>document?.getElementsByClassName('search-filter-amount__to')[0];
+  const minRatingInput = <HTMLInputElement>document?.getElementsByClassName('search-filter-rating__from')[0];
+  const maxRatingInput = <HTMLInputElement>document?.getElementsByClassName('search-filter-rating__to')[0];
 
 
   if (+minPriceInput.value <= searchParams.minPriceStatic
@@ -53,10 +53,10 @@ export const setFiltersParams: Callback = () => {
 
   // debugger;
 
-  const minPriceInput = <HTMLInputElement>document.getElementsByClassName('search-filter-amount__from')[0];
-  const maxPriceInput = <HTMLInputElement>document.getElementsByClassName('search-filter-amount__to')[0];
-  const minRatingInput = <HTMLInputElement>document.getElementsByClassName('search-filter-rating__from')[0];
-  const maxRatingInput = <HTMLInputElement>document.getElementsByClassName('search-filter-rating__to')[0];
+  const minPriceInput = <HTMLInputElement>document?.getElementsByClassName('search-filter-amount__from')[0];
+  const maxPriceInput = <HTMLInputElement>document?.getElementsByClassName('search-filter-amount__to')[0];
+  const minRatingInput = <HTMLInputElement>document?.getElementsByClassName('search-filter-rating__from')[0];
+  const maxRatingInput = <HTMLInputElement>document?.getElementsByClassName('search-filter-rating__to')[0];
 
 
   if (+minPriceInput.value < searchParams.minPriceStatic) {

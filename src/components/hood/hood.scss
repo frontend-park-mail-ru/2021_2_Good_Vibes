@@ -63,6 +63,25 @@
     @media screen and (max-width: $breakMobile) {
       margin: 5vw 0;
     }
+
+    &-homepage {
+      margin: 0 15vw;
+      @media screen and (max-width: 1400px) {
+        margin: 0vw 10vw;
+      }
+  
+      @media screen and (min-width: $breakDesktop) {
+        margin: 0vw 10vw;
+      }
+  
+      @media screen and (max-width: $breakTablet) {
+        margin: 0 5vw;
+      }
+  
+      @media screen and (max-width: $breakMobile) {
+        margin: 0;
+      }
+    }
   }
 }
 

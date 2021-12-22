@@ -12,8 +12,7 @@ const connections: Connection[] = [
   },
   {
     event: 'recommendations product array parsed',
-    callback:
-      homepage.addProductArrayRec,
+    callback: homepage.addProductArrayRec,
   },
   {
     event: 'homepage hidden',

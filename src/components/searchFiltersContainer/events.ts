@@ -3,10 +3,10 @@ import searchParams from '../../services/search/params';
 
 /* eslint-disable max-len */
 const initEvents: (self: HTMLElement) => void = (self) => {
-  const minPrice = <HTMLInputElement>self.getElementsByClassName('search-filter-amount__from')[0];
-  const maxPrice = <HTMLInputElement>self.getElementsByClassName('search-filter-amount__to')[0];
-  const minRating = <HTMLInputElement>self.getElementsByClassName('search-filter-rating__from')[0];
-  const maxRating = <HTMLInputElement>self.getElementsByClassName('search-filter-rating__to')[0];
+  const minPrice = <HTMLInputElement>self?.getElementsByClassName('search-filter-amount__from')[0];
+  const maxPrice = <HTMLInputElement>self?.getElementsByClassName('search-filter-amount__to')[0];
+  const minRating = <HTMLInputElement>self?.getElementsByClassName('search-filter-rating__from')[0];
+  const maxRating = <HTMLInputElement>self?.getElementsByClassName('search-filter-rating__to')[0];
 
   const input: {
     minPrice: HTMLInputElement,

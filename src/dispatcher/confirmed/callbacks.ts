@@ -296,9 +296,12 @@ export const saveState: Callback = (obj: { 'state': string }) => {
 
 export const handleAjaxRecommendationConfirmed: Callback = (response: AjaxResponse) => {
   const { responseText } = response;
+
+  // debugger;
+
   Promise.resolve()
     .then(() => JSON.parse(responseText))
-    .then((obj: Product[]) => bus.emit("recommendations product array parsed", obj))
+    .then((obj: Product[]) => bus.emit('recommendations product array parsed', obj))
     .catch((err) => console.error("JSON parse error", err));
 };
 

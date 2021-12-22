@@ -42,6 +42,7 @@ export type Product = {
   is_favourite: boolean,
   nameBtn: string,
   product_id?: number,
+  sales?: boolean,
 };
 
 export type Brand = {

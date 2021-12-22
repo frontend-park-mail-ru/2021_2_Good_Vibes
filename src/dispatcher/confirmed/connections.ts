@@ -38,6 +38,8 @@ const connections: Connection[] = [
     callback: [
       // confirm.saveState,
       confirm.showHomepage,
+      () => bus.emit('recommendation ajax request', undefined),
+
       addToHistory,
     ],
   },
