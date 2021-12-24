@@ -65,13 +65,13 @@
     }
 
     &-homepage {
-      margin: 0 15vw;
+      margin: 0 14vw;
       @media screen and (max-width: 1400px) {
-        margin: 0vw 10vw;
+        margin: 0vw 14vw;
       }
   
       @media screen and (min-width: $breakDesktop) {
-        margin: 0vw 10vw;
+        margin: 0vw 14vw;
       }
   
       @media screen and (max-width: $breakTablet) {

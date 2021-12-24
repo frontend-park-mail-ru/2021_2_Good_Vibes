@@ -1,5 +1,5 @@
 import bus from '../../modules/bus/bus';
-import { AjaxResponse, Callback, CartItem } from '../../types';
+import { AjaxResponse, Callback, CartItem, Product } from '../../types';
 import user from '../user/user';
 import cart from './cart';
 
@@ -51,7 +51,7 @@ export const drop: Callback = () => {
   cart.drop();
 };
 
-export const put: Callback = (obj: { 'id': number, 'number': number,  'price': number }) => {
+export const put: Callback = (obj: { 'id': number, 'number': number, 'price': number }) => {
   cart.set(obj);
 };
 
@@ -68,7 +68,7 @@ export const handlePutResponse: Callback = (obj: { 'responseText': string }) => 
     .catch((err) => console.error('put product response parse error', err));
 };
 
-export const putProductMiddleware: Callback = (obj: { 'id': number, 'number': number,  'price': number }) => {
+export const putProductMiddleware: Callback = (obj: { 'id': number, 'number': number, 'price': number }) => {
   if (!user.isAutorize()) {
     bus.emit('put product to cart', obj);
     return;
@@ -112,4 +112,23 @@ export const handleDeleteResponse: Callback = (obj: { 'responseText': string }) 
 
 export const setConfirmed: Callback = () => {
   cart.setConfirmed(true);
+};
+
+// export const authorizHandle: Callback = ({ id }: { id: number }) => {
+//   bus.emit('add favorite to local storage', { id });
+//   if (user.isAutorize()) {
+//     bus.emit('add product to favorite', { id });
+//   }
+// };
+
+// export const addToFavoriteLocalStorage: Callback = ({ id }: { id: number }) => {
+
+// };
+
+export const addToFavoriteLocalStorage: Callback = (obj: Product[]) => {
+  console.warn(obj);
+
+  obj.forEach(prod => {
+    cart.addToFavorite(prod);
+  })
 };

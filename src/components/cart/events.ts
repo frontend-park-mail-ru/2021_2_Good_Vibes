@@ -41,6 +41,10 @@ const initEvents: (self: HTMLElement) => void = (self) => {
 
     const obj: OrderRequest = { products: cart.get(), promocode }
 
+    const inputAlertLabel = <HTMLLabelElement>document.getElementsByClassName('promo-alert-label')[0];
+    inputAlertLabel.style.color = 'red';
+    inputAlertLabel.style.visibility = 'visible';
+
     bus.emit('cart check request', obj);
   });
 

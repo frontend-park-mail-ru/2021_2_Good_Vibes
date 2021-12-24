@@ -38,7 +38,10 @@ const initEvents: (self: HTMLElement, { context, img }: { context: Product, img:
     event.preventDefault();
 
     const { id } = context;
+
     bus.emit('add product to favorite', { id });
+
+    // bus.emit('add product to favorite local remote', { id });
   });
 
   const addBtnDelFavorite = <HTMLButtonElement>self.getElementsByClassName('flagIsFavorite_true')[0];

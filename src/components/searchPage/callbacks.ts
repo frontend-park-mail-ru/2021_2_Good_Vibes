@@ -9,20 +9,20 @@ let categoryName: string;
 
 const pageYOffset: { [name: string]: number } = {};
 
-const gen = function* (productArray: Product[]) {
-  const chankLength = 6;
+// const gen = function* (productArray: Product[]) {
+//   const chankLength = 6;
 
-  const a: Product[] = [];
-  let i: number;
-  for (i = 0; i < Math.floor(productArray.length / chankLength); i += 1) {
-    yield productArray.slice(i * chankLength, (i + 1) * chankLength);
-  }
-  yield productArray.slice(i * chankLength, productArray.length);
+//   const a: Product[] = [];
+//   let i: number;
+//   for (i = 0; i < Math.floor(productArray.length / chankLength); i += 1) {
+//     yield productArray.slice(i * chankLength, (i + 1) * chankLength);
+//   }
+//   yield productArray.slice(i * chankLength, productArray.length);
 
-  return a;
-};
+//   return a;
+// };
 
-let generator: Generator<Product[], Product[], unknown>;
+// let generator: Generator<Product[], Product[], unknown>;
 
 export const renderArray: Callback = (products: Product[]) => {
   /* const a = generator.next() */;

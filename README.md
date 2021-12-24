@@ -1,6 +1,6 @@
 # 2021_2_Good_Vibes
 Ozon by Good Vibes team
-https://dreamy-yonath-26f2eb.netlify.app/
+https://goodvibesazot.tk/
 
 Наша команда:  
 Лида Ленкова        https://github.com/lida24    

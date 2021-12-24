@@ -8,7 +8,9 @@ import "./productCard.scss";
 
 export default class ProductCard extends View implements ViewInterface {
   private async renderHTML() {
-    const html = compiledTemplate(this.context);
+    const img = <string[]>this.context.image;
+
+    const html = compiledTemplate({ ...this.context, ...img });
     this.self.innerHTML = html;
     initEvents(this.self, this.context);
   }

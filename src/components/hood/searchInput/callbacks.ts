@@ -50,6 +50,7 @@ export const showSuggests: Callback = (suggests: Suggests) => {
   // console.log('show suggests', suggests);
 
   const searchContainer = <HTMLElement>document.getElementsByClassName('search-suggests')[0];
+  searchContainer.style.visibility = 'visible';
 
   const { products, categories } = suggests;
 

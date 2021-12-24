@@ -1,5 +1,6 @@
 import { Connection } from '../../types';
 import * as cart from './callbacks';
+import Cart from './cart';
 
 const connections: Connection[] = [
   {
@@ -53,6 +54,37 @@ const connections: Connection[] = [
   {
     event: 'order confirmed',
     callback: cart.drop,
+  },
+
+  // -------------------------------
+  // {
+  //   event: 'add product to favorite local remote',
+  //   callback: cart.authorizHandle,
+  // },
+  // {
+  //   event: 'add favorite to local storage',
+  //   callback: cart.addToFavoriteLocalStorage,
+  // },
+  // {
+  //   event: 'product get confirmed',
+  //   callback: cart.addToFavorite,
+  // },
+
+  {
+    event: 'favorite product array parsed',
+    callback: cart.addToFavoriteLocalStorage,
+  },
+  {
+    event: 'add favorite ajax confirmed',
+    callback: Cart.addToFavorite.bind(Cart),
+  },
+  {
+    event: 'signout confirmed',
+    callback: Cart.dropFavorite.bind(Cart),
+  },
+  {
+    event: 'del favorite ajax confirmed',
+    callback: Cart.deleteFromFavorite.bind(Cart),
   },
 ];
 

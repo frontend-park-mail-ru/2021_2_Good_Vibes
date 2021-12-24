@@ -196,25 +196,101 @@ export const promoAlert: Callback = () => {
   // console.warn('promo alert', undefined);
 
   const inputAlertLabel = <HTMLLabelElement>document.getElementsByClassName('promo-alert-label')[0];
-  inputAlertLabel.style.visibility = 'visible';
+  inputAlertLabel.textContent = 'Промокод недействителен';
+  // inputAlertLabel.style.color = 'red';
+  // inputAlertLabel.style.visibility = 'visible';
 
   cart.setPromo = '';
 
-  calculateSubtotal(undefined);
+  bus.emit('product array request', cart.get());
+
+  // calculateSubtotal(undefined);
 };
 
 export const promoHandle: Callback = (obj: Order) => {
   // console.warn('promo valid', obj)
 
+  const inputAlertLabel = <HTMLLabelElement>document.getElementsByClassName('promo-alert-label')[0];
+  inputAlertLabel.textContent = 'Промокод принят!'
+  inputAlertLabel.style.color = 'green';
+  inputAlertLabel.style.visibility = 'visible';
+
   cart.setPromo = obj.promocode;
 
   // console.warn(cart.getPromo);
 
-  const totalPriceLabel = <HTMLSpanElement>document.getElementsByClassName('basket-order-total__number')[0];
-  totalPriceLabel.innerHTML = `
-    <s>${obj.cost}<span class="currency"> ₽</span></s>
+
+  obj.products.forEach(prod => {
+    const target = <HTMLElement>document.getElementsByClassName(`table-product-${prod.product_id}`)[0];
+    // console.warn(target);
+
+    const priceSpan = <HTMLSpanElement>target.getElementsByClassName('basket__table_text')[0];
+    const rowPriceSpan = <HTMLSpanElement>target.getElementsByClassName('basket__table_text-bold')[0];
+
+    if (prod.price_with_promo !== prod.price) {
+      priceSpan.innerHTML =
+        //   `
+        //   <s>
+        //     <span class="item-price-${prod.product_id}">${prod.price}</span>
+        //     <span class="currnecy"> ₽</span>
+        //   </s>
+        //   <br>
+        //   <span class="item-price-${prod.product_id}">${prod.price_with_promo}</span>
+        //   <span class="currnecy"> ₽</span>
+        // `
+
+        `
+        <s>
+          <span class="item-price-${prod.product_id}">${prod.price} ₽</span>
+        </s>
+        <br>
+        <span class="item-price-${prod.product_id}">${prod.price_with_promo} ₽</span>
+        `
+
+      rowPriceSpan.innerHTML =
+
+        `
+        <s>
+          <span class="raw-item-price-${prod.product_id} raw-total-price-calc">${prod.price * prod.number} ₽</span>
+        </s>
+        <br>
+        <span class="raw-item-price-${prod.product_id} raw-total-price-calc">${prod.price_with_promo * prod.number} ₽</span>
+      `
+
+
+      //     `
+      //   <s>
+      //     <span class="raw-item-price-${prod.product_id} raw-total-price-calc">${prod.price * prod.number}</span>
+      //     <span class="currnecy"> ₽</span>
+      //   </s>
+      //   <br>
+      //   <span class="raw-item-price-${prod.product_id} raw-total-price-calc">${prod.price_with_promo * prod.number}</span>
+      //   <span class="currnecy"> ₽</span>
+      // `
+    }
+
+  })
+
+  console.warn(obj.cost !== obj.cost_with_promo);
+
+  if (obj.cost !== obj.cost_with_promo) {
+
+    const totalPriceLabel = <HTMLSpanElement>document.getElementsByClassName('basket-order-total__number')[0];
+    totalPriceLabel.innerHTML = `
+    <s>
+      <span class="basket-order-total__number">${obj.cost} ₽</span>
+    </s>
     <br>
-    ${obj.cost_with_promo}
-    <span class="currency"> ₽</span>
-  `
+    <span class="basket-order-total__number">${obj.cost_with_promo} ₽</span>
+  `;
+
+    const totalPriceLabelMobile = <HTMLSpanElement>document.getElementsByClassName('basket-order-total__number-mobile')[0];
+    totalPriceLabelMobile.innerHTML = `
+    <s>
+      <span class="basket-order-total__number">${obj.cost} ₽</span>
+    </s>
+    <br>
+    <span class="basket-order-total__number">${obj.cost_with_promo} ₽</span>
+  `;
+  }
 };

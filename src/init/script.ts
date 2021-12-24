@@ -51,7 +51,7 @@ const init: () => void = () => {
 
   document.getElementsByClassName('header__inner')[0].appendChild(searchInput.self);
   const search = <HTMLElement>document.getElementsByClassName('search-suggests')[0];
-  /* search.style.visibility = 'hidden'; */
+  search.style.visibility = 'hidden'; 
 
   const popupSearch = new PopupSearch(undefined);
 

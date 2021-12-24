@@ -43,6 +43,8 @@ export type Product = {
   nameBtn: string,
   product_id?: number,
   sales?: boolean,
+  price_with_promo?: number,
+  number?: number,
 };
 
 export type Brand = {

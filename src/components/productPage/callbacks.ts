@@ -174,6 +174,8 @@ export const changeBtnToAddFavorite: Callback = (obj: { 'id': number }) => {
     event.preventDefault();
 
     bus.emit('add product to favorite', { id });
+
+    // bus.emit('add product to favorite local remote', { id });
   });
 };
 

@@ -2,6 +2,8 @@ import bus from "../../modules/bus/bus";
 import { AjaxResponse, Callback, Category } from "../../types";
 import categoryList from "../../services/category/list";
 
+// import a from '../../img/svg/'
+
 export const show: Callback = () => {
   const asideObj = <HTMLElement>(
     document.getElementsByClassName("aside-container")[0]
@@ -184,10 +186,27 @@ export const addCategory: (obj: Category, parent: HTMLElement) => HTMLElement =
     if (obj.children) {
       const span = <HTMLAnchorElement>document.createElement("span");
       link.appendChild(span);
-      const i = <HTMLElement>document.createElement("i");
-      i.className = "fa fa-chevron-right";
+
+      // const i = <HTMLElement>document.createElement("i");
+      // i.className = "fa fa-chevron-right";
+
+
+      // const i = document.createElementNS('../../img/svg/arrows_bottom_chevron_direction_move_navigation_up_icon_123224.svg', "svg");
+
+      // const i = document.createElementNS("http://www.w3.org/2000/svg", "svg");;
+      // const i = document.crea
+      // i.className = 'fa fa-chevron-right';
+      // i.className = "fa fa-chevron-right";
+      // i.setAttributeNS(null, 'href', 'http://www.google.com');
+
       /* i.style.marginRight = "20px"; */
-      span.appendChild(i);
+
+      var img = new Image();
+      img.src = '../../img/svg/KEY0.CC-Chevron-Svg-Transparent-Unicode-Chevron.png';
+      img.style.height = '15px'
+      img.className = 'fa fa-chevron-right';
+
+      span.appendChild(img);
     }
 
     parent.appendChild(child);

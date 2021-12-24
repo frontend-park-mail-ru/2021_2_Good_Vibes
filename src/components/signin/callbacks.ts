@@ -78,3 +78,13 @@ export const savedState: Callback = () => {
   // bus.emit(`${state.get()} state request`, undefined);
   bus.emit('saved state request', undefined);
 };
+
+export const hideSearch: Callback = () => {
+  const search = <HTMLInputElement>document.getElementsByClassName('search-input')[0];
+  search.style.visibility = 'hidden';
+}
+
+export const showSearch: Callback = () => {
+  const search = <HTMLInputElement>document.getElementsByClassName('search-input')[0];
+  search.style.visibility = 'visible';
+}

@@ -57,7 +57,7 @@
     margin-top: 0;
     width: 41vw;
     /* height: 50vh; */
-    object-fit: cover;
+    object-fit: scale-down;
     user-select: none;
 
     @media screen and (max-width: $breakMobile) {
@@ -416,7 +416,7 @@
   -ms-user-select: none;
   user-select: none;
   -o-object-fit: cover;
-  object-fit: cover;
+  object-fit: scale-down;
   cursor: pointer;
   width: 5vw;
   height: 4vw;
@@ -444,7 +444,7 @@
   width: 41vw;
   height: 50vh;
   -o-object-fit: cover;
-  object-fit: cover;
+  object-fit: scale-down;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;

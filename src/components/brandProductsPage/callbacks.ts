@@ -2,7 +2,7 @@ import { Callback, Product } from '../../types';
 import ProductCatdList from '../productCard/list';
 
 export const addProductArrayBrand: Callback = (array: Product[]) => {
-    const productContainer = document.getElementById('product-table-brand');
+    const productContainer = document.getElementById('table-brand');
     productContainer.textContent = '';
   
     /*array.sort((a, b) => a.id - b.id); */

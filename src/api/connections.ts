@@ -170,6 +170,12 @@ const ajaxConnections: Connection[] = [
     event: 'cart check request',
     callback: ajax.cartCheck,
   },
+
+  // // ----------------------------
+  // {
+  //   event: 'product ajax request',
+  //   callback: ajax.productGet,
+  // },
 ];
 
 export default ajaxConnections;

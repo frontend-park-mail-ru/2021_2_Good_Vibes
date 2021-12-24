@@ -110,6 +110,21 @@ export const product: Callback = (obj: { id: number; price: number }) => {
     );
 };
 
+export const productGet: Callback = (obj: { id: number; price: number }) => {
+  const { id, price } = obj;
+
+  ajax
+    .get({
+      url: `${backendAddress}/product?id=${id}`,
+    })
+    .then(({ responseText }) =>
+      bus.emit("product get confirmed", { responseText })
+    )
+    .catch(({ responseText }) =>
+      bus.emit("product get denied", { responseText })
+    );
+};
+
 export const productInfoByIdForReview: Callback = (obj: Comment) => {
 
   ajax
@@ -624,7 +639,8 @@ export const addProductFavorite: Callback = (obj: { 'id': number }) => {
     })
     .then((response: AjaxResponse) => {
       const obj = JSON.parse(response.responseText);
-      bus.emit("add favorite ajax confirmed", { id: obj.id })
+      // bus.emit("add favorite ajax confirmed", { id: obj.id })
+      bus.emit("add favorite ajax confirmed", obj)
     })
     .catch((response: AjaxResponse) =>
       console.log("add favorite product bad")

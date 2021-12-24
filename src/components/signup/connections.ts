@@ -1,3 +1,4 @@
+import { signIn } from '../../dispatcher/request/callbacks';
 import { Connection } from '../../types';
 import * as signUp from './callbacks';
 
@@ -5,9 +6,15 @@ const connections: Connection[] = [
   {
     event: 'signup shown',
     callback: [
+      signUp.hideSearch,
       signUp.hideAlert,
       signUp.cleanInputs,
     ],
+  },
+  {
+    event: 'signup hidden',
+    callback:
+      signUp.showSearch,
   },
   {
     event: 'signIn toggle button click',

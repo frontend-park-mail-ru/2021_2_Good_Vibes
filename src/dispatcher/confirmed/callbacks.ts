@@ -230,38 +230,53 @@ export const search: Callback = (response: { 'responseText': string, 'pathname':
     .then(() => bus.emit('show view', { name: 'search' }))
     // .then(() => console.log('asdfadsf'))
     .then(() => JSON.parse(responseText))
-    .then((obj: Product[]) => {
+    // .then((obj: { min_price: number, max_price: number, products: Product[] }) => {
 
-      const a = obj.sort((a, b) => a.price - b.price);
+    //   const a = obj.products.sort((a, b) => a.price - b.price);
 
-      // debugger;
+    //   // debugger;
 
-      // searchParams.minPrice = a[0].price;
-      // searchParams.maxPrice = a[a.length - 1].price;
+    //   // searchParams.minPrice = a[0].price;
+    //   // searchParams.maxPrice = a[a.length - 1].price;
 
-      // searchParams.minPriceStatic = a[0].price;
-      // searchParams.maxPriceStatic = a[a.length - 1].price;
+    //   // searchParams.minPriceStatic = a[0].price;
+    //   // searchParams.maxPriceStatic = a[a.length - 1].price;
 
-      // searchParams.minPrice = a[0].price;
-      // searchParams.maxPrice = a[a.length - 1].price;
+    //   // searchParams.minPrice = a[0].price;
+    //   // searchParams.maxPrice = a[a.length - 1].price;
 
-      searchParams.minPriceStatic = a[0].price;
-      searchParams.maxPriceStatic = a[a.length - 1].price;
+    //   searchParams.minPriceStatic = a[0].price;
+    //   searchParams.maxPriceStatic = a[a.length - 1].price;
 
 
-      // if (searchParams.minPriceStatic != a[0].price) {
-      //   searchParams.minPrice = a[0].price;
-      // }
-      // if (searchParams.maxPriceStatic != a[a.length - 1].price) {
-      //   searchParams.maxPrice = a[a.length - 1].price;
-      // }
-      // searchParams.minPriceStatic = a[0].price;
-      // searchParams.maxPriceStatic = a[a.length - 1].price;
+    //   // if (searchParams.minPriceStatic != a[0].price) {
+    //   //   searchParams.minPrice = a[0].price;
+    //   // }
+    //   // if (searchParams.maxPriceStatic != a[a.length - 1].price) {
+    //   //   searchParams.maxPrice = a[a.length - 1].price;
+    //   // }
+    //   // searchParams.minPriceStatic = a[0].price;
+    //   // searchParams.maxPriceStatic = a[a.length - 1].price;
 
-      // debugger;
+    //   // debugger;
 
-      bus.emit('show search results', obj);
+    //   bus.emit('show search results', obj.products);
+    // })
+
+    .then((obj: CategoryResponseObject) => {
+      if (searchParams.minPriceStatic != obj.min_price) {
+        searchParams.minPrice = obj.min_price;
+      }
+      if (searchParams.maxPriceStatic != obj.max_price) {
+        searchParams.maxPrice = obj.max_price;
+      }
+      searchParams.minPriceStatic = obj.min_price;
+      searchParams.maxPriceStatic = obj.max_price;
+      bus.emit('show search results', obj.products);
+
+      // bus.emit('add product array to category page', obj.products);
     })
+
     .catch((err) => console.error(err));
 };
 

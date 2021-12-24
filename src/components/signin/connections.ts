@@ -5,9 +5,15 @@ const connections: Connection[] = [
   {
     event: 'signin shown',
     callback: [
+      signIn.hideSearch,
       signIn.hideAlert,
       signIn.cleanInputs,
     ],
+  },
+  {
+    event: 'signin hidden',
+    callback:
+      signIn.showSearch,
   },
   {
     event: 'signUp toggle button click',
@@ -39,7 +45,6 @@ const connections: Connection[] = [
     event: 'close button click',
     // callback: signIn.savedState,
     callback: signIn.close,
-
   },
 ];
 
